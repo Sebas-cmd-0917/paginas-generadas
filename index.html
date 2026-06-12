@@ -3,15 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Café Aroma - Experiencia Gourmet</title>
+    <title>PowerFit - Entrena al Límite</title>
     <style>
         :root {
-            --cafe-oscuro: #3d2b1f;
-            --cafe-medio: #6f4e37;
-            --cafe-claro: #bc6c25;
-            --crema: #fefae0;
-            --acento: #dda15e;
-            --texto: #283618;
+            --primary: #ffcc00;
+            --dark: #111111;
+            --light: #ffffff;
+            --gray: #222222;
         }
 
         * {
@@ -21,241 +19,262 @@
         }
 
         body {
-            font-family: system-ui, -apple-system, Arial, sans-serif;
+            font-family: system-ui, -apple-system, sans-serif;
+            background-color: var(--dark);
+            color: var(--light);
             line-height: 1.6;
-            color: var(--texto);
-            background-color: var(--crema);
         }
 
         header {
-            background-color: var(--cafe-oscuro);
-            color: white;
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-        }
-
-        nav {
-            max-width: 1200px;
-            margin: 0 auto;
+            background-color: var(--dark);
+            padding: 1rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 20px;
+            border-bottom: 2px solid var(--primary);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
         .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary);
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: -1px;
         }
 
-        .nav-links {
-            display: flex;
-            list-style: none;
-        }
-
-        .nav-links li {
-            margin-left: 20px;
-        }
-
-        .nav-links a {
-            color: white;
+        nav a {
+            color: var(--light);
             text-decoration: none;
+            margin-left: 20px;
             font-weight: 500;
-            transition: color 0.3s;
+            text-transform: uppercase;
+            font-size: 0.9rem;
         }
 
-        .nav-links a:hover {
-            color: var(--acento);
+        nav a:hover {
+            color: var(--primary);
         }
 
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
-                        url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
-            background-size: cover;
-            background-position: center;
-            height: 80vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            padding: 100px 5%;
             text-align: center;
-            color: white;
-            padding: 20px;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=1470&ixlib=rb-4.0.3') center/cover;
+            color: var(--light);
         }
 
         .hero h1 {
             font-size: 3.5rem;
             margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            text-transform: uppercase;
+        }
+
+        .hero h1 span {
+            color: var(--primary);
         }
 
         .hero p {
             font-size: 1.2rem;
             max-width: 600px;
-            margin-bottom: 2rem;
+            margin: 0 auto 2rem;
         }
 
         .btn {
-            background-color: var(--cafe-claro);
-            color: white;
+            background-color: var(--primary);
+            color: var(--dark);
             padding: 12px 30px;
             text-decoration: none;
-            border-radius: 5px;
             font-weight: bold;
-            transition: background 0.3s;
+            text-transform: uppercase;
+            border-radius: 4px;
+            display: inline-block;
         }
 
-        .btn:hover {
-            background-color: var(--cafe-medio);
-        }
-
-        .section {
-            padding: 80px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
+        section {
+            padding: 80px 5%;
         }
 
         .section-title {
             text-align: center;
-            margin-bottom: 50px;
             font-size: 2.5rem;
-            color: var(--cafe-oscuro);
+            margin-bottom: 50px;
+            text-transform: uppercase;
         }
 
-        .menu-grid {
+        .section-title span {
+            color: var(--primary);
+        }
+
+        /* Horarios */
+        .schedule-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .schedule-item {
+            background: var(--gray);
+            padding: 20px;
+            border-left: 4px solid var(--primary);
+            text-align: center;
+        }
+
+        .schedule-item h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        /* Planes */
+        .plans-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
         }
 
-        .menu-item {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            border-bottom: 4px solid var(--acento);
+        .plan-card {
+            background: var(--gray);
+            padding: 40px;
+            text-align: center;
+            border: 1px solid #333;
+            transition: transform 0.3s ease;
         }
 
-        .menu-item h3 {
-            color: var(--cafe-medio);
-            margin-bottom: 10px;
-            display: flex;
-            justify-content: space-between;
+        .plan-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+        }
+
+        .plan-card.featured {
+            border: 2px solid var(--primary);
+            position: relative;
+        }
+
+        .plan-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
         }
 
         .price {
-            color: var(--cafe-claro);
-            font-weight: bold;
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 20px;
         }
 
-        .about {
-            background-color: var(--acento);
-            color: var(--cafe-oscuro);
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 40px;
-            border-radius: 20px;
-            padding: 40px;
-            margin-top: 40px;
+        .price span {
+            font-size: 1rem;
+            color: var(--light);
         }
 
-        .about-content {
-            flex: 1;
-            min-width: 300px;
+        .plan-features {
+            list-style: none;
+            margin-bottom: 30px;
+            color: #ccc;
+        }
+
+        .plan-features li {
+            margin-bottom: 10px;
         }
 
         footer {
-            background-color: var(--cafe-oscuro);
-            color: white;
+            background: #000;
+            padding: 40px 5%;
             text-align: center;
-            padding: 40px 20px;
-            margin-top: 60px;
+            border-top: 1px solid var(--gray);
+        }
+
+        footer p {
+            color: #666;
+            font-size: 0.9rem;
         }
 
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.5rem; }
-            .nav-links { display: none; }
+            nav { display: none; }
         }
     </style>
 </head>
 <body>
 
     <header>
+        <div class="logo">Power<span>Fit</span></div>
         <nav>
-            <div class="logo">CAFÉ AROMA</div>
-            <ul class="nav-links">
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#menu">Menú</a></li>
-                <li><a href="#nosotros">Nosotros</a></li>
-                <li><a href="#contacto">Contacto</a></li>
-            </ul>
+            <a href="#inicio">Inicio</a>
+            <a href="#horarios">Horarios</a>
+            <a href="#planes">Planes</a>
         </nav>
     </header>
 
-    <section id="inicio" class="hero">
-        <h1>Despierta tus Sentidos</h1>
-        <p>El aroma del café recién tostado y el sabor de la tradición en cada taza. Visítanos y descubre tu nueva forma de empezar el día.</p>
-        <a href="#menu" class="btn">Ver Menú</a>
+    <section class="hero" id="inicio">
+        <h1>Transforma tu <span>Cuerpo</span></h1>
+        <p>El gimnasio más completo con tecnología de punta y los mejores entrenadores de la ciudad.</p>
+        <a href="#planes" class="btn">Empieza Hoy</a>
     </section>
 
-    <section id="menu" class="section">
-        <h2 class="section-title">Nuestro Menú Especial</h2>
-        <div class="menu-grid">
-            <div class="menu-item">
-                <h3>Espresso <span class="price">$2.50</span></h3>
-                <p>Intenso y con cuerpo, extraído a la perfección de granos de altura.</p>
+    <section id="horarios">
+        <h2 class="section-title">Nuestros <span>Horarios</span></h2>
+        <div class="schedule-grid">
+            <div class="schedule-item">
+                <h3>Lunes - Viernes</h3>
+                <p>06:00 - 23:00</p>
             </div>
-            <div class="menu-item">
-                <h3>Capuccino <span class="price">$3.75</span></h3>
-                <p>Equilibrio perfecto de espresso, leche vaporizada y espuma cremosa.</p>
+            <div class="schedule-item">
+                <h3>Sábados</h3>
+                <p>08:00 - 20:00</p>
             </div>
-            <div class="menu-item">
-                <h3>Latte Vainilla <span class="price">$4.25</span></h3>
-                <p>Suave café con leche y un toque artesanal de esencia de vainilla.</p>
+            <div class="schedule-item">
+                <h3>Domingos</h3>
+                <p>09:00 - 14:00</p>
             </div>
-            <div class="menu-item">
-                <h3>Mocaccino <span class="price">$4.50</span></h3>
-                <p>La combinación ideal entre cacao premium y nuestro mejor café.</p>
-            </div>
-            <div class="menu-item">
-                <h3>Affogato <span class="price">$5.00</span></h3>
-                <p>Helado de crema artesanal bañado en un shot caliente de espresso.</p>
-            </div>
-            <div class="menu-item">
-                <h3>Cold Brew <span class="price">$4.00</span></h3>
-                <p>Extracción en frío por 12 horas, refrescante y con baja acidez.</p>
+            <div class="schedule-item">
+                <h3>Festivos</h3>
+                <p>Cerrado</p>
             </div>
         </div>
     </section>
 
-    <section id="nosotros" class="section">
-        <div class="about">
-            <div class="about-content">
-                <h2 style="margin-bottom: 20px;">Nuestra Historia</h2>
-                <p>En Café Aroma, seleccionamos cuidadosamente granos de fincas sostenibles para garantizar no solo el mejor sabor, sino también un impacto positivo en nuestras comunidades cafeteras. Cada taza es preparada por baristas apasionados que entienden que el café es más que una bebida: es un arte.</p>
+    <section id="planes">
+        <h2 class="section-title">Nuestros <span>Planes</span></h2>
+        <div class="plans-grid">
+            <div class="plan-card">
+                <h3>Básico</h3>
+                <div class="price">$29<span>/mes</span></div>
+                <ul class="plan-features">
+                    <li>Acceso zona de máquinas</li>
+                    <li>Vestuarios y duchas</li>
+                    <li>App de seguimiento</li>
+                </ul>
+                <a href="#" class="btn">Elegir Plan</a>
             </div>
-            <div class="about-content" style="text-align: center;">
-                <h3>Horarios</h3>
-                <p>Lunes a Viernes: 7:00 AM - 9:00 PM</p>
-                <p>Sábados y Domingos: 8:00 AM - 10:00 PM</p>
+            <div class="plan-card featured">
+                <h3>Pro</h3>
+                <div class="price">$49<span>/mes</span></div>
+                <ul class="plan-features">
+                    <li>Todo lo del Plan Básico</li>
+                    <li>Clases grupales ilimitadas</li>
+                    <li>Evaluación nutricional</li>
+                </ul>
+                <a href="#" class="btn">Elegir Plan</a>
+            </div>
+            <div class="plan-card">
+                <h3>Elite</h3>
+                <div class="price">$79<span>/mes</span></div>
+                <ul class="plan-features">
+                    <li>Todo lo del Plan Pro</li>
+                    <li>Entrenador personal</li>
+                    <li>Acceso zona SPA/Sauna</li>
+                </ul>
+                <a href="#" class="btn">Elegir Plan</a>
             </div>
         </div>
     </section>
 
-    <footer id="contacto">
-        <p>&copy; 2023 Café Aroma. Todos los derechos reservados.</p>
-        <p style="margin-top: 10px; font-size: 0.9rem;">Calle de los Aromas #123, Ciudad Gourmet</p>
-        <div style="margin-top: 20px;">
-            <span style="margin: 0 10px;">Instagram</span>
-            <span style="margin: 0 10px;">Facebook</span>
-            <span style="margin: 0 10px;">WhatsApp</span>
-        </div>
+    <footer>
+        <div class="logo" style="margin-bottom: 20px;">Power<span>Fit</span></div>
+        <p>&copy; 2023 PowerFit Gym. Todos los derechos reservados.</p>
+        <p>Calle Fitness 123, Ciudad Deportiva.</p>
     </footer>
 
 </body>
