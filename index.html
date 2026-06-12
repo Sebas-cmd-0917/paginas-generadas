@@ -3,15 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PowerFit - Entrena al Límite</title>
+    <title>GameStore - Compra Juegos y Consolas</title>
     <style>
-        :root {
-            --primary: #ffcc00;
-            --dark: #111111;
-            --light: #ffffff;
-            --gray: #222222;
-        }
-
         * {
             margin: 0;
             padding: 0;
@@ -20,261 +13,203 @@
 
         body {
             font-family: system-ui, -apple-system, sans-serif;
-            background-color: var(--dark);
-            color: var(--light);
+            background-color: #0a0a0a;
+            color: #ffffff;
             line-height: 1.6;
         }
 
         header {
-            background-color: var(--dark);
-            padding: 1rem 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 2px solid var(--primary);
+            background-color: #121212;
+            padding: 1rem;
+            text-align: center;
+            border-bottom: 2px solid #00ff00;
             position: sticky;
             top: 0;
-            z-index: 1000;
+            z-index: 100;
         }
 
-        .logo {
+        header h1 {
+            color: #00ff00;
             font-size: 1.8rem;
-            font-weight: 800;
-            color: var(--primary);
             text-transform: uppercase;
-            letter-spacing: -1px;
-        }
-
-        nav a {
-            color: var(--light);
-            text-decoration: none;
-            margin-left: 20px;
-            font-weight: 500;
-            text-transform: uppercase;
-            font-size: 0.9rem;
-        }
-
-        nav a:hover {
-            color: var(--primary);
+            letter-spacing: 2px;
         }
 
         .hero {
-            padding: 100px 5%;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 40vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=1470&ixlib=rb-4.0.3') center/cover;
-            color: var(--light);
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-        }
-
-        .hero h1 span {
-            color: var(--primary);
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin: 0 auto 2rem;
-        }
-
-        .btn {
-            background-color: var(--primary);
-            color: var(--dark);
-            padding: 12px 30px;
-            text-decoration: none;
-            font-weight: bold;
-            text-transform: uppercase;
-            border-radius: 4px;
-            display: inline-block;
-        }
-
-        section {
-            padding: 80px 5%;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 50px;
-            text-transform: uppercase;
-        }
-
-        .section-title span {
-            color: var(--primary);
-        }
-
-        /* Horarios */
-        .schedule-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-        }
-
-        .schedule-item {
-            background: var(--gray);
             padding: 20px;
-            border-left: 4px solid var(--primary);
-            text-align: center;
         }
 
-        .schedule-item h3 {
-            color: var(--primary);
+        .hero h2 {
+            font-size: 2.5rem;
             margin-bottom: 10px;
+            text-shadow: 0 0 10px #00ff00;
         }
 
-        /* Planes */
-        .plans-grid {
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 20px;
+        }
+
+        .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
+            gap: 2rem;
         }
 
-        .plan-card {
-            background: var(--gray);
-            padding: 40px;
-            text-align: center;
+        .card {
+            background: #1a1a1a;
+            border-radius: 10px;
+            overflow: hidden;
             border: 1px solid #333;
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, border-color 0.3s ease;
         }
 
-        .plan-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--primary);
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: #00ff00;
         }
 
-        .plan-card.featured {
-            border: 2px solid var(--primary);
-            position: relative;
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background: #222;
         }
 
-        .plan-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 20px;
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: #00ff00;
         }
 
         .price {
-            font-size: 3rem;
-            font-weight: 800;
-            color: var(--primary);
-            margin-bottom: 20px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            display: block;
         }
 
-        .price span {
-            font-size: 1rem;
-            color: var(--light);
+        .btn-whatsapp {
+            display: inline-block;
+            background-color: #25d366;
+            color: white;
+            text-decoration: none;
+            padding: 0.8rem 1.2rem;
+            border-radius: 5px;
+            font-weight: bold;
+            width: 100%;
+            text-align: center;
+            transition: background 0.3s;
         }
 
-        .plan-features {
-            list-style: none;
-            margin-bottom: 30px;
-            color: #ccc;
-        }
-
-        .plan-features li {
-            margin-bottom: 10px;
+        .btn-whatsapp:hover {
+            background-color: #128c7e;
         }
 
         footer {
-            background: #000;
-            padding: 40px 5%;
+            background: #121212;
+            padding: 2rem;
             text-align: center;
-            border-top: 1px solid var(--gray);
+            margin-top: 4rem;
+            border-top: 1px solid #333;
         }
 
         footer p {
-            color: #666;
-            font-size: 0.9rem;
+            color: #888;
         }
 
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            nav { display: none; }
+        .badge {
+            background: #00ff00;
+            color: #000;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: inline-block;
+        }
+
+        @media (max-width: 600px) {
+            .hero h2 { font-size: 1.8rem; }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo">Power<span>Fit</span></div>
-        <nav>
-            <a href="#inicio">Inicio</a>
-            <a href="#horarios">Horarios</a>
-            <a href="#planes">Planes</a>
-        </nav>
+        <h1>GAMER STORE</h1>
     </header>
 
-    <section class="hero" id="inicio">
-        <h1>Transforma tu <span>Cuerpo</span></h1>
-        <p>El gimnasio más completo con tecnología de punta y los mejores entrenadores de la ciudad.</p>
-        <a href="#planes" class="btn">Empieza Hoy</a>
+    <section class="hero">
+        <h2>TU PRÓXIMA AVENTURA COMIENZA AQUÍ</h2>
+        <p>Consolas, videojuegos y accesorios al mejor precio.</p>
     </section>
 
-    <section id="horarios">
-        <h2 class="section-title">Nuestros <span>Horarios</span></h2>
-        <div class="schedule-grid">
-            <div class="schedule-item">
-                <h3>Lunes - Viernes</h3>
-                <p>06:00 - 23:00</p>
+    <div class="container">
+        <div class="grid">
+            <!-- Producto 1 -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1605898960710-827806f9e311?auto=format&fit=crop&w=500&q=80" alt="Consola Next Gen">
+                <div class="card-content">
+                    <span class="badge">CONSOLA</span>
+                    <h3 class="card-title">PlayStation 5 - Edición Disco</h3>
+                    <span class="price">$499.99</span>
+                    <a href="https://wa.me/1234567890?text=Hola,%20me%20interesa%20comprar%20la%20PS5" class="btn-whatsapp">Comprar por WhatsApp</a>
+                </div>
             </div>
-            <div class="schedule-item">
-                <h3>Sábados</h3>
-                <p>08:00 - 20:00</p>
-            </div>
-            <div class="schedule-item">
-                <h3>Domingos</h3>
-                <p>09:00 - 14:00</p>
-            </div>
-            <div class="schedule-item">
-                <h3>Festivos</h3>
-                <p>Cerrado</p>
-            </div>
-        </div>
-    </section>
 
-    <section id="planes">
-        <h2 class="section-title">Nuestros <span>Planes</span></h2>
-        <div class="plans-grid">
-            <div class="plan-card">
-                <h3>Básico</h3>
-                <div class="price">$29<span>/mes</span></div>
-                <ul class="plan-features">
-                    <li>Acceso zona de máquinas</li>
-                    <li>Vestuarios y duchas</li>
-                    <li>App de seguimiento</li>
-                </ul>
-                <a href="#" class="btn">Elegir Plan</a>
+            <!-- Producto 2 -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1592155931584-901ac15763e3?auto=format&fit=crop&w=500&q=80" alt="Videojuego">
+                <div class="card-content">
+                    <span class="badge">JUEGO</span>
+                    <h3 class="card-title">The Last of Us Part II</h3>
+                    <span class="price">$39.99</span>
+                    <a href="https://wa.me/1234567890?text=Hola,%20me%20interesa%20comprar%20The%20Last%20of%20Us" class="btn-whatsapp">Comprar por WhatsApp</a>
+                </div>
             </div>
-            <div class="plan-card featured">
-                <h3>Pro</h3>
-                <div class="price">$49<span>/mes</span></div>
-                <ul class="plan-features">
-                    <li>Todo lo del Plan Básico</li>
-                    <li>Clases grupales ilimitadas</li>
-                    <li>Evaluación nutricional</li>
-                </ul>
-                <a href="#" class="btn">Elegir Plan</a>
+
+            <!-- Producto 3 -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1605901309584-818e25960a8f?auto=format&fit=crop&w=500&q=80" alt="Xbox">
+                <div class="card-content">
+                    <span class="badge">CONSOLA</span>
+                    <h3 class="card-title">Xbox Series X</h3>
+                    <span class="price">$480.00</span>
+                    <a href="https://wa.me/1234567890?text=Hola,%20me%20interesa%20comprar%20la%20Xbox%20Series%20X" class="btn-whatsapp">Comprar por WhatsApp</a>
+                </div>
             </div>
-            <div class="plan-card">
-                <h3>Elite</h3>
-                <div class="price">$79<span>/mes</span></div>
-                <ul class="plan-features">
-                    <li>Todo lo del Plan Pro</li>
-                    <li>Entrenador personal</li>
-                    <li>Acceso zona SPA/Sauna</li>
-                </ul>
-                <a href="#" class="btn">Elegir Plan</a>
+
+            <!-- Producto 4 -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1541562232579-512a21360020?auto=format&fit=crop&w=500&q=80" alt="Control">
+                <div class="card-content">
+                    <span class="badge">ACCESORIO</span>
+                    <h3 class="card-title">DualSense Wireless Controller</h3>
+                    <span class="price">$69.99</span>
+                    <a href="https://wa.me/1234567890?text=Hola,%20me%20interesa%20comprar%20el%20control%20DualSense" class="btn-whatsapp">Comprar por WhatsApp</a>
+                </div>
             </div>
         </div>
-    </section>
+    </div>
 
     <footer>
-        <div class="logo" style="margin-bottom: 20px;">Power<span>Fit</span></div>
-        <p>&copy; 2023 PowerFit Gym. Todos los derechos reservados.</p>
-        <p>Calle Fitness 123, Ciudad Deportiva.</p>
+        <p>&copy; 2023 Gamer Store - Todos los derechos reservados.</p>
+        <p>Envíos a todo el país | Pagos seguros</p>
     </footer>
 
 </body>
