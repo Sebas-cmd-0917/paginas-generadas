@@ -3,8 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GameStore - Compra Juegos y Consolas</title>
+    <title>Café Aroma | El mejor café artesanal</title>
     <style>
+        :root {
+            --primary: #6F4E37;
+            --secondary: #A67B5B;
+            --accent: #D2691E;
+            --bg: #FAF3E0;
+            --text: #3E2723;
+            --white: #FFFFFF;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -13,203 +22,247 @@
 
         body {
             font-family: system-ui, -apple-system, sans-serif;
-            background-color: #0a0a0a;
-            color: #ffffff;
             line-height: 1.6;
+            color: var(--text);
+            background-color: var(--bg);
         }
 
         header {
-            background-color: #121212;
-            padding: 1rem;
-            text-align: center;
-            border-bottom: 2px solid #00ff00;
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             position: sticky;
             top: 0;
-            z-index: 100;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
-        header h1 {
-            color: #00ff00;
-            font-size: 1.8rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: 500;
         }
 
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
-            background-size: cover;
-            background-position: center;
-            height: 40vh;
+            height: 80vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&q=80&w=2070') no-repeat center center/cover;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 20px;
-        }
-
-        .hero h2 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            text-shadow: 0 0 10px #00ff00;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 2rem auto;
+            color: var(--white);
             padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            background-color: var(--accent);
+            color: var(--white);
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background-color: var(--primary);
+        }
+
+        .section {
+            padding: 80px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.2rem;
+            color: var(--primary);
         }
 
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
+            gap: 30px;
         }
 
         .card {
-            background: #1a1a1a;
-            border-radius: 10px;
-            overflow: hidden;
-            border: 1px solid #333;
-            transition: transform 0.3s ease, border-color 0.3s ease;
+            background: var(--white);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
         }
 
         .card:hover {
-            transform: translateY(-5px);
-            border-color: #00ff00;
+            transform: translateY(-10px);
         }
 
-        .card img {
+        .card h3 {
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: #666;
+        }
+
+        .info-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .info-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .info-image {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .info-image img {
             width: 100%;
-            height: 200px;
-            object-fit: cover;
-            background: #222;
-        }
-
-        .card-content {
-            padding: 1.5rem;
-        }
-
-        .card-title {
-            font-size: 1.25rem;
-            margin-bottom: 0.5rem;
-            color: #00ff00;
-        }
-
-        .price {
-            font-size: 1.5rem;
-            font-weight: bold;
-            margin-bottom: 1rem;
-            display: block;
-        }
-
-        .btn-whatsapp {
-            display: inline-block;
-            background-color: #25d366;
-            color: white;
-            text-decoration: none;
-            padding: 0.8rem 1.2rem;
-            border-radius: 5px;
-            font-weight: bold;
-            width: 100%;
-            text-align: center;
-            transition: background 0.3s;
-        }
-
-        .btn-whatsapp:hover {
-            background-color: #128c7e;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
 
         footer {
-            background: #121212;
-            padding: 2rem;
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 40px 5% 20px;
             text-align: center;
-            margin-top: 4rem;
-            border-top: 1px solid #333;
         }
 
-        footer p {
-            color: #888;
+        .socials {
+            margin-bottom: 20px;
         }
 
-        .badge {
-            background: #00ff00;
-            color: #000;
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            font-weight: bold;
-            margin-bottom: 5px;
-            display: inline-block;
+        .socials a {
+            color: var(--white);
+            margin: 0 10px;
+            text-decoration: none;
+            font-size: 0.9rem;
         }
 
-        @media (max-width: 600px) {
-            .hero h2 { font-size: 1.8rem; }
+        .copyright {
+            font-size: 0.85rem;
+            opacity: 0.8;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>GAMER STORE</h1>
+        <div class="logo">CAFÉ AROMA</div>
+        <nav>
+            <a href="#inicio">Inicio</a>
+            <a href="#menu">Menú</a>
+            <a href="#nosotros">Nosotros</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
     </header>
 
-    <section class="hero">
-        <h2>TU PRÓXIMA AVENTURA COMIENZA AQUÍ</h2>
-        <p>Consolas, videojuegos y accesorios al mejor precio.</p>
+    <section class="hero" id="inicio">
+        <h1>Despierta tus sentidos</h1>
+        <p>Disfruta de la mejor selección de granos tostados artesanalmente en un ambiente cálido y acogedor.</p>
+        <a href="#menu" class="btn">Ver Menú</a>
     </section>
 
-    <div class="container">
+    <section class="section" id="menu">
+        <h2 class="section-title">Nuestras Especialidades</h2>
         <div class="grid">
-            <!-- Producto 1 -->
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1605898960710-827806f9e311?auto=format&fit=crop&w=500&q=80" alt="Consola Next Gen">
-                <div class="card-content">
-                    <span class="badge">CONSOLA</span>
-                    <h3 class="card-title">PlayStation 5 - Edición Disco</h3>
-                    <span class="price">$499.99</span>
-                    <a href="https://wa.me/1234567890?text=Hola,%20me%20interesa%20comprar%20la%20PS5" class="btn-whatsapp">Comprar por WhatsApp</a>
-                </div>
+                <h3>Espresso Intenso</h3>
+                <p>La esencia pura del café con notas de chocolate amargo y cuerpo denso.</p>
             </div>
-
-            <!-- Producto 2 -->
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1592155931584-901ac15763e3?auto=format&fit=crop&w=500&q=80" alt="Videojuego">
-                <div class="card-content">
-                    <span class="badge">JUEGO</span>
-                    <h3 class="card-title">The Last of Us Part II</h3>
-                    <span class="price">$39.99</span>
-                    <a href="https://wa.me/1234567890?text=Hola,%20me%20interesa%20comprar%20The%20Last%20of%20Us" class="btn-whatsapp">Comprar por WhatsApp</a>
-                </div>
+                <h3>Capuccino Cremoso</h3>
+                <p>Equilibrio perfecto entre café, leche vaporizada y una espuma irresistible.</p>
             </div>
-
-            <!-- Producto 3 -->
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1605901309584-818e25960a8f?auto=format&fit=crop&w=500&q=80" alt="Xbox">
-                <div class="card-content">
-                    <span class="badge">CONSOLA</span>
-                    <h3 class="card-title">Xbox Series X</h3>
-                    <span class="price">$480.00</span>
-                    <a href="https://wa.me/1234567890?text=Hola,%20me%20interesa%20comprar%20la%20Xbox%20Series%20X" class="btn-whatsapp">Comprar por WhatsApp</a>
-                </div>
+                <h3>Latte Caramelo</h3>
+                <p>Suavidad láctea con un toque dulce de caramelo artesanal de la casa.</p>
             </div>
-
-            <!-- Producto 4 -->
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1541562232579-512a21360020?auto=format&fit=crop&w=500&q=80" alt="Control">
-                <div class="card-content">
-                    <span class="badge">ACCESORIO</span>
-                    <h3 class="card-title">DualSense Wireless Controller</h3>
-                    <span class="price">$69.99</span>
-                    <a href="https://wa.me/1234567890?text=Hola,%20me%20interesa%20comprar%20el%20control%20DualSense" class="btn-whatsapp">Comprar por WhatsApp</a>
-                </div>
+                <h3>Mocaccino Real</h3>
+                <p>Para los amantes del dulce: café premium mezclado con cacao puro.</p>
             </div>
         </div>
-    </div>
+    </section>
+
+    <section class="section" id="nosotros" style="background-color: #F3E5AB;">
+        <div class="info-container">
+            <div class="info-image">
+                <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&q=80&w=1000" alt="Cafetería">
+            </div>
+            <div class="info-text">
+                <h2 style="color: var(--primary); margin-bottom: 20px;">Nuestra Historia</h2>
+                <p>En Café Aroma, creemos que cada taza cuenta una historia. Desde 2015, nos dedicamos a buscar los granos más excepcionales de fincas locales para traerte una experiencia única en cada sorbo.</p>
+                <br>
+                <p>Ven a relajarte, trabajar o compartir un momento especial en el rincón más acogedor de la ciudad.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="contacto">
+        <h2 class="section-title">Encuéntranos</h2>
+        <div style="text-align: center;">
+            <p>Calle Aroma 123, Barrio Antiguo</p>
+            <p>Abierto de Lunes a Sábado: 8:00 AM - 9:00 PM</p>
+            <p>Teléfono: (555) 123-4567</p>
+            <br>
+            <a href="mailto:hola@cafearoma.com" style="color: var(--accent); font-weight: bold; text-decoration: none;">hola@cafearoma.com</a>
+        </div>
+    </section>
 
     <footer>
-        <p>&copy; 2023 Gamer Store - Todos los derechos reservados.</p>
-        <p>Envíos a todo el país | Pagos seguros</p>
+        <div class="socials">
+            <a href="#">Instagram</a>
+            <a href="#">Facebook</a>
+            <a href="#">Twitter</a>
+        </div>
+        <p class="copyright">&copy; 2023 Café Aroma. Todos los derechos reservados.</p>
     </footer>
 
 </body>
