@@ -3,17 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Café Aroma | El mejor café artesanal</title>
+    <title>Bienvenida Profesional</title>
     <style>
-        :root {
-            --primary: #6F4E37;
-            --secondary: #A67B5B;
-            --accent: #D2691E;
-            --bg: #FAF3E0;
-            --text: #3E2723;
-            --white: #FFFFFF;
-        }
-
         * {
             margin: 0;
             padding: 0;
@@ -21,172 +12,84 @@
         }
 
         body {
-            font-family: system-ui, -apple-system, sans-serif;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
             line-height: 1.6;
-            color: var(--text);
-            background-color: var(--bg);
+            color: #1a202c;
+            background-color: #f7fafc;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
         header {
-            background-color: var(--primary);
-            color: var(--white);
-            padding: 1rem 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            letter-spacing: 1px;
-        }
-
-        nav a {
-            color: var(--white);
-            text-decoration: none;
-            margin-left: 20px;
-            font-weight: 500;
+            background-color: #ffffff;
+            padding: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            text-align: center;
         }
 
         .hero {
-            height: 80vh;
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&q=80&w=2070') no-repeat center center/cover;
+            flex: 1;
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
+            justify-content: center;
             text-align: center;
-            color: var(--white);
-            padding: 0 20px;
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            color: white;
         }
 
         .hero h1 {
-            font-size: clamp(2.5rem, 8vw, 4.5rem);
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
         }
 
         .hero p {
-            font-size: 1.2rem;
+            font-size: 1.25rem;
             max-width: 600px;
             margin-bottom: 2rem;
+            opacity: 0.9;
         }
 
         .btn {
-            background-color: var(--accent);
-            color: var(--white);
-            padding: 12px 30px;
+            display: inline-block;
+            background-color: #ffffff;
+            color: #2c3e50;
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
             text-decoration: none;
-            border-radius: 30px;
             font-weight: bold;
-            transition: background 0.3s;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
         .btn:hover {
-            background-color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
         }
 
-        .section {
-            padding: 80px 5%;
-            max-width: 1200px;
+        .content {
+            padding: 4rem 2rem;
+            max-width: 800px;
             margin: 0 auto;
-        }
-
-        .section-title {
             text-align: center;
-            margin-bottom: 50px;
-            font-size: 2.2rem;
-            color: var(--primary);
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
-
-        .card {
-            background: var(--white);
-            padding: 20px;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s;
-        }
-
-        .card:hover {
-            transform: translateY(-10px);
-        }
-
-        .card h3 {
-            color: var(--accent);
-            margin-bottom: 10px;
-        }
-
-        .card p {
-            font-size: 0.95rem;
-            color: #666;
-        }
-
-        .info-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 40px;
-            align-items: center;
-        }
-
-        .info-text {
-            flex: 1;
-            min-width: 300px;
-        }
-
-        .info-image {
-            flex: 1;
-            min-width: 300px;
-        }
-
-        .info-image img {
-            width: 100%;
-            border-radius: 20px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
 
         footer {
-            background-color: var(--primary);
-            color: var(--white);
-            padding: 40px 5% 20px;
+            background-color: #2d3748;
+            color: #edf2f7;
+            padding: 2rem;
             text-align: center;
-        }
-
-        .socials {
-            margin-bottom: 20px;
-        }
-
-        .socials a {
-            color: var(--white);
-            margin: 0 10px;
-            text-decoration: none;
-            font-size: 0.9rem;
-        }
-
-        .copyright {
-            font-size: 0.85rem;
-            opacity: 0.8;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            padding-top: 20px;
+            font-size: 0.875rem;
         }
 
         @media (max-width: 768px) {
-            nav {
-                display: none;
-            }
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2.25rem;
+            }
+            .hero p {
+                font-size: 1.1rem;
             }
         }
     </style>
@@ -194,75 +97,24 @@
 <body>
 
     <header>
-        <div class="logo">CAFÉ AROMA</div>
         <nav>
-            <a href="#inicio">Inicio</a>
-            <a href="#menu">Menú</a>
-            <a href="#nosotros">Nosotros</a>
-            <a href="#contacto">Contacto</a>
+            <strong>PAGINA PROFESIONAL</strong>
         </nav>
     </header>
 
-    <section class="hero" id="inicio">
-        <h1>Despierta tus sentidos</h1>
-        <p>Disfruta de la mejor selección de granos tostados artesanalmente en un ambiente cálido y acogedor.</p>
-        <a href="#menu" class="btn">Ver Menú</a>
+    <section class="hero">
+        <h1>¡Hola!</h1>
+        <p>Bienvenido a este espacio digital diseñado para ofrecer una experiencia limpia, moderna y funcional. Descubre cómo podemos ayudarte a alcanzar tus metas.</p>
+        <a href="#" class="btn">Comenzar ahora</a>
     </section>
 
-    <section class="section" id="menu">
-        <h2 class="section-title">Nuestras Especialidades</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>Espresso Intenso</h3>
-                <p>La esencia pura del café con notas de chocolate amargo y cuerpo denso.</p>
-            </div>
-            <div class="card">
-                <h3>Capuccino Cremoso</h3>
-                <p>Equilibrio perfecto entre café, leche vaporizada y una espuma irresistible.</p>
-            </div>
-            <div class="card">
-                <h3>Latte Caramelo</h3>
-                <p>Suavidad láctea con un toque dulce de caramelo artesanal de la casa.</p>
-            </div>
-            <div class="card">
-                <h3>Mocaccino Real</h3>
-                <p>Para los amantes del dulce: café premium mezclado con cacao puro.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="section" id="nosotros" style="background-color: #F3E5AB;">
-        <div class="info-container">
-            <div class="info-image">
-                <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&q=80&w=1000" alt="Cafetería">
-            </div>
-            <div class="info-text">
-                <h2 style="color: var(--primary); margin-bottom: 20px;">Nuestra Historia</h2>
-                <p>En Café Aroma, creemos que cada taza cuenta una historia. Desde 2015, nos dedicamos a buscar los granos más excepcionales de fincas locales para traerte una experiencia única en cada sorbo.</p>
-                <br>
-                <p>Ven a relajarte, trabajar o compartir un momento especial en el rincón más acogedor de la ciudad.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="section" id="contacto">
-        <h2 class="section-title">Encuéntranos</h2>
-        <div style="text-align: center;">
-            <p>Calle Aroma 123, Barrio Antiguo</p>
-            <p>Abierto de Lunes a Sábado: 8:00 AM - 9:00 PM</p>
-            <p>Teléfono: (555) 123-4567</p>
-            <br>
-            <a href="mailto:hola@cafearoma.com" style="color: var(--accent); font-weight: bold; text-decoration: none;">hola@cafearoma.com</a>
-        </div>
-    </section>
+    <main class="content">
+        <h2>Nuestro Propósito</h2>
+        <p>Esta página ha sido generada para demostrar la eficiencia de un diseño minimalista aplicado al mundo web moderno. Enfocada en la legibilidad y la rapidez de carga.</p>
+    </main>
 
     <footer>
-        <div class="socials">
-            <a href="#">Instagram</a>
-            <a href="#">Facebook</a>
-            <a href="#">Twitter</a>
-        </div>
-        <p class="copyright">&copy; 2023 Café Aroma. Todos los derechos reservados.</p>
+        <p>&copy; 2023 Todos los derechos reservados. Diseñado con estándares profesionales.</p>
     </footer>
 
 </body>
