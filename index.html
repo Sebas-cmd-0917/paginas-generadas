@@ -1,178 +1,58 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Café Origen</title>
-  <style>
-    :root {
-      --color-principal: #964B00;
-      --color-secundario: #F5F5DC;
-      --color-terciario: #786C3B;
-    }
-    body {
-      font-family: 'Montserrat', sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-    .hero {
-      background-image: linear-gradient(to bottom, var(--color-principal), var(--color-secundario));
-      background-size: 100% 300px;
-      background-position: 0% 100%;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: #fff;
-    }
-    .hero h1 {
-      font-size: 48px;
-    }
-    .contenido {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 20px;
-    }
-    .menu {
-      background-color: var(--color-secundario);
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-    .menu ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    .menu li {
-      padding: 10px;
-      border-bottom: 1px solid #ccc;
-    }
-    .menu li:last-child {
-      border-bottom: none;
-    }
-    .historia {
-      background-image: url('https://picsum.photos/200/300');
-      background-size: cover;
-      background-position: center;
-      height: 300px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: #fff;
-    }
-    .historia p {
-      font-size: 18px;
-      padding: 20px;
-    }
-    .metodos {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-    .metodo {
-      background-color: var(--color-terciario);
-      padding: 20px;
-      border-radius: 10px;
-      margin: 10px;
-      width: calc(33.33% - 20px);
-    }
-    .metodo h2 {
-      font-size: 24px;
-    }
-    .ubicacion {
-      background-color: var(--color-secundario);
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-    .ubicacion p {
-      font-size: 18px;
-    }
-    .testimonios {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-    .testimonial {
-      background-color: var(--color-terciario);
-      padding: 20px;
-      border-radius: 10px;
-      margin: 10px;
-      width: calc(33.33% - 20px);
-    }
-    .testimonial p {
-      font-size: 18px;
-    }
-    .pedido {
-      background-color: var(--color-principal);
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-    .pedido p {
-      font-size: 18px;
-      color: #fff;
-    }
-    footer {
-      background-color: var(--color-principal);
-      padding: 10px;
-      text-align: center;
-      color: #fff;
-    }
-  </style>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cafe Origen | Especialidad y Pasion</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+--color-primario: #6F4E37;
+--color-secundario: #D2B48C;
+--color-fondo: #FDFBF7;
+--color-texto: #333;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Poppins', sans-serif; background: var(--color-fondo); color: var(--color-texto); line-height: 1.6; }
+header { padding: 2rem; display: flex; justify-content: space-between; align-items: center; }
+.hero { height: 80vh; background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1600&q=80'); background-size: cover; background-position: center; display: flex; flex-direction: column; justify-content: center; align-items: center; color: white; text-align: center; }
+.hero h1 { font-family: 'Playfair Display', serif; font-size: 3.5rem; margin-bottom: 1rem; }
+.btn { padding: 1rem 2rem; background: var(--color-primario); color: white; border: none; cursor: pointer; transition: 0.3s; text-decoration: none; }
+.btn:hover { background: var(--color-secundario); }
+section { padding: 4rem 10%; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
+footer { background: var(--color-primario); color: white; text-align: center; padding: 2rem; }
+@media (max-width: 768px) { .hero h1 { font-size: 2rem; } }
+</style>
 </head>
 <body>
-  <div class="hero">
-    <h1>Café Origen</h1>
-  </div>
-  <div class="contenido">
-    <div class="menu">
-      <ul>
-        <li>Café espresso</li>
-        <li>Café capuchino</li>
-        <li>Café latte</li>
-      </ul>
-    </div>
-    <div class="historia">
-      <p>Nuestra historia comienza en el año 2010, cuando un grupo de apasionados del café decidieron unirse para crear una cafetería que ofreciera una experiencia única y auténtica.</p>
-    </div>
-    <div class="metodos">
-      <div class="metodo">
-        <h2>Método de preparación</h2>
-        <p>Nuestros barristas utilizan métodos de preparación tradicionales para crear cada taza de café.</p>
-      </div>
-      <div class="metodo">
-        <h2>Técnicas de tostado</h2>
-        <p>Nuestros técnicos de tostado seleccionan y tuestan cada lote de café para asegurar la calidad y el sabor.</p>
-      </div>
-      <div class="metodo">
-        <h2>Calidad de los granos</h2>
-        <p>Nuestros granos de café son seleccionados y comprados directamente de los productores para asegurar la calidad y la frescura.</p>
-      </div>
-    </div>
-    <div class="ubicacion">
-      <p>Nuestra cafetería se encuentra ubicada en el corazón de la ciudad, en la calle principal, número 123.</p>
-    </div>
-    <div class="testimonios">
-      <div class="testimonial">
-        <p>Me encanta el café de Café Origen, es el mejor que he probado en mi vida.</p>
-      </div>
-      <div class="testimonial">
-        <p>La atmósfera de la cafetería es muy acogedora y el personal es muy amable.</p>
-      </div>
-      <div class="testimonial">
-        <p>Me gustan las opciones de café que ofrecen, son muy variadas y deliciosas.</p>
-      </div>
-    </div>
-    <div class="pedido">
-      <p>Puedes hacer tu pedido en línea a través de nuestra página web o en persona en nuestra cafetería.</p>
-    </div>
-  </div>
-  <footer>
-    <p>&copy; 2023 Café Origen. Todos los derechos reservados.</p>
-  </footer>
+<header>
+<h2>Cafe Origen</h2>
+<nav>Pedidos en Linea</nav>
+</header>
+<section class="hero">
+<h1>El Origen de un Buen Cafe</h1>
+<p>Descubre la esencia en cada taza</p>
+<a href="#menu" class="btn">Ver Menú</a>
+</section>
+<section id="historia">
+<h2>Nuestra Historia</h2>
+<p>Nacimos del amor por el grano y el respeto al productor local. Buscamos ofrecer una experiencia auténtica y llena de matices.</p>
+</section>
+<section id="menu">
+<h2>Menú de Especialidad</h2>
+<div class="grid">
+<div><h3>Espresso</h3><p>Cuerpo intenso y crema perfecta.</p></div>
+<div><h3>V60</h3><p>Notas florales y limpieza excepcional.</p></div>
+<div><h3>Latte</h3><p>Textura cremosa y artesanal.</p></div>
+</div>
+</section>
+<section id="contacto">
+<h2>Visítanos</h2>
+<p>Calle Aroma 123, Ciudad del Café. Te esperamos todos los días.</p>
+</section>
+<footer>
+<p>&copy; 2023 Cafe Origen. Todos los derechos reservados.</p>
+</footer>
 </body>
 </html>
