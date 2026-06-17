@@ -3,67 +3,65 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Huellitas de Esperanza | Rescate Animal</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<title>GameZone Store | Tu próxima aventura comienza aquí</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 <style>
 :root {
-  --blanco: #FFFFFF;
-  --azul: #87CEEB;
-  --verde: #7BC96F;
-  --naranja: #FFA94D;
-  --oscuro: #333333;
+    --bg-dark: #0a0a0c;
+    --primary-blue: #00d4ff;
+    --primary-purple: #9d00ff;
+    --text-color: #ffffff;
+    --accent-rgb: 0, 212, 255;
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: 'Poppins', sans-serif; line-height: 1.6; color: var(--oscuro); }
-header { background: var(--blanco); padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-nav a { margin: 0 10px; text-decoration: none; color: var(--oscuro); font-weight: 600; }
-.btn-cta { background: var(--naranja); color: var(--blanco); padding: 10px 20px; border-radius: 25px; text-decoration: none; font-weight: bold; }
-.hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: linear-gradient(rgba(135,206,235,0.7), rgba(123,201,111,0.7)); color: var(--blanco); }
-.hero h1 { font-size: 3rem; margin-bottom: 20px; }
-.stats { display: flex; justify-content: space-around; padding: 50px; background: var(--verde); color: var(--blanco); }
-.section { padding: 80px 10%; }
-.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
-.card { padding: 20px; border-radius: 15px; background: #f9f9f9; text-align: center; transition: transform 0.3s; }
-.card:hover { transform: translateY(-10px); }
-footer { background: var(--oscuro); color: var(--blanco); text-align: center; padding: 40px; }
-@media (max-width: 768px) { .hero h1 { font-size: 2rem; } nav { display: none; } }
+body { font-family: 'Roboto', sans-serif; background-color: var(--bg-dark); color: var(--text-color); line-height: 1.6; }
+h1, h2, h3 { font-family: 'Orbitron', sans-serif; text-transform: uppercase; }
+header { padding: 2rem; display: flex; justify-content: space-between; align-items: center; background: rgba(0,0,0,0.8); position: sticky; top: 0; z-index: 1000; }
+.hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: linear-gradient(rgba(10,10,12,0.7), rgba(10,10,12,0.7)), url('https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover; }
+.btn { padding: 1rem 2rem; border: none; cursor: pointer; font-weight: bold; text-transform: uppercase; transition: 0.3s; border-radius: 5px; margin: 10px; }
+.btn-primary { background: var(--primary-blue); color: #000; }
+.btn-secondary { background: transparent; border: 2px solid var(--primary-purple); color: #fff; }
+section { padding: 4rem 2rem; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
+.card { background: #1a1a1f; padding: 2rem; border-radius: 10px; border-bottom: 3px solid var(--primary-blue); transition: 0.3s; }
+.card:hover { border-bottom-color: var(--primary-purple); transform: translateY(-10px); }
+footer { background: #000; padding: 2rem; text-align: center; border-top: 1px solid #333; }
+.whatsapp-float { position: fixed; bottom: 20px; right: 20px; background: #25D366; color: white; padding: 15px; border-radius: 50%; font-size: 24px; z-index: 999; }
 </style>
 </head>
 <body>
 <header>
-  <div class="logo">Huellitas de Esperanza</div>
-  <nav>
-    <a href="#">Inicio</a>
-    <a href="#">Adopción</a>
-    <a href="#">Ayuda</a>
-    <a href="#">Contacto</a>
-  </nav>
-  <a href="#" class="btn-cta">Adopta Ahora</a>
+    <h2 style="color: var(--primary-blue)">GAMEZONE STORE</h2>
+    <nav>
+        <a href="#servicios" style="color:white; margin:0 15px; text-decoration:none">Servicios</a>
+        <a href="#contacto" style="color:white; margin:0 15px; text-decoration:none">Contacto</a>
+    </nav>
 </header>
 <section class="hero">
-  <h1>Cada huella merece una segunda oportunidad</h1>
-  <p>Rescatamos, rehabilitamos y encontramos hogares llenos de amor.</p>
-  <div style="margin-top: 30px;">
-    <a href="#" class="btn-cta" style="background: var(--azul);">Adoptar</a>
-    <a href="#" class="btn-cta" style="background: var(--verde);">Donar</a>
-  </div>
+    <h1>Descubre los mejores videojuegos del momento</h1>
+    <p>Tu próxima aventura comienza aquí.</p>
+    <div>
+        <button class="btn btn-primary">Comprar Ahora</button>
+        <button class="btn btn-secondary">Ver Catálogo</button>
+    </div>
 </section>
-<section class="stats">
-  <div><h2>2.500+</h2><p>Rescatados</p></div>
-  <div><h2>1.900+</h2><p>Adoptados</p></div>
-  <div><h2>400+</h2><p>Voluntarios</p></div>
-  <div><h2>15</h2><p>Años</p></div>
+<section id="servicios">
+    <h2 style="text-align:center; margin-bottom: 3rem;">Nuestros Servicios</h2>
+    <div class="grid">
+        <div class="card"><h3>Juegos Digitales</h3><p>Entrega inmediata de códigos originales.</p></div>
+        <div class="card"><h3>Consolas</h3><p>PS5, Xbox Series X/S y Nintendo Switch.</p></div>
+        <div class="card"><h3>Accesorios</h3><p>Periféricos premium para tu setup.</p></div>
+        <div class="card"><h3>Tarjetas</h3><p>PSN, Xbox y Steam Gift Cards.</p></div>
+    </div>
 </section>
-<section class="section">
-  <h2 style="text-align: center; margin-bottom: 40px;">Cómo puedes ayudar</h2>
-  <div class="grid">
-    <div class="card"><h3>Adoptar</h3><p>Dale un hogar definitivo.</p></div>
-    <div class="card"><h3>Apadrinar</h3><p>Cubre sus gastos médicos.</p></div>
-    <div class="card"><h3>Voluntariado</h3><p>Sé parte de nuestro equipo.</p></div>
-  </div>
+<section id="contacto" style="background:#111">
+    <h2 style="text-align:center">Contacto</h2>
+    <p style="text-align:center">WhatsApp: +57 300 123 4567 | contacto@gamezone.com</p>
+    <p style="text-align:center">Centro Comercial Gamer Plaza, Local 205</p>
 </section>
+<a href="https://wa.me/573001234567" class="whatsapp-float">W</a>
 <footer>
-  <p>&copy; 2023 Huellitas de Esperanza. Todos los derechos reservados.</p>
+    <p>&copy; 2024 GameZone Store. Todos los derechos reservados.</p>
 </footer>
 </body>
 </html>
