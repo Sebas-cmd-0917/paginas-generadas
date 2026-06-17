@@ -3,51 +3,67 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Elite Boutique | Exclusividad y Lujo</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+<title>Huellitas de Esperanza | Rescate Animal</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 <style>
 :root {
---bg-color: #0a0a0a;
---gold: #c5a059;
---white: #ffffff;
---text: #e0e0e0;
+  --blanco: #FFFFFF;
+  --azul: #87CEEB;
+  --verde: #7BC96F;
+  --naranja: #FFA94D;
+  --oscuro: #333333;
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { background-color: var(--bg-color); color: var(--text); font-family: 'Montserrat', sans-serif; line-height: 1.6; }
-h1, h2 { font-family: 'Playfair Display', serif; color: var(--gold); }
-header { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&q=80&w=2000'); background-size: cover; }
-.cta-button { margin-top: 20px; padding: 15px 40px; border: 1px solid var(--gold); color: var(--gold); text-transform: uppercase; letter-spacing: 2px; text-decoration: none; transition: 0.3s; }
-.cta-button:hover { background: var(--gold); color: var(--bg-color); }
-section { padding: 80px 20px; max-width: 1200px; margin: auto; }
-.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; margin-top: 40px; }
-.card { border: 1px solid #333; padding: 20px; text-align: center; transition: 0.5s; }
-.card:hover { border-color: var(--gold); transform: translateY(-10px); }
-footer { text-align: center; padding: 40px; border-top: 1px solid #333; font-size: 0.9rem; }
-@media (max-width: 768px) { .hero h1 { font-size: 2rem; } }
+body { font-family: 'Poppins', sans-serif; line-height: 1.6; color: var(--oscuro); }
+header { background: var(--blanco); padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+nav a { margin: 0 10px; text-decoration: none; color: var(--oscuro); font-weight: 600; }
+.btn-cta { background: var(--naranja); color: var(--blanco); padding: 10px 20px; border-radius: 25px; text-decoration: none; font-weight: bold; }
+.hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: linear-gradient(rgba(135,206,235,0.7), rgba(123,201,111,0.7)); color: var(--blanco); }
+.hero h1 { font-size: 3rem; margin-bottom: 20px; }
+.stats { display: flex; justify-content: space-around; padding: 50px; background: var(--verde); color: var(--blanco); }
+.section { padding: 80px 10%; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
+.card { padding: 20px; border-radius: 15px; background: #f9f9f9; text-align: center; transition: transform 0.3s; }
+.card:hover { transform: translateY(-10px); }
+footer { background: var(--oscuro); color: var(--blanco); text-align: center; padding: 40px; }
+@media (max-width: 768px) { .hero h1 { font-size: 2rem; } nav { display: none; } }
 </style>
 </head>
 <body>
 <header>
-<h1>ELITE BOUTIQUE</h1>
-<p>La esencia del lujo, la autenticidad en cada detalle.</p>
-<a href="#contacto" class="cta-button">Descubre la Colección</a>
+  <div class="logo">Huellitas de Esperanza</div>
+  <nav>
+    <a href="#">Inicio</a>
+    <a href="#">Adopción</a>
+    <a href="#">Ayuda</a>
+    <a href="#">Contacto</a>
+  </nav>
+  <a href="#" class="btn-cta">Adopta Ahora</a>
 </header>
-<section id="servicios">
-<h2>Nuestra Selección Premium</h2>
-<div class="grid">
-<div class="card"><h3>Moda de Lujo</h3><p>Piezas exclusivas con elegancia atemporal.</p></div>
-<div class="card"><h3>Perfumería</h3><p>Aromas auténticos para una presencia inolvidable.</p></div>
-<div class="card"><h3>Accesorios</h3><p>Bolsos, gafas y gorras de marcas internacionales.</p></div>
-</div>
+<section class="hero">
+  <h1>Cada huella merece una segunda oportunidad</h1>
+  <p>Rescatamos, rehabilitamos y encontramos hogares llenos de amor.</p>
+  <div style="margin-top: 30px;">
+    <a href="#" class="btn-cta" style="background: var(--azul);">Adoptar</a>
+    <a href="#" class="btn-cta" style="background: var(--verde);">Donar</a>
+  </div>
 </section>
-<section id="garantia">
-<h2>Compromiso de Autenticidad</h2>
-<p>En Elite Boutique, cada producto es seleccionado cuidadosamente para garantizar originalidad absoluta y calidad premium. Tu estilo merece lo mejor del mercado global.</p>
+<section class="stats">
+  <div><h2>2.500+</h2><p>Rescatados</p></div>
+  <div><h2>1.900+</h2><p>Adoptados</p></div>
+  <div><h2>400+</h2><p>Voluntarios</p></div>
+  <div><h2>15</h2><p>Años</p></div>
 </section>
-<footer id="contacto">
-<p>Elite Boutique | Exclusividad 2026</p>
-<p>Síguenos en Instagram y TikTok | Contáctanos por WhatsApp</p>
-<p>© 2026 Elite Boutique. Todos los derechos reservados.</p>
+<section class="section">
+  <h2 style="text-align: center; margin-bottom: 40px;">Cómo puedes ayudar</h2>
+  <div class="grid">
+    <div class="card"><h3>Adoptar</h3><p>Dale un hogar definitivo.</p></div>
+    <div class="card"><h3>Apadrinar</h3><p>Cubre sus gastos médicos.</p></div>
+    <div class="card"><h3>Voluntariado</h3><p>Sé parte de nuestro equipo.</p></div>
+  </div>
+</section>
+<footer>
+  <p>&copy; 2023 Huellitas de Esperanza. Todos los derechos reservados.</p>
 </footer>
 </body>
 </html>
