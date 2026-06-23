@@ -3,65 +3,59 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GameZone Store | Tu próxima aventura comienza aquí</title>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+<title>Elite Motors Luxury | Exclusividad en movimiento</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
 <style>
 :root {
-    --bg-dark: #0a0a0c;
-    --primary-blue: #00d4ff;
-    --primary-purple: #9d00ff;
-    --text-color: #ffffff;
-    --accent-rgb: 0, 212, 255;
+  --bg-color: #000000;
+  --accent-color: #d4af37;
+  --text-color: #ffffff;
+  --secondary-text: #f0f0f0;
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: 'Roboto', sans-serif; background-color: var(--bg-dark); color: var(--text-color); line-height: 1.6; }
-h1, h2, h3 { font-family: 'Orbitron', sans-serif; text-transform: uppercase; }
-header { padding: 2rem; display: flex; justify-content: space-between; align-items: center; background: rgba(0,0,0,0.8); position: sticky; top: 0; z-index: 1000; }
-.hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: linear-gradient(rgba(10,10,12,0.7), rgba(10,10,12,0.7)), url('https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover; }
-.btn { padding: 1rem 2rem; border: none; cursor: pointer; font-weight: bold; text-transform: uppercase; transition: 0.3s; border-radius: 5px; margin: 10px; }
-.btn-primary { background: var(--primary-blue); color: #000; }
-.btn-secondary { background: transparent; border: 2px solid var(--primary-purple); color: #fff; }
-section { padding: 4rem 2rem; }
-.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
-.card { background: #1a1a1f; padding: 2rem; border-radius: 10px; border-bottom: 3px solid var(--primary-blue); transition: 0.3s; }
-.card:hover { border-bottom-color: var(--primary-purple); transform: translateY(-10px); }
-footer { background: #000; padding: 2rem; text-align: center; border-top: 1px solid #333; }
-.whatsapp-float { position: fixed; bottom: 20px; right: 20px; background: #25D366; color: white; padding: 15px; border-radius: 50%; font-size: 24px; z-index: 999; }
+body { font-family: 'Montserrat', sans-serif; background-color: var(--bg-color); color: var(--text-color); line-height: 1.6; }
+header { padding: 2rem; text-align: center; border-bottom: 1px solid var(--accent-color); }
+.hero { padding: 100px 20px; text-align: center; background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1503376780353-7e11c271fb18?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover; }
+.hero h1 { font-size: 3rem; color: var(--accent-color); margin-bottom: 20px; }
+.hero p { font-size: 1.2rem; margin-bottom: 30px; }
+.btn { display: inline-block; padding: 15px 30px; background: var(--accent-color); color: #000; text-decoration: none; font-weight: bold; border-radius: 5px; transition: 0.3s; }
+.btn:hover { background: #fff; }
+section { padding: 60px 20px; max-width: 1000px; margin: auto; }
+h2 { text-align: center; color: var(--accent-color); margin-bottom: 40px; font-size: 2.5rem; }
+.servicios { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+.servicio-card { border: 1px solid var(--accent-color); padding: 20px; text-align: center; }
+.contacto { background: #111; text-align: center; }
+footer { text-align: center; padding: 20px; font-size: 0.8rem; border-top: 1px solid #333; }
 </style>
 </head>
 <body>
 <header>
-    <h2 style="color: var(--primary-blue)">GAMEZONE STORE</h2>
-    <nav>
-        <a href="#servicios" style="color:white; margin:0 15px; text-decoration:none">Servicios</a>
-        <a href="#contacto" style="color:white; margin:0 15px; text-decoration:none">Contacto</a>
-    </nav>
+<h1>Elite Motors Luxury</h1>
 </header>
 <section class="hero">
-    <h1>Descubre los mejores videojuegos del momento</h1>
-    <p>Tu próxima aventura comienza aquí.</p>
-    <div>
-        <button class="btn btn-primary">Comprar Ahora</button>
-        <button class="btn btn-secondary">Ver Catálogo</button>
-    </div>
+<h1>Donde la exclusividad encuentra el camino.</h1>
+<p>Liderando el mercado de vehículos de alta gama en Colombia.</p>
+<a href="#contacto" class="btn">Solicitar Asesoría</a>
 </section>
-<section id="servicios">
-    <h2 style="text-align:center; margin-bottom: 3rem;">Nuestros Servicios</h2>
-    <div class="grid">
-        <div class="card"><h3>Juegos Digitales</h3><p>Entrega inmediata de códigos originales.</p></div>
-        <div class="card"><h3>Consolas</h3><p>PS5, Xbox Series X/S y Nintendo Switch.</p></div>
-        <div class="card"><h3>Accesorios</h3><p>Periféricos premium para tu setup.</p></div>
-        <div class="card"><h3>Tarjetas</h3><p>PSN, Xbox y Steam Gift Cards.</p></div>
-    </div>
+<section>
+<h2>Nuestros Servicios</h2>
+<div class="servicios">
+<div class="servicio-card"><h3>Venta de vehículos premium</h3></div>
+<div class="servicio-card"><h3>Financiación personalizada</h3></div>
+<div class="servicio-card"><h3>Compra y venta de usados</h3></div>
+<div class="servicio-card"><h3>Importación de vehículos</h3></div>
+<div class="servicio-card"><h3>Seguros y garantías</h3></div>
+<div class="servicio-card"><h3>Detailing profesional</h3></div>
+</div>
 </section>
-<section id="contacto" style="background:#111">
-    <h2 style="text-align:center">Contacto</h2>
-    <p style="text-align:center">WhatsApp: +57 300 123 4567 | contacto@gamezone.com</p>
-    <p style="text-align:center">Centro Comercial Gamer Plaza, Local 205</p>
+<section id="contacto" class="contacto">
+<h2>Contacto</h2>
+<p>Teléfono: +57 310 888 4545</p>
+<p>Email: ventas@elitemotorsluxury.com</p>
+<p>Dirección: Carrera 51B #82-254, Barranquilla, Colombia</p>
 </section>
-<a href="https://wa.me/573001234567" class="whatsapp-float">W</a>
 <footer>
-    <p>&copy; 2024 GameZone Store. Todos los derechos reservados.</p>
+&copy; 2024 Elite Motors Luxury. Todos los derechos reservados.
 </footer>
 </body>
 </html>
