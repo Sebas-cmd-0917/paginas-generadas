@@ -3,73 +3,60 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Codeflow Soluciones Digitales</title>
+<title>Codeflow Soluciones Digitales | Software y Automatización</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
 <style>
 :root {
-    --bg-color: #0a0a0c;
+    --bg-dark: #0a0a0c;
     --card-bg: #16161a;
-    --text-color: #e4e4e7;
+    --text-main: #e4e4e7;
     --accent-blue: #00d4ff;
     --accent-purple: #9d4edd;
 }
-body {
-    font-family: 'Inter', sans-serif;
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    margin: 0;
-    line-height: 1.6;
-}
-header {
-    padding: 2rem;
-    text-align: center;
-}
-.hero {
-    padding: 4rem 2rem;
-    text-align: center;
-    background: linear-gradient(135deg, var(--bg-color), var(--card-bg));
-}
-h1 { font-size: 3rem; margin-bottom: 0.5rem; color: var(--accent-blue); }
-.cta-button {
-    display: inline-block;
-    padding: 1rem 2rem;
-    background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-    margin-top: 2rem;
-}
-.services { padding: 4rem 2rem; max-width: 1000px; margin: auto; }
-.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
-.card { background: var(--card-bg); padding: 2rem; border-radius: 10px; border-left: 4px solid var(--accent-purple); }
-.contact { padding: 4rem 2rem; background: var(--card-bg); text-align: center; }
-footer { padding: 2rem; text-align: center; font-size: 0.9rem; opacity: 0.7; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Inter', sans-serif; background-color: var(--bg-dark); color: var(--text-main); line-height: 1.6; }
+.container { max-width: 1100px; margin: auto; padding: 0 20px; }
+header { padding: 2rem 0; text-align: center; font-weight: 700; font-size: 1.5rem; letter-spacing: 2px; color: var(--accent-blue); }
+.hero { padding: 80px 0; text-align: center; }
+.hero h1 { font-size: 3.5rem; margin-bottom: 1rem; }
+.hero p { font-size: 1.2rem; color: #a1a1aa; margin-bottom: 2rem; }
+.cta { display: inline-block; padding: 15px 35px; background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple)); color: #fff; text-decoration: none; border-radius: 50px; font-weight: bold; }
+.services { padding: 80px 0; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 40px; }
+.card { background: var(--card-bg); padding: 30px; border-radius: 15px; border-bottom: 3px solid var(--accent-blue); }
+.card h3 { color: var(--accent-purple); margin-bottom: 15px; }
+.contact { padding: 80px 0; background: #0f0f12; text-align: center; }
+footer { padding: 40px 0; text-align: center; font-size: 0.8rem; border-top: 1px solid #222; }
+@media (max-width: 768px) { .hero h1 { font-size: 2.5rem; } }
 </style>
 </head>
 <body>
-<header>
-    <h2>CODEFLOW</h2>
-</header>
+<header>CODEFLOW</header>
 <section class="hero">
-    <h1>Codeflow Soluciones Digitales</h1>
-    <p>Escalando tu código, automatizando tu éxito.</p>
-    <a href="#contacto" class="cta-button">Empezar Proyecto</a>
+    <div class="container">
+        <h1>Escalando tu código, automatizando tu éxito.</h1>
+        <p>Expertos en desarrollo de software a medida, aplicaciones web y automatización con IA.</p>
+        <a href="#contacto" class="cta">Solicitar Consultoría</a>
+    </div>
 </section>
 <section class="services">
-    <h2 style="text-align: center; color: var(--accent-blue);">Nuestros Servicios</h2>
-    <div class="grid">
-        <div class="card"><h3>Aplicaciones Web</h3><p>Desarrollo full stack robusto con Java y Spring Boot.</p></div>
-        <div class="card"><h3>Automatización</h3><p>Optimización de flujos de trabajo mediante n8n.</p></div>
-        <div class="card"><h3>IA y Chatbots</h3><p>Creación de agentes inteligentes con Botpress.</p></div>
-        <div class="card"><h3>Soporte Técnico</h3><p>Mantenimiento especializado para tus soluciones digitales.</p></div>
+    <div class="container">
+        <h2 style="text-align: center; margin-bottom: 20px;">Nuestros Servicios</h2>
+        <div class="grid">
+            <div class="card"><h3>Desarrollo Web</h3><p>Aplicaciones robustas y escalables full stack utilizando Java y Spring Boot.</p></div>
+            <div class="card"><h3>Automatización</h3><p>Optimización de flujos de trabajo empresariales mediante n8n.</p></div>
+            <div class="card"><h3>IA Conversacional</h3><p>Creación de chatbots inteligentes altamente eficientes con Botpress.</p></div>
+            <div class="card"><h3>Soporte Técnico</h3><p>Atención especializada y mantenimiento continuo para tu infraestructura digital.</p></div>
+        </div>
     </div>
 </section>
 <section id="contacto" class="contact">
-    <h2>Contacto</h2>
-    <p>Teléfono: +57 310 987 6543</p>
-    <p>Correo: proyectos@codeflow.com.co</p>
-    <p>Ubicación: Centro Empresarial, Bucaramanga, Santander</p>
+    <div class="container">
+        <h2>Contacto</h2>
+        <p>Teléfono: +57 310 987 6543</p>
+        <p>Email: proyectos@codeflow.com.co</p>
+        <p>Centro Empresarial, Bucaramanga, Santander</p>
+    </div>
 </section>
 <footer>
     &copy; 2024 Codeflow Soluciones Digitales. Todos los derechos reservados.
