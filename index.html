@@ -3,58 +3,76 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>KHC - Automatización y Agentes Inteligentes</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+<title>Codeflow Soluciones Digitales</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
 <style>
 :root {
-    --primary: #2563eb;
-    --dark: #1e293b;
-    --light: #f8fafc;
-    --accent: #38bdf8;
+    --bg-color: #0a0a0c;
+    --card-bg: #16161a;
+    --text-color: #e4e4e7;
+    --accent-blue: #00d4ff;
+    --accent-purple: #9d4edd;
 }
-body { font-family: 'Inter', sans-serif; margin: 0; color: var(--dark); line-height: 1.6; }
-header { background: var(--dark); color: white; padding: 2rem 1rem; text-align: center; }
-.container { max-width: 1000px; margin: 0 auto; padding: 2rem; }
-.hero { text-align: center; padding: 4rem 1rem; background: var(--light); }
-.btn { background: var(--primary); color: white; padding: 1rem 2rem; border: none; border-radius: 5px; cursor: pointer; text-decoration: none; font-weight: bold; }
-.services { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem; }
-.card { border: 1px solid #e2e8f0; padding: 1.5rem; border-radius: 8px; background: white; }
-footer { text-align: center; padding: 2rem; background: var(--dark); color: white; margin-top: 3rem; }
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    line-height: 1.6;
+}
+header {
+    padding: 2rem;
+    text-align: center;
+}
+.hero {
+    padding: 4rem 2rem;
+    text-align: center;
+    background: linear-gradient(135deg, var(--bg-color), var(--card-bg));
+}
+h1 { font-size: 3rem; margin-bottom: 0.5rem; color: var(--accent-blue); }
+.cta-button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-top: 2rem;
+}
+.services { padding: 4rem 2rem; max-width: 1000px; margin: auto; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
+.card { background: var(--card-bg); padding: 2rem; border-radius: 10px; border-left: 4px solid var(--accent-purple); }
+.contact { padding: 4rem 2rem; background: var(--card-bg); text-align: center; }
+footer { padding: 2rem; text-align: center; font-size: 0.9rem; opacity: 0.7; }
 </style>
 </head>
 <body>
 <header>
-    <h1>KHC - Gestión Proactiva Total</h1>
-    <p>Optimizando su negocio mediante automatización inteligente</p>
+    <h2>CODEFLOW</h2>
 </header>
 <section class="hero">
-    <h2>Soluciones de Automatización de Alto Nivel</h2>
-    <p>Implementamos agentes de IA y flujos de trabajo personalizados para maximizar su productividad.</p>
-    <a href="#contacto" class="btn">Solicitar Consultoría</a>
+    <h1>Codeflow Soluciones Digitales</h1>
+    <p>Escalando tu código, automatizando tu éxito.</p>
+    <a href="#contacto" class="cta-button">Empezar Proyecto</a>
 </section>
-<div class="container">
-    <div class="services">
-        <div class="card">
-            <h3>Gestión Contractual</h3>
-            <p>Procesamiento automatizado de alertas y seguimiento inteligente de fechas críticas para contratos.</p>
-        </div>
-        <div class="card">
-            <h3>Agentes Comerciales</h3>
-            <p>Gestión de prospectos vía LinkedIn y WhatsApp, junto con análisis comparativo de propuestas potenciado por IA.</p>
-        </div>
-        <div class="card">
-            <h3>Full Service & Formación</h3>
-            <p>Automatización de cotizaciones y recordatorios de proyectos mediante flujos avanzados de n8n.</p>
-        </div>
+<section class="services">
+    <h2 style="text-align: center; color: var(--accent-blue);">Nuestros Servicios</h2>
+    <div class="grid">
+        <div class="card"><h3>Aplicaciones Web</h3><p>Desarrollo full stack robusto con Java y Spring Boot.</p></div>
+        <div class="card"><h3>Automatización</h3><p>Optimización de flujos de trabajo mediante n8n.</p></div>
+        <div class="card"><h3>IA y Chatbots</h3><p>Creación de agentes inteligentes con Botpress.</p></div>
+        <div class="card"><h3>Soporte Técnico</h3><p>Mantenimiento especializado para tus soluciones digitales.</p></div>
     </div>
-    <section id="contacto" style="margin-top: 4rem;">
-        <h2>Contacto</h2>
-        <p>¿Listo para transformar su operativa? Escríbanos para una asesoría personalizada.</p>
-        <p>Email: contacto@khc-gestion.com</p>
-    </section>
-</div>
+</section>
+<section id="contacto" class="contact">
+    <h2>Contacto</h2>
+    <p>Teléfono: +57 310 987 6543</p>
+    <p>Correo: proyectos@codeflow.com.co</p>
+    <p>Ubicación: Centro Empresarial, Bucaramanga, Santander</p>
+</section>
 <footer>
-    &copy; 2024 KHC - Gestión Proactiva Total. Todos los derechos reservados.
+    &copy; 2024 Codeflow Soluciones Digitales. Todos los derechos reservados.
 </footer>
 </body>
 </html>
