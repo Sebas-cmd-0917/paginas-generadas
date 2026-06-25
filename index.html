@@ -7,54 +7,64 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
 <style>
 :root {
-    --bg-dark: #0a0a0c;
-    --card-bg: #16161a;
-    --text-color: #e4e4e7;
-    --accent-blue: #00d4ff;
-    --accent-purple: #9d4edd;
+  --bg-color: #0a0a0a;
+  --section-bg: #121212;
+  --text-color: #e0e0e0;
+  --accent-blue: #00f2ff;
+  --accent-purple: #9d00ff;
+  --white: #ffffff;
 }
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: 'Inter', sans-serif; background-color: var(--bg-dark); color: var(--text-color); line-height: 1.6; }
-.container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
-header { padding: 2rem 0; font-weight: 700; letter-spacing: 1px; color: var(--accent-blue); }
-.hero { padding: 100px 0; text-align: center; }
-h1 { font-size: 3.5rem; margin-bottom: 1rem; color: #fff; }
-.eslogan { font-size: 1.5rem; color: var(--accent-purple); margin-bottom: 2rem; }
-.cta-btn { display: inline-block; padding: 15px 40px; background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple)); color: white; text-decoration: none; border-radius: 5px; font-weight: bold; transition: opacity 0.3s; }
-.cta-btn:hover { opacity: 0.9; }
-.services { padding: 80px 0; background: var(--card-bg); }
-.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 40px; }
-.card { padding: 30px; border-left: 4px solid var(--accent-blue); background: rgba(0,0,0,0.2); }
-.contact { padding: 80px 0; text-align: center; }
-footer { padding: 40px; text-align: center; font-size: 0.8rem; border-top: 1px solid #222; }
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  margin: 0;
+  line-height: 1.6;
+}
+header {
+  padding: 2rem;
+  text-align: center;
+  background: linear-gradient(180deg, #1a1a1a 0%, var(--bg-color) 100%);
+}
+.hero {
+  padding: 4rem 2rem;
+  text-align: center;
+}
+h1 { font-size: 3rem; margin-bottom: 1rem; color: var(--white); }
+.gradient-text { background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.btn { display: inline-block; padding: 1rem 2rem; background: var(--accent-blue); color: var(--bg-color); text-decoration: none; font-weight: bold; border-radius: 5px; margin-top: 2rem; }
+section { padding: 4rem 2rem; max-width: 1000px; margin: auto; }
+.services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
+.card { background: var(--section-bg); padding: 2rem; border-left: 4px solid var(--accent-purple); border-radius: 8px; }
+footer { text-align: center; padding: 2rem; border-top: 1px solid #333; font-size: 0.9rem; }
 </style>
 </head>
 <body>
-<header class="container">GALERÍA MAJESTIC</header>
-<section class="hero container">
-    <h1>Soluciones Digitales Avanzadas</h1>
-    <p class="eslogan">Escalando tu código, automatizando tu éxito.</p>
-    <a href="#contacto" class="cta-btn">INICIAR PROYECTO</a>
+<header>
+  <h1>Galería Majestic Soluciones Digitales</h1>
+</header>
+<section class="hero">
+  <h2>Escalando tu código, automatizando tu éxito.</h2>
+  <p>Expertos en desarrollo de software, IA y soluciones web de alto impacto.</p>
+  <a href="#contacto" class="btn">Solicitar Consultoría</a>
 </section>
-<section class="services">
-    <div class="container">
-        <h2 style="text-align: center;">Nuestros Servicios</h2>
-        <div class="grid">
-            <div class="card"><h3>Aplicaciones Web</h3><p>Desarrollo Full Stack especializado con Java y Spring Boot.</p></div>
-            <div class="card"><h3>Automatización</h3><p>Optimización de procesos empresariales mediante n8n.</p></div>
-            <div class="card"><h3>IA Inteligente</h3><p>Implementación de chatbots avanzados con Botpress.</p></div>
-            <div class="card"><h3>Soporte Técnico</h3><p>Mantenimiento y soporte especializado para tu negocio.</p></div>
-        </div>
-    </div>
+<section id="servicios">
+  <h2>Nuestros Servicios</h2>
+  <div class="services-grid">
+    <div class="card"><h3>Desarrollo Web</h3><p>Soluciones Full Stack robustas con Java y Spring Boot.</p></div>
+    <div class="card"><h3>Automatización</h3><p>Optimización de flujos de trabajo mediante n8n.</p></div>
+    <div class="card"><h3>Inteligencia Artificial</h3><p>Chatbots inteligentes personalizados con Botpress.</p></div>
+    <div class="card"><h3>Soporte Técnico</h3><p>Mantenimiento y atención especializada constante.</p></div>
+  </div>
 </section>
-<section id="contacto" class="contact container">
-    <h2>Contacto</h2>
-    <p>Teléfono: +57 310 987 6543</p>
-    <p>Correo: proyectos@codeflow.com.co</p>
-    <p>Dirección: Centro Empresarial, Bucaramanga, Santander</p>
+<section id="contacto">
+  <h2>Contacto</h2>
+  <p>Teléfono: +57 310 987 6543</p>
+  <p>Email: proyectos@codeflow.com.co</p>
+  <p>Ubicación: Centro Empresarial, Bucaramanga, Santander.</p>
 </section>
 <footer>
-    &copy; 2024 Galería Majestic Soluciones Digitales. Todos los derechos reservados.
+  <p>&copy; 2024 Galería Majestic Soluciones Digitales. Todos los derechos reservados.</p>
 </footer>
 </body>
 </html>
