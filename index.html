@@ -3,58 +3,70 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Galería Majestic Soluciones Digitales</title>
+<title>Codeflow Soluciones Digitales | Desarrollo y Automatización</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg-dark: #0a0a0a;
-  --bg-card: #141414;
-  --accent-blue: #00f2ff;
-  --accent-purple: #9d00ff;
-  --text-main: #ffffff;
-  --text-muted: #a0a0a0;
+    --bg-color: #0a0a0a;
+    --text-color: #ffffff;
+    --accent-blue: #00f2ff;
+    --accent-purple: #9d00ff;
+    --card-bg: #1a1a1a;
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: 'Segoe UI', sans-serif; background-color: var(--bg-dark); color: var(--text-main); line-height: 1.6; }
-header { padding: 2rem; text-align: center; border-bottom: 1px solid #333; }
+body { font-family: 'Inter', sans-serif; background-color: var(--bg-color); color: var(--text-color); line-height: 1.6; }
+header { padding: 2rem; display: flex; justify-content: space-between; align-items: center; }
 .hero { padding: 100px 20px; text-align: center; }
-.hero h1 { font-size: 3.5rem; margin-bottom: 1rem; background: linear-gradient(to right, var(--accent-blue), var(--accent-purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-.hero p { font-size: 1.2rem; color: var(--text-muted); margin-bottom: 2rem; }
-.btn { padding: 15px 30px; background: transparent; border: 2px solid var(--accent-blue); color: var(--accent-blue); text-decoration: none; border-radius: 5px; transition: 0.3s; }
-.btn:hover { background: var(--accent-blue); color: var(--bg-dark); }
-section { padding: 80px 20px; max-width: 1100px; margin: auto; }
-.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
-.card { background: var(--bg-card); padding: 30px; border-radius: 10px; border: 1px solid #222; }
-.card h3 { color: var(--accent-blue); margin-bottom: 15px; }
-footer { padding: 40px; text-align: center; border-top: 1px solid #222; color: var(--text-muted); font-size: 0.9rem; }
+.hero h1 { font-size: 3.5rem; margin-bottom: 1rem; background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.cta-button { padding: 15px 30px; background: transparent; border: 2px solid var(--accent-blue); color: var(--accent-blue); text-decoration: none; border-radius: 5px; transition: 0.3s; }
+.cta-button:hover { background: var(--accent-blue); color: #000; }
+section { padding: 80px 20px; max-width: 1000px; margin: auto; }
+.services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 40px; }
+.card { background: var(--card-bg); padding: 30px; border-radius: 10px; border-top: 4px solid var(--accent-purple); }
+footer { text-align: center; padding: 40px; border-top: 1px solid #333; font-size: 0.9rem; }
+@media (max-width: 768px) { .hero h1 { font-size: 2.5rem; } }
 </style>
 </head>
 <body>
 <header>
-    <h2>GALERÍA MAJESTIC</h2>
+    <h2>Codeflow</h2>
 </header>
 <section class="hero">
-    <h1>Escalando tu código, automatizando tu éxito.</h1>
-    <p>Desarrollo de software a medida, aplicaciones web y automatización con IA.</p>
-    <a href="#contacto" class="btn">Contáctanos</a>
+    <h1>Codeflow Soluciones Digitales</h1>
+    <p>Escalando tu código, automatizando tu éxito.</p>
+    <br><br>
+    <a href="#contacto" class="cta-button">Cotizar Proyecto</a>
 </section>
-<section>
-    <div class="grid">
-        <div class="card"><h3>Desarrollo Web</h3><p>Soluciones Full Stack robustas utilizando Java y Spring Boot.</p></div>
-        <div class="card"><h3>Automatización</h3><p>Optimización de flujos de trabajo empresariales mediante n8n.</p></div>
-        <div class="card"><h3>Inteligencia Artificial</h3><p>Implementación de chatbots inteligentes con Botpress.</p></div>
-        <div class="card"><h3>Soporte Técnico</h3><p>Soporte especializado para garantizar la continuidad de tu negocio.</p></div>
+<section id="servicios">
+    <h2>Nuestros Servicios</h2>
+    <div class="services-grid">
+        <div class="card">
+            <h3>Desarrollo Web</h3>
+            <p>Apps Full Stack con Java y Spring Boot de alto rendimiento.</p>
+        </div>
+        <div class="card">
+            <h3>Automatización</h3>
+            <p>Optimización de flujos de trabajo empresariales mediante n8n.</p>
+        </div>
+        <div class="card">
+            <h3>Chatbots IA</h3>
+            <p>Implementación de agentes inteligentes usando Botpress.</p>
+        </div>
+        <div class="card">
+            <h3>Soporte Técnico</h3>
+            <p>Acompañamiento especializado para el éxito continuo de tu negocio.</p>
+        </div>
     </div>
 </section>
 <section id="contacto">
-    <h2 style="text-align: center; margin-bottom: 30px;">Contacto</h2>
-    <div class="card" style="text-align: center;">
-        <p>Teléfono: +57 310 987 6543</p>
-        <p>Email: proyectos@codeflow.com.co</p>
-        <p>Ubicación: Centro Empresarial, Bucaramanga, Santander</p>
-    </div>
+    <h2>Contacto</h2>
+    <p>¿Listo para llevar tu negocio al siguiente nivel?</p>
+    <p>Teléfono: +57 310 987 6543</p>
+    <p>Email: proyectos@codeflow.com.co</p>
+    <p>Dirección: Centro Empresarial, Bucaramanga, Santander</p>
 </section>
 <footer>
-    <p>&copy; 2024 Galería Majestic Soluciones Digitales. Todos los derechos reservados.</p>
+    <p>&copy; 2024 Codeflow Soluciones Digitales. Todos los derechos reservados.</p>
 </footer>
 </body>
 </html>
