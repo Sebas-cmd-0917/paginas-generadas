@@ -3,19 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KFC - Para Chuparse los Dedos</title>
+    <title>PowerFit Gym - Tu Mejor Versión Empieza Hoy</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #E4002B; /* Rojo KFC */
-            --secondary: #FFC72C; /* Amarillo KFC */
+            --primary: #2C3E50; /* Negro/Gris oscuro para texto */
+            --secondary: #2ECC71; /* Verde lima para acentos */
+            --light-gray: #ECF0F1; /* Gris claro de fondo */
+            --dark-gray: #34495E; /* Gris oscuro para secciones */
             --white: #FFFFFF;
-            --dark: #1A1A1A; /* Negro/Gris oscuro */
-            --light-gray: #F8F9FA;
-            --medium-gray: #ECECEC;
-            --text-color: #333333;
+            --text-color: #555555;
             --border-radius: 12px;
             --transition: all 0.3s ease;
         }
@@ -38,7 +37,8 @@
         }
 
         h1, h2, h3, h4 {
-            color: var(--dark);
+            font-family: 'Montserrat', sans-serif;
+            color: var(--primary);
             line-height: 1.2;
         }
 
@@ -58,8 +58,8 @@
             top: 0;
             left: 0;
             width: 100%;
-            background-color: var(--white);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            background-color: var(--primary);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
             z-index: 1000;
         }
 
@@ -75,7 +75,7 @@
         .logo {
             font-size: 2rem;
             font-weight: 900;
-            color: var(--primary);
+            color: var(--white);
             text-decoration: none;
             letter-spacing: -1px;
             display: flex;
@@ -95,20 +95,20 @@
 
         nav a {
             text-decoration: none;
-            color: var(--dark);
+            color: var(--white);
             font-weight: 600;
             margin-left: 2rem;
             transition: var(--transition);
         }
 
         nav a:hover {
-            color: var(--primary);
+            color: var(--secondary);
         }
 
         /* Hero Section */
         .hero {
             padding: 10rem 2rem 6rem;
-            background: linear-gradient(135deg, var(--primary) 0%, #B3001E 100%);
+            background: linear-gradient(135deg, var(--dark-gray) 0%, #1a2a3a 100%);
             color: var(--white);
             text-align: center;
             position: relative;
@@ -127,7 +127,7 @@
             background: var(--secondary);
             border-radius: 50%;
             filter: blur(150px);
-            opacity: 0.3;
+            opacity: 0.2;
             z-index: 1;
         }
 
@@ -144,7 +144,7 @@
             line-height: 1.1;
             margin-bottom: 1.5rem;
             text-transform: uppercase;
-            text-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            text-shadow: 0 4px 10px rgba(0,0,0,0.4);
             color: var(--white);
         }
 
@@ -157,20 +157,20 @@
         .cta-button {
             display: inline-block;
             background-color: var(--secondary);
-            color: var(--dark);
+            color: var(--primary);
             text-decoration: none;
             padding: 1rem 2.5rem;
             font-weight: 800;
             border-radius: 50px;
             text-transform: uppercase;
-            box-shadow: 0 8px 25px rgba(255, 199, 44, 0.4);
+            box-shadow: 0 8px 25px rgba(46, 204, 113, 0.4);
             transition: var(--transition);
         }
 
         .cta-button:hover {
             transform: translateY(-3px);
-            box-shadow: 0 12px 30px rgba(255, 199, 44, 0.6);
-            background-color: #ffe066;
+            box-shadow: 0 12px 30px rgba(46, 204, 113, 0.6);
+            background-color: #48E693;
         }
 
         /* Section Titles */
@@ -182,7 +182,7 @@
         .section-title h2 {
             font-size: 2.5rem;
             font-weight: 800;
-            color: var(--dark);
+            color: var(--primary);
             position: relative;
             display: inline-block;
             padding-bottom: 10px;
@@ -196,7 +196,7 @@
             transform: translateX(-50%);
             width: 80px;
             height: 4px;
-            background-color: var(--primary);
+            background-color: var(--secondary);
             border-radius: 2px;
         }
 
@@ -208,7 +208,7 @@
 
         .about-us p {
             max-width: 900px;
-            margin: 0 auto 2rem;
+            margin: 0 auto 1.5rem;
             font-size: 1.1rem;
             color: var(--text-color);
         }
@@ -241,7 +241,7 @@
             left: 0;
             width: 100%;
             height: 5px;
-            background-color: var(--primary);
+            background-color: var(--secondary);
             transform: scaleX(0);
             transform-origin: left;
             transition: var(--transition);
@@ -261,18 +261,18 @@
             font-size: 1.5rem;
             font-weight: 800;
             margin-bottom: 0.8rem;
-            color: var(--dark);
+            color: var(--primary);
         }
 
         .service-card p {
-            color: #666;
+            color: var(--text-color);
             font-size: 0.95rem;
         }
 
         .service-card .price {
             font-size: 1.2rem;
             font-weight: 700;
-            color: var(--primary);
+            color: var(--secondary);
             margin-top: 1rem;
             display: block;
         }
@@ -307,7 +307,7 @@
         .why-item .icon {
             font-size: 3rem;
             margin-bottom: 1rem;
-            color: var(--primary);
+            color: var(--secondary);
         }
 
         .why-item h3 {
@@ -318,7 +318,7 @@
 
         .why-item p {
             font-size: 0.95rem;
-            color: #555;
+            color: var(--text-color);
         }
 
         /* Statistics */
@@ -404,12 +404,12 @@
 
         .process-step p {
             font-size: 0.95rem;
-            color: #555;
+            color: var(--text-color);
         }
 
         /* Testimonials */
         .testimonials {
-            background-color: var(--medium-gray);
+            background-color: var(--light-gray);
             text-align: center;
         }
 
@@ -453,11 +453,12 @@
             font-style: italic;
             position: relative;
             z-index: 2;
+            color: var(--text-color);
         }
 
         .testimonial-card .author {
             font-weight: 700;
-            color: var(--dark);
+            color: var(--primary);
             font-size: 1rem;
             display: block;
         }
@@ -487,7 +488,7 @@
             padding: 1.2rem 1.5rem;
             font-size: 1.1rem;
             font-weight: 600;
-            color: var(--dark);
+            color: var(--primary);
             cursor: pointer;
             transition: background-color 0.3s ease;
         }
@@ -499,11 +500,6 @@
         .faq-question.active {
             background-color: var(--primary);
             color: var(--white);
-        }
-
-        .faq-question .arrow {
-            font-size: 1.5rem;
-            transition: transform 0.3s ease;
         }
 
         .faq-question.active .arrow {
@@ -521,7 +517,7 @@
         .faq-answer p {
             padding-bottom: 1.2rem;
             font-size: 0.95rem;
-            color: #555;
+            color: var(--text-color);
         }
 
         /* Contact */
@@ -548,7 +544,7 @@
             font-size: 1.8rem;
             font-weight: 700;
             margin-bottom: 2rem;
-            color: var(--dark);
+            color: var(--primary);
         }
 
         .contact-item {
@@ -560,8 +556,8 @@
         .contact-icon {
             width: 45px;
             height: 45px;
-            background-color: rgba(228, 0, 43, 0.1);
-            color: var(--primary);
+            background-color: rgba(46, 204, 113, 0.1);
+            color: var(--secondary);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -581,13 +577,13 @@
         .contact-text p, .contact-text a {
             font-size: 1rem;
             font-weight: 600;
-            color: var(--dark);
+            color: var(--primary);
             text-decoration: none;
             word-break: break-word;
         }
 
         .contact-text a:hover {
-            color: var(--primary);
+            color: var(--secondary);
         }
 
         .social-links {
@@ -600,7 +596,7 @@
             display: inline-flex;
             width: 45px;
             height: 45px;
-            background-color: var(--dark);
+            background-color: var(--primary);
             color: var(--white);
             border-radius: 50%;
             align-items: center;
@@ -610,13 +606,13 @@
         }
 
         .social-links a:hover {
-            background-color: var(--primary);
+            background-color: var(--secondary);
             transform: translateY(-3px);
             box-shadow: 0 5px 10px rgba(0,0,0,0.2);
         }
 
         .contact-form-block {
-            background-color: var(--primary);
+            background-color: var(--dark-gray);
             padding: 2.5rem;
             border-radius: var(--border-radius);
             color: var(--white);
@@ -640,29 +636,29 @@
 
         .contact-form-block .btn-contact {
             background-color: var(--secondary);
-            color: var(--dark);
+            color: var(--primary);
             text-decoration: none;
             padding: 1rem 2.5rem;
             font-weight: 800;
             border-radius: 50px;
             text-transform: uppercase;
-            box-shadow: 0 8px 25px rgba(255, 199, 44, 0.4);
+            box-shadow: 0 8px 25px rgba(46, 204, 113, 0.4);
             transition: var(--transition);
             text-align: center;
             display: inline-block;
-            max-width: 250px;
+            max-width: 280px;
             margin-top: 1rem;
         }
 
         .contact-form-block .btn-contact:hover {
             transform: translateY(-3px);
-            box-shadow: 0 12px 30px rgba(255, 199, 44, 0.6);
-            background-color: #ffe066;
+            box-shadow: 0 12px 30px rgba(46, 204, 113, 0.6);
+            background-color: #48E693;
         }
 
         /* Footer */
         footer {
-            background-color: var(--dark);
+            background-color: var(--primary);
             color: var(--white);
             text-align: center;
             padding: 3rem 2rem;
@@ -676,7 +672,7 @@
             left: 0;
             width: 100%;
             height: 4px;
-            background: linear-gradient(to right, var(--primary), var(--secondary));
+            background: linear-gradient(to right, var(--secondary), var(--primary));
         }
 
         footer p {
@@ -705,7 +701,7 @@
         }
 
         .footer-social-links a:hover {
-            background-color: var(--primary);
+            background-color: var(--secondary);
             transform: translateY(-3px);
         }
 
@@ -782,15 +778,15 @@
 
     <header>
         <div class="header-container">
-            <a href="#" class="logo">KFC</a>
+            <a href="#" class="logo">PowerFit Gym</a>
             <nav>
                 <a href="#inicio">Inicio</a>
                 <a href="#nosotros">Sobre Nosotros</a>
-                <a href="#menu">Menú</a>
-                <a href="#elegirnos">¿Por qué Elegirnos?</a>
-                <a href="#proceso">Nuestro Proceso</a>
+                <a href="#servicios">Servicios</a>
+                <a href="#elegirnos">¿Por Qué Elegirnos?</a>
+                <a href="#proceso">Proceso</a>
                 <a href="#testimonios">Testimonios</a>
-                <a href="#preguntas">Preguntas Frecuentes</a>
+                <a href="#preguntas">FAQ</a>
                 <a href="#contacto">Contacto</a>
             </nav>
         </div>
@@ -798,146 +794,151 @@
 
     <section class="hero" id="inicio">
         <div class="hero-content">
-            <h1>KFC: Para Chuparse los Dedos</h1>
-            <p>El inconfundible sabor del pollo frito original con nuestra receta secreta de 11 hierbas y especias. Disfruta con tu familia y amigos, rápido, rico y a buen precio.</p>
-            <a href="#menu" class="cta-button">Pide tu Balde Ahora</a>
+            <h1>PowerFit Gym: Tu Mejor Versión Empieza Hoy</h1>
+            <p>Transforma tu cuerpo y tu salud con entrenamiento profesional y un ambiente de energía inigualable. ¡Alcanza tus metas con nosotros!</p>
+            <a href="#contacto" class="cta-button">Reserva tu Clase Gratis</a>
         </div>
     </section>
 
     <section class="about-us" id="nosotros">
         <div class="container">
             <div class="section-title">
-                <h2>Nuestra Historia de Sabor</h2>
+                <h2>Conoce PowerFit Gym</h2>
             </div>
-            <p>KFC, la reconocida cadena de restaurantes de comida rápida, se especializa en brindar a sus clientes el más delicioso pollo frito, preparado con la receta original del Coronel Sanders. Nos dedicamos a ofrecer una experiencia culinaria única, perfecta para familias, jóvenes y trabajadores que buscan una comida sabrosa, rápida y accesible.</p>
-            <p>Con <strong>más de 70 años de historia global</strong> y presencia en 150 países, KFC ha conquistado el paladar de millones alrededor del mundo. En Colombia, contamos con <strong>más de 300 locales</strong> estratégicamente ubicados en centros comerciales y calles principales, facilitando que siempre tengas un KFC cerca para disfrutar de tu comida favorita.</p>
+            <p>En PowerFit Gym, creemos que tu bienestar es nuestra prioridad. Con <strong>8 años de experiencia</strong> en el mercado de Medellín y dos sedes estratégicamente ubicadas en El Poblado y Laureles, somos el centro de acondicionamiento físico ideal para quienes buscan resultados reales y un acompañamiento profesional.</p>
+            <p>Nuestro gimnasio está diseñado para personas de cualquier nivel, desde principiantes hasta atletas avanzados, que desean bajar de peso, ganar masa muscular, mejorar su salud cardiovascular o simplemente adoptar un estilo de vida más activo. Contamos con <strong>más de 3.500 miembros activos</strong> y un equipo de <strong>15 entrenadores certificados</strong>, todos comprometidos con tu progreso y el logro de tus objetivos. ¡Únete a nuestra comunidad y siente la diferencia!</p>
         </div>
     </section>
 
-    <section class="services" id="menu">
+    <section class="services" id="servicios">
         <div class="section-title">
-            <h2>Nuestro Menú irresistible</h2>
+            <h2>Nuestros Planes y Servicios</h2>
         </div>
         <div class="services-grid">
             <div class="service-card">
-                <h3>Pollo Frito Original</h3>
-                <p>Nuestras icónicas piezas de pollo y baldes familiares, con la receta secreta que nos hace únicos.</p>
-                <span class="price">Desde $12.900</span>
+                <h3>Plan Mensual Ilimitado</h3>
+                <p>Acceso completo a nuestra zona de máquinas de última generación y área de pesas, sin restricciones.</p>
+                <span class="price">Desde $89.000</span>
             </div>
             <div class="service-card">
-                <h3>Hamburguesas y Sándwiches</h3>
-                <p>Deliciosas opciones de pollo crispy, perfectas para un almuerzo rápido y lleno de sabor.</p>
-                <span class="price">Desde $15.900</span>
+                <h3>Entrenamiento Personalizado</h3>
+                <p>Sesiones uno a uno con un entrenador certificado, diseñando un plan de ejercicio a tu medida.</p>
+                <span class="price">Desde $180.000</span>
             </div>
             <div class="service-card">
-                <h3>Combos Individuales</h3>
-                <p>Tu comida completa: pollo, papas y gaseosa, listos para satisfacer tu antojo en cualquier momento.</p>
-                <span class="price">Desde $18.900</span>
+                <h3>Clases Grupales Premium</h3>
+                <p>Disfruta de nuestras energéticas clases de Spinning, Funcional, Yoga y Zumba, incluidas en tu plan.</p>
+                <span class="price">¡Incluido en tu Plan!</span>
             </div>
             <div class="service-card">
-                <h3>Alitas y Bocaditos</h3>
-                <p>Ideales para compartir, nuestras alitas y bocaditos son la opción perfecta para picar entre amigos.</p>
-                <span class="price">Desde $14.900</span>
+                <h3>Valoración y Nutrición</h3>
+                <p>Evaluación física detallada y plan nutricional personalizado con un profesional para optimizar tus resultados.</p>
+                <span class="price">Desde $60.000</span>
             </div>
             <div class="service-card">
-                <h3>Postres y Helados</h3>
-                <p>Termina tu experiencia con un toque dulce. Variedad de postres y helados para todos los gustos.</p>
-                <span class="price">Desde $5.900</span>
+                <h3>Plan Pareja y Estudiante</h3>
+                <p>Benefíciate de descuentos especiales al entrenar con tu pareja o si eres estudiante. Pregunta por las condiciones.</p>
+                <span class="price">¡Con Descuento!</span>
             </div>
         </div>
     </section>
 
     <section class="why-choose-us" id="elegirnos">
         <div class="section-title">
-            <h2>¿Por Qué Elegir KFC?</h2>
+            <h2>¿Por Qué Elegir PowerFit Gym?</h2>
         </div>
         <div class="why-grid">
             <div class="why-item">
-                <div class="icon">✨</div>
-                <h3>Receta Original</h3>
-                <p>La inigualable mezcla de 11 hierbas y especias que nos ha hecho famosos por generaciones.</p>
+                <div class="icon">🏆</div>
+                <h3>Acompañamiento Experto</h3>
+                <p>Entrenadores certificados y un seguimiento mes a mes para asegurar tu progreso constante.</p>
             </div>
             <div class="why-item">
-                <div class="icon">🍗</div>
-                <h3>Pollo Siempre Fresco</h3>
-                <p>Preparamos nuestro pollo fresco cada día en cada uno de nuestros locales para garantizar el mejor sabor.</p>
+                <div class="icon">💪</div>
+                <h3>Instalaciones de Primer Nivel</h3>
+                <p>Equipos de última generación y sedes amplias con aire acondicionado para tu comodidad.</p>
             </div>
             <div class="why-item">
-                <div class="icon">⚡</div>
-                <h3>Servicio Rápido</h3>
-                <p>Disfruta de tu pedido en menos de 5 minutos, porque sabemos que tu tiempo es valioso.</p>
+                <div class="icon">⏰</div>
+                <h3>Horario Flexible</h3>
+                <p>Entrena a tu ritmo con nuestro horario extendido, ideal para antes o después de tus actividades.</p>
             </div>
             <div class="why-item">
-                <div class="icon">🛵</div>
-                <h3>Cobertura Total</h3>
-                <p>Domicilios en toda la ciudad a través de nuestra app y línea telefónica para que disfrutes donde estés.</p>
+                <div class="icon">🎉</div>
+                <h3>Primera Clase Gratis</h3>
+                <p>Ven y prueba la experiencia PowerFit sin compromiso. ¡Tu primera clase es por nuestra cuenta!</p>
             </div>
         </div>
     </section>
 
     <section class="stats">
         <div class="section-title">
-            <h2>KFC en Cifras</h2>
+            <h2>Nuestra Trayectoria en Cifras</h2>
         </div>
         <div class="stats-grid">
             <div class="stat-item">
-                <h3>+70</h3>
-                <p>Años de Historia</p>
+                <h3>8</h3>
+                <p>Años de Experiencia</p>
             </div>
             <div class="stat-item">
-                <h3>+150</h3>
-                <p>Países con Sabor</p>
+                <h3>+3.500</h3>
+                <p>Miembros Activos</p>
             </div>
             <div class="stat-item">
-                <h3>+300</h3>
-                <p>Locales en el País</p>
+                <h3>15</h3>
+                <p>Entrenadores Certificados</p>
             </div>
             <div class="stat-item">
-                <h3>Millones</h3>
-                <p>Clientes Satisfechos</p>
+                <h3>2</h3>
+                <p>Sedes en la Ciudad</p>
             </div>
         </div>
     </section>
 
     <section class="how-it-works" id="proceso">
         <div class="section-title">
-            <h2>Nuestro Sencillo Proceso</h2>
+            <h2>Nuestro Proceso Hacia Tu Mejor Versión</h2>
         </div>
         <div class="process-grid">
             <div class="process-step">
                 <div class="step-number">1</div>
-                <h3>Explora el Menú</h3>
-                <p>Descubre todas nuestras deliciosas opciones: desde el pollo original hasta los postres más tentadores.</p>
+                <h3>Valoración Inicial</h3>
+                <p>Comenzamos con una valoración completa de tu estado físico y definimos tus objetivos.</p>
             </div>
             <div class="process-step">
                 <div class="step-number">2</div>
-                <h3>Haz tu Pedido</h3>
-                <p>Realiza tu orden fácilmente por nuestra app, línea telefónica o directamente en tu local más cercano.</p>
+                <h3>Plan Personalizado</h3>
+                <p>Diseñamos un programa de entrenamiento y nutrición adaptado exclusivamente a tus necesidades.</p>
             </div>
             <div class="process-step">
                 <div class="step-number">3</div>
-                <h3>Disfruta el Sabor</h3>
-                <p>Recibe tu comida rápidamente y prepárate para una experiencia de sabor inolvidable.</p>
+                <h3>Entrenamiento y Seguimiento</h3>
+                <p>Ejecuta tu plan con el apoyo constante de nuestros entrenadores y monitorea tu progreso mes a mes.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">4</div>
+                <h3>Resultados Duraderos</h3>
+                <p>Alcanza tu mejor versión y mantén un estilo de vida saludable con hábitos sostenibles.</p>
             </div>
         </div>
     </section>
 
     <section class="testimonials" id="testimonios">
         <div class="section-title">
-            <h2>Lo que Dicen Nuestros Clientes</h2>
+            <h2>Historias de Éxito PowerFit</h2>
         </div>
         <div class="testimonials-grid">
             <div class="testimonial-card">
-                <p>"El mejor pollo crispy, siempre pido el balde familiar para compartir. ¡Nunca decepciona!"</p>
-                <span class="author">Andrés M.</span>
+                <p>"¡Bajé 12 kilos en 6 meses con el plan personalizado! El acompañamiento de los entrenadores en PowerFit hace toda la diferencia. Estoy feliz con mis resultados."</p>
+                <span class="author">Daniela R.</span>
             </div>
             <div class="testimonial-card">
-                <p>"KFC es sinónimo de rapidez, economía y un sabor que nunca falla. Mi opción favorita para cualquier día."</p>
-                <span class="author">Laura P.</span>
+                <p>"Las clases de funcional son adictivas y los entrenadores son súper atentos y motivadores. PowerFit ha cambiado mi rutina de ejercicio por completo."</p>
+                <span class="author">Julián M.</span>
             </div>
             <div class="testimonial-card">
-                <p>"Los combos rinden muchísimo y son perfectos para toda la familia. La calidad es increíble y el precio aún mejor."</p>
-                <span class="author">Carlos R.</span>
+                <p>"Por fin un gimnasio con un horario que se adapta a mi vida y equipos donde no toca hacer fila. La sede es impecable y el ambiente es genial."</p>
+                <span class="author">Sofía L.</span>
             </div>
         </div>
     </section>
@@ -949,34 +950,34 @@
         <div class="faq-list">
             <div class="faq-item">
                 <div class="faq-question">
-                    ¿Hacen domicilios? <span class="arrow">▼</span>
+                    ¿Necesito experiencia previa para entrenar en PowerFit? <span class="arrow">▼</span>
                 </div>
                 <div class="faq-answer">
-                    <p>Sí, puedes hacer tu pedido a domicilio fácilmente a través de nuestra aplicación móvil oficial o llamando a nuestra línea telefónica.</p>
+                    <p>No, en PowerFit Gym adaptamos el entrenamiento a tu nivel. Nuestros entrenadores diseñarán un plan a la medida, ya seas principiante o avanzado.</p>
                 </div>
             </div>
             <div class="faq-item">
                 <div class="faq-question">
-                    ¿Tienen opciones sin picante? <span class="arrow">▼</span>
+                    ¿Puedo congelar mi plan si viajo o por alguna emergencia? <span class="arrow">▼</span>
                 </div>
                 <div class="faq-answer">
-                    <p>Sí, la mayoría de nuestros productos están preparados con la receta original suave, apta para todos los paladares. Puedes consultar con nuestro personal en tienda si tienes alguna duda específica.</p>
+                    <p>Sí, puedes congelar tu plan hasta 30 días al año sin costo adicional. Solo debes notificarlo con antelación en recepción.</p>
                 </div>
             </div>
             <div class="faq-item">
                 <div class="faq-question">
-                    ¿Aceptan pago con tarjeta? <span class="arrow">▼</span>
+                    ¿Tienen parqueadero disponible para los miembros? <span class="arrow">▼</span>
                 </div>
                 <div class="faq-answer">
-                    <p>Sí, aceptamos una amplia variedad de métodos de pago, incluyendo tarjetas de crédito y débito, efectivo y diversas plataformas de pago digital, tanto en nuestros locales como para domicilios.</p>
+                    <p>Sí, ofrecemos parqueadero gratuito para nuestros miembros durante tu horario de entrenamiento en ambas sedes.</p>
                 </div>
             </div>
             <div class="faq-item">
                 <div class="faq-question">
-                    ¿Puedo conocer los valores nutricionales y alérgenos de los productos? <span class="arrow">▼</span>
+                    ¿Cuáles son los métodos de pago aceptados? <span class="arrow">▼</span>
                 </div>
                 <div class="faq-answer">
-                    <p>Sí, la información detallada sobre valores nutricionales y alérgenos está disponible en nuestros locales y en nuestra página web. Te invitamos a consultarla para tomar decisiones informadas.</p>
+                    <p>Aceptamos pagos en efectivo, tarjetas de crédito y débito, y transferencias bancarias. Puedes consultar más opciones en nuestras sedes.</p>
                 </div>
             </div>
         </div>
@@ -984,7 +985,7 @@
 
     <section class="contact" id="contacto">
         <div class="section-title">
-            <h2>Contáctanos y Haz tu Pedido</h2>
+            <h2>Contáctanos y Comienza Hoy</h2>
         </div>
         <div class="contact-grid">
             <div class="contact-info-block">
@@ -992,52 +993,53 @@
                 <div class="contact-item">
                     <div class="contact-icon">📞</div>
                     <div class="contact-text">
-                        <h4>Teléfono</h4>
-                        <p>01 8000 123 456</p>
+                        <h4>Teléfono/WhatsApp</h4>
+                        <p>604 555 1234</p>
                     </div>
                 </div>
                 <div class="contact-item">
                     <div class="contact-icon">✉️</div>
                     <div class="contact-text">
                         <h4>Correo Electrónico</h4>
-                        <a href="mailto:contacto@kfc.com.co">contacto@kfc.com.co</a>
+                        <a href="mailto:hola@powerfitgym.co">hola@powerfitgym.co</a>
                     </div>
                 </div>
                 <div class="contact-item">
                     <div class="contact-icon">📍</div>
                     <div class="contact-text">
-                        <h4>Nuestras Ubicaciones</h4>
-                        <p>Nos encuentras en los principales centros comerciales y calles de las ciudades más importantes del país.</p>
+                        <h4>Sede Principal (El Poblado)</h4>
+                        <p>Carrera 43a #7-50, El Poblado, Medellín</p>
                     </div>
                 </div>
                 <div class="contact-item">
                     <div class="contact-icon">⏰</div>
                     <div class="contact-text">
                         <h4>Horario de Atención</h4>
-                        <p>Lunes a Domingo: 10 a.m. a 11 p.m.</p>
+                        <p>Lun-Vie: 5 a.m. a 10 p.m.</p>
+                        <p>Sáb-Dom: 7 a.m. a 4 p.m.</p>
                     </div>
                 </div>
                 <div class="social-links">
-                    <a href="https://instagram.com/kfc" target="_blank" aria-label="Instagram">📸</a>
-                    <a href="https://facebook.com/kfc" target="_blank" aria-label="Facebook">👍</a>
-                    <a href="https://tiktok.com/@kfc" target="_blank" aria-label="TikTok">🎵</a>
+                    <a href="https://instagram.com/powerfitgym" target="_blank" aria-label="Instagram">📸</a>
+                    <a href="https://facebook.com/powerfitgym" target="_blank" aria-label="Facebook">👍</a>
+                    <a href="https://tiktok.com/@powerfitgym" target="_blank" aria-label="TikTok">🎵</a>
                 </div>
             </div>
 
             <div class="contact-form-block">
-                <h3>¿Listo para saborear?</h3>
-                <p>¡No esperes más! Descarga nuestra app o llama para pedir tu balde de pollo frito favorito. Te esperamos.</p>
-                <a href="mailto:contacto@kfc.com.co" class="btn-contact">Enviar un Mensaje</a>
+                <h3>¡Tu transformación te espera!</h3>
+                <p>Reserva tu clase de prueba gratuita hoy mismo y experimenta el entrenamiento de PowerFit Gym. ¡Te esperamos!</p>
+                <a href="https://wa.me/576045551234" target="_blank" class="btn-contact">Reserva tu Clase Gratis</a>
             </div>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2024 KFC. Todos los derechos reservados.</p>
+        <p>&copy; 2024 PowerFit Gym. Todos los derechos reservados.</p>
         <div class="footer-social-links">
-            <a href="https://instagram.com/kfc" target="_blank" aria-label="Instagram">📸</a>
-            <a href="https://facebook.com/kfc" target="_blank" aria-label="Facebook">👍</a>
-            <a href="https://tiktok.com/@kfc" target="_blank" aria-label="TikTok">🎵</a>
+            <a href="https://instagram.com/powerfitgym" target="_blank" aria-label="Instagram">📸</a>
+            <a href="https://facebook.com/powerfitgym" target="_blank" aria-label="Facebook">👍</a>
+            <a href="https://tiktok.com/@powerfitgym" target="_blank" aria-label="TikTok">🎵</a>
         </div>
     </footer>
 
