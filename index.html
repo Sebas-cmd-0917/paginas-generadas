@@ -1,1077 +1,302 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PowerFit Gym - Tu Mejor Versión Empieza Hoy</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #2C3E50; /* Negro/Gris oscuro para texto */
-            --secondary: #2ECC71; /* Verde lima para acentos */
-            --light-gray: #ECF0F1; /* Gris claro de fondo */
-            --dark-gray: #34495E; /* Gris oscuro para secciones */
-            --white: #FFFFFF;
-            --text-color: #555555;
-            --border-radius: 12px;
-            --transition: all 0.3s ease;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: var(--white);
-            color: var(--text-color);
-            line-height: 1.6;
-        }
-
-        h1, h2, h3, h4 {
-            font-family: 'Montserrat', sans-serif;
-            color: var(--primary);
-            line-height: 1.2;
-        }
-
-        section {
-            padding: 6rem 2rem;
-            position: relative;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        /* Header */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background-color: var(--primary);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-            z-index: 1000;
-        }
-
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1rem 2rem;
-        }
-
-        .logo {
-            font-size: 2rem;
-            font-weight: 900;
-            color: var(--white);
-            text-decoration: none;
-            letter-spacing: -1px;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            text-transform: uppercase;
-        }
-
-        .logo::after {
-            content: '';
-            display: inline-block;
-            width: 12px;
-            height: 12px;
-            background-color: var(--secondary);
-            border-radius: 50%;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: var(--white);
-            font-weight: 600;
-            margin-left: 2rem;
-            transition: var(--transition);
-        }
-
-        nav a:hover {
-            color: var(--secondary);
-        }
-
-        /* Hero Section */
-        .hero {
-            padding: 10rem 2rem 6rem;
-            background: linear-gradient(135deg, var(--dark-gray) 0%, #1a2a3a 100%);
-            color: var(--white);
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            border-bottom-left-radius: 50px;
-            border-bottom-right-radius: 50px;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -20%;
-            right: -10%;
-            width: 500px;
-            height: 500px;
-            background: var(--secondary);
-            border-radius: 50%;
-            filter: blur(150px);
-            opacity: 0.2;
-            z-index: 1;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .hero h1 {
-            font-size: 4rem;
-            font-weight: 900;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-            text-transform: uppercase;
-            text-shadow: 0 4px 10px rgba(0,0,0,0.4);
-            color: var(--white);
-        }
-
-        .hero p {
-            font-size: 1.25rem;
-            margin-bottom: 2.5rem;
-            color: rgba(255, 255, 255, 0.9);
-        }
-
-        .cta-button {
-            display: inline-block;
-            background-color: var(--secondary);
-            color: var(--primary);
-            text-decoration: none;
-            padding: 1rem 2.5rem;
-            font-weight: 800;
-            border-radius: 50px;
-            text-transform: uppercase;
-            box-shadow: 0 8px 25px rgba(46, 204, 113, 0.4);
-            transition: var(--transition);
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 30px rgba(46, 204, 113, 0.6);
-            background-color: #48E693;
-        }
-
-        /* Section Titles */
-        .section-title {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .section-title h2 {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--primary);
-            position: relative;
-            display: inline-block;
-            padding-bottom: 10px;
-        }
-
-        .section-title h2::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background-color: var(--secondary);
-            border-radius: 2px;
-        }
-
-        /* About Us */
-        .about-us {
-            background-color: var(--white);
-            text-align: center;
-        }
-
-        .about-us p {
-            max-width: 900px;
-            margin: 0 auto 1.5rem;
-            font-size: 1.1rem;
-            color: var(--text-color);
-        }
-
-        /* Services Grid */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2.5rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .service-card {
-            background-color: var(--light-gray);
-            border-radius: var(--border-radius);
-            padding: 2.5rem;
-            text-align: center;
-            transition: var(--transition);
-            border: 1px solid rgba(0, 0, 0, 0.03);
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.04);
-        }
-
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background-color: var(--secondary);
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: var(--transition);
-        }
-
-        .service-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
-            background-color: var(--white);
-        }
-
-        .service-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .service-card h3 {
-            font-size: 1.5rem;
-            font-weight: 800;
-            margin-bottom: 0.8rem;
-            color: var(--primary);
-        }
-
-        .service-card p {
-            color: var(--text-color);
-            font-size: 0.95rem;
-        }
-
-        .service-card .price {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: var(--secondary);
-            margin-top: 1rem;
-            display: block;
-        }
-
-        /* Why Choose Us */
-        .why-choose-us {
-            background-color: var(--light-gray);
-        }
-
-        .why-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2.5rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .why-item {
-            background-color: var(--white);
-            border-radius: var(--border-radius);
-            padding: 2rem;
-            text-align: center;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
-            transition: var(--transition);
-        }
-
-        .why-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .why-item .icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            color: var(--secondary);
-        }
-
-        .why-item h3 {
-            font-size: 1.4rem;
-            font-weight: 700;
-            margin-bottom: 0.8rem;
-        }
-
-        .why-item p {
-            font-size: 0.95rem;
-            color: var(--text-color);
-        }
-
-        /* Statistics */
-        .stats {
-            background: var(--primary);
-            color: var(--white);
-            padding: 4rem 2rem;
-            text-align: center;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .stat-item h3 {
-            font-size: 3.5rem;
-            font-weight: 900;
-            margin-bottom: 0.5rem;
-            color: var(--secondary);
-            text-shadow: 0 2px 5px rgba(0,0,0,0.2);
-        }
-
-        .stat-item p {
-            font-size: 1.1rem;
-            font-weight: 600;
-            opacity: 0.9;
-        }
-
-        /* How It Works */
-        .how-it-works {
-            background-color: var(--white);
-        }
-
-        .process-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2.5rem;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .process-step {
-            text-align: center;
-            padding: 2rem;
-            border: 2px dashed var(--secondary);
-            border-radius: var(--border-radius);
-            position: relative;
-            background-color: var(--light-gray);
-            transition: var(--transition);
-        }
-
-        .process-step:hover {
-            background-color: var(--white);
-            border-color: var(--primary);
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-        }
-
-        .process-step .step-number {
-            display: inline-flex;
-            width: 60px;
-            height: 60px;
-            background-color: var(--primary);
-            color: var(--white);
-            border-radius: 50%;
-            font-size: 2rem;
-            font-weight: 900;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1.5rem;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-
-        .process-step h3 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 0.8rem;
-        }
-
-        .process-step p {
-            font-size: 0.95rem;
-            color: var(--text-color);
-        }
-
-        /* Testimonials */
-        .testimonials {
-            background-color: var(--light-gray);
-            text-align: center;
-        }
-
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2.5rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .testimonial-card {
-            background-color: var(--white);
-            padding: 2.5rem;
-            border-radius: var(--border-radius);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-            position: relative;
-            transition: var(--transition);
-            text-align: left;
-        }
-
-        .testimonial-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
-        }
-
-        .testimonial-card::before {
-            content: '❝';
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            font-size: 4rem;
-            color: var(--secondary);
-            opacity: 0.3;
-            z-index: 1;
-        }
-
-        .testimonial-card p {
-            font-size: 1.1rem;
-            margin-bottom: 1.5rem;
-            font-style: italic;
-            position: relative;
-            z-index: 2;
-            color: var(--text-color);
-        }
-
-        .testimonial-card .author {
-            font-weight: 700;
-            color: var(--primary);
-            font-size: 1rem;
-            display: block;
-        }
-
-        /* FAQ */
-        .faq {
-            background-color: var(--white);
-        }
-
-        .faq-list {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .faq-item {
-            background-color: var(--light-gray);
-            border-radius: var(--border-radius);
-            margin-bottom: 1.2rem;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
-        }
-
-        .faq-question {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.2rem 1.5rem;
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--primary);
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .faq-question:hover {
-            background-color: var(--medium-gray);
-        }
-
-        .faq-question.active {
-            background-color: var(--primary);
-            color: var(--white);
-        }
-
-        .faq-question.active .arrow {
-            transform: rotate(180deg);
-        }
-
-        .faq-answer {
-            padding: 0 1.5rem;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease-out, padding 0.4s ease-out;
-            background-color: var(--white);
-        }
-
-        .faq-answer p {
-            padding-bottom: 1.2rem;
-            font-size: 0.95rem;
-            color: var(--text-color);
-        }
-
-        /* Contact */
-        .contact {
-            background-color: var(--light-gray);
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2.5rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .contact-info-block {
-            background-color: var(--white);
-            padding: 2.5rem;
-            border-radius: var(--border-radius);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
-        }
-
-        .contact-info-block h3 {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 2rem;
-            color: var(--primary);
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 1.5rem;
-        }
-
-        .contact-icon {
-            width: 45px;
-            height: 45px;
-            background-color: rgba(46, 204, 113, 0.1);
-            color: var(--secondary);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            margin-right: 1.25rem;
-            flex-shrink: 0;
-        }
-
-        .contact-text h4 {
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            color: #888;
-            margin-bottom: 0.2rem;
-        }
-
-        .contact-text p, .contact-text a {
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--primary);
-            text-decoration: none;
-            word-break: break-word;
-        }
-
-        .contact-text a:hover {
-            color: var(--secondary);
-        }
-
-        .social-links {
-            margin-top: 2rem;
-            display: flex;
-            gap: 1rem;
-        }
-
-        .social-links a {
-            display: inline-flex;
-            width: 45px;
-            height: 45px;
-            background-color: var(--primary);
-            color: var(--white);
-            border-radius: 50%;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.4rem;
-            transition: var(--transition);
-        }
-
-        .social-links a:hover {
-            background-color: var(--secondary);
-            transform: translateY(-3px);
-            box-shadow: 0 5px 10px rgba(0,0,0,0.2);
-        }
-
-        .contact-form-block {
-            background-color: var(--dark-gray);
-            padding: 2.5rem;
-            border-radius: var(--border-radius);
-            color: var(--white);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .contact-form-block h3 {
-            color: var(--white);
-            margin-bottom: 1.5rem;
-            font-size: 2.2rem;
-            font-weight: 800;
-        }
-
-        .contact-form-block p {
-            margin-bottom: 2rem;
-            opacity: 0.9;
-            font-size: 1.1rem;
-        }
-
-        .contact-form-block .btn-contact {
-            background-color: var(--secondary);
-            color: var(--primary);
-            text-decoration: none;
-            padding: 1rem 2.5rem;
-            font-weight: 800;
-            border-radius: 50px;
-            text-transform: uppercase;
-            box-shadow: 0 8px 25px rgba(46, 204, 113, 0.4);
-            transition: var(--transition);
-            text-align: center;
-            display: inline-block;
-            max-width: 280px;
-            margin-top: 1rem;
-        }
-
-        .contact-form-block .btn-contact:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 30px rgba(46, 204, 113, 0.6);
-            background-color: #48E693;
-        }
-
-        /* Footer */
-        footer {
-            background-color: var(--primary);
-            color: var(--white);
-            text-align: center;
-            padding: 3rem 2rem;
-            position: relative;
-        }
-
-        footer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(to right, var(--secondary), var(--primary));
-        }
-
-        footer p {
-            font-size: 0.95rem;
-            opacity: 0.7;
-            margin-bottom: 1rem;
-        }
-
-        .footer-social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-        }
-
-        .footer-social-links a {
-            display: inline-flex;
-            width: 40px;
-            height: 40px;
-            background-color: rgba(255, 255, 255, 0.1);
-            color: var(--white);
-            border-radius: 50%;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            transition: var(--transition);
-        }
-
-        .footer-social-links a:hover {
-            background-color: var(--secondary);
-            transform: translateY(-3px);
-        }
-
-        /* Responsive */
-        @media (max-width: 992px) {
-            .header-container {
-                padding: 0.8rem 1.5rem;
-            }
-            .hero h1 {
-                font-size: 3.2rem;
-            }
-            nav a {
-                margin-left: 1.5rem;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .hero {
-                padding: 8rem 1rem 4rem;
-                border-bottom-left-radius: 30px;
-                border-bottom-right-radius: 30px;
-            }
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            .hero p {
-                font-size: 1.1rem;
-            }
-            nav {
-                display: none; /* Simplificado para la demostración, se usaría un menú hamburguesa real */
-            }
-            .section-title h2 {
-                font-size: 2rem;
-            }
-            .services-grid, .why-grid, .stats-grid, .process-grid, .testimonials-grid, .contact-grid {
-                grid-template-columns: 1fr;
-            }
-            .stat-item h3 {
-                font-size: 3rem;
-            }
-            .faq-question {
-                font-size: 1rem;
-                padding: 1rem 1.2rem;
-            }
-            .faq-answer p {
-                font-size: 0.9rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-            .logo {
-                font-size: 1.6rem;
-            }
-            section {
-                padding: 4rem 1rem;
-            }
-            .section-title {
-                margin-bottom: 3rem;
-            }
-            .cta-button {
-                padding: 0.8rem 2rem;
-                font-size: 0.9rem;
-            }
-            .service-card, .why-item, .process-step, .testimonial-card, .contact-info-block, .contact-form-block {
-                padding: 2rem;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Estudio Brío Arquitectura | Proyectos de diseño y construcción</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Fraunces:ital,opsz,wght@1,9..144,400&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+--bg-color: #FBF7F0;
+--text-main: #1B1B22;
+--text-sec: #8A8578;
+--accent: #A0522D;
+--line: rgba(0,0,0,0.12);
+--font-display: 'Bricolage Grotesque', sans-serif;
+--font-body: 'Inter', sans-serif;
+--font-mono: 'JetBrains Mono', monospace;
+--font-serif: 'Fraunces', serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background-color: var(--bg-color); color: var(--text-main); font-family: var(--font-body); -webkit-font-smoothing: antialiased; }
+header { position: fixed; top: 0; width: 100%; background: var(--bg-color); border-bottom: 1px solid var(--line); z-index: 100; padding: 20px 0; }
+.container { max-width: 1180px; margin: 0 auto; padding: 0 40px; }
+.header-flex { display: flex; justify-content: space-between; align-items: center; }
+.logo { font-family: var(--font-mono); font-weight: 500; font-size: 14px; text-transform: uppercase; letter-spacing: 0.1em; text-decoration: none; color: var(--text-main); }
+.header-meta { font-family: var(--font-mono); font-size: 10px; color: var(--text-sec); text-transform: uppercase; display: flex; gap: 40px; }
+.header-meta b { color: var(--text-main); font-weight: 500; }
+section { padding: 120px 0; }
+.section-tag { font-family: var(--font-mono); font-size: 11px; color: var(--accent); letter-spacing: 0.15em; display: flex; align-items: center; gap: 8px; margin-bottom: 24px; }
+.section-tag::before { content: ""; width: 6px; height: 6px; background: var(--accent); border-radius: 50%; }
+h1, h2 { font-family: var(--font-display); line-height: 1.05; letter-spacing: -0.02em; }
+h1 { font-size: 84px; margin-bottom: 40px; }
+h1 span { font-family: var(--font-serif); font-style: italic; color: var(--accent); }
+h2 { font-size: 48px; margin-bottom: 60px; max-width: 800px; }
+p { font-size: 18px; line-height: 1.6; color: var(--text-main); max-width: 700px; }
+.hero-p { font-size: 22px; margin-bottom: 48px; }
+.btn { display: inline-block; padding: 18px 32px; font-family: var(--font-mono); font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; text-decoration: none; border-radius: 2px; transition: 0.2s; }
+.btn-main { background: var(--accent); color: var(--bg-color); }
+.btn-sec { border: 1px solid var(--line); color: var(--text-main); }
+.btn:hover { opacity: 0.8; }
+.table-report { width: 100%; border-collapse: collapse; margin-top: 40px; }
+.table-report th { text-align: left; font-family: var(--font-mono); font-size: 11px; color: var(--text-sec); padding: 20px 0; border-bottom: 1px solid var(--line); }
+.table-report td { padding: 30px 0; border-bottom: 1px solid var(--line); font-size: 16px; }
+.table-num { font-family: var(--font-mono); font-size: 12px; color: var(--text-sec); width: 60px; }
+.service-name { font-weight: 500; width: 300px; }
+.service-desc { color: var(--text-sec); }
+.service-price { font-family: var(--font-mono); font-size: 14px; text-align: right; }
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
+.grid-item { border-top: 1px solid var(--line); padding-top: 30px; }
+.grid-item h3 { font-family: var(--font-display); font-size: 24px; margin-bottom: 16px; }
+.grid-item p { font-size: 15px; color: var(--text-sec); }
+.stats-row { display: flex; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 60px 0; justify-content: space-between; }
+.stat-box { display: flex; flex-direction: column; gap: 10px; }
+.stat-num { font-family: var(--font-display); font-size: 72px; color: var(--text-main); line-height: 1; }
+.stat-num sup { font-size: 24px; font-family: var(--font-mono); vertical-align: super; margin-left: 4px; }
+.stat-label { font-family: var(--font-mono); font-size: 11px; color: var(--text-sec); letter-spacing: 0.1em; }
+.timeline { border-left: 1px solid var(--line); padding-left: 40px; margin-left: 10px; position: relative; }
+.timeline-item { position: relative; padding-bottom: 60px; }
+.timeline-dot { position: absolute; left: -44px; top: 0; width: 7px; height: 7px; background: var(--bg-color); border: 1px solid var(--accent); border-radius: 50%; }
+.testimonial-box { border-top: 1px solid var(--line); padding-top: 40px; }
+.quote { font-family: var(--font-display); font-size: 32px; margin-bottom: 24px; line-height: 1.2; }
+.author { font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; color: var(--text-sec); }
+.faq-row { border-top: 1px solid var(--line); padding: 40px 0; }
+.faq-q { font-size: 18px; font-weight: 500; margin-bottom: 12px; }
+.faq-a { color: var(--text-sec); }
+.contact-details { font-family: var(--font-mono); font-size: 14px; display: flex; flex-direction: column; gap: 20px; }
+footer { padding: 60px 0; border-top: 1px solid var(--line); }
+.footer-flex { display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 11px; color: var(--text-sec); }
+@media (max-width: 768px) {
+h1 { font-size: 48px; }
+.header-meta { display: none; }
+.grid-2, .grid-3 { grid-template-columns: 1fr; }
+.stats-row { flex-direction: column; gap: 40px; }
+.service-name, .service-price { width: auto; text-align: left; }
+.table-report thead { display: none; }
+.table-report td { display: block; padding: 10px 0; border: none; }
+.table-report tr { display: block; padding: 20px 0; border-bottom: 1px solid var(--line); }
+}
+</style>
 </head>
 <body>
-
-    <header>
-        <div class="header-container">
-            <a href="#" class="logo">PowerFit Gym</a>
-            <nav>
-                <a href="#inicio">Inicio</a>
-                <a href="#nosotros">Sobre Nosotros</a>
-                <a href="#servicios">Servicios</a>
-                <a href="#elegirnos">¿Por Qué Elegirnos?</a>
-                <a href="#proceso">Proceso</a>
-                <a href="#testimonios">Testimonios</a>
-                <a href="#preguntas">FAQ</a>
-                <a href="#contacto">Contacto</a>
-            </nav>
-        </div>
-    </header>
-
-    <section class="hero" id="inicio">
-        <div class="hero-content">
-            <h1>PowerFit Gym: Tu Mejor Versión Empieza Hoy</h1>
-            <p>Transforma tu cuerpo y tu salud con entrenamiento profesional y un ambiente de energía inigualable. ¡Alcanza tus metas con nosotros!</p>
-            <a href="#contacto" class="cta-button">Reserva tu Clase Gratis</a>
-        </div>
-    </section>
-
-    <section class="about-us" id="nosotros">
-        <div class="container">
-            <div class="section-title">
-                <h2>Conoce PowerFit Gym</h2>
-            </div>
-            <p>En PowerFit Gym, creemos que tu bienestar es nuestra prioridad. Con <strong>8 años de experiencia</strong> en el mercado de Medellín y dos sedes estratégicamente ubicadas en El Poblado y Laureles, somos el centro de acondicionamiento físico ideal para quienes buscan resultados reales y un acompañamiento profesional.</p>
-            <p>Nuestro gimnasio está diseñado para personas de cualquier nivel, desde principiantes hasta atletas avanzados, que desean bajar de peso, ganar masa muscular, mejorar su salud cardiovascular o simplemente adoptar un estilo de vida más activo. Contamos con <strong>más de 3.500 miembros activos</strong> y un equipo de <strong>15 entrenadores certificados</strong>, todos comprometidos con tu progreso y el logro de tus objetivos. ¡Únete a nuestra comunidad y siente la diferencia!</p>
-        </div>
-    </section>
-
-    <section class="services" id="servicios">
-        <div class="section-title">
-            <h2>Nuestros Planes y Servicios</h2>
-        </div>
-        <div class="services-grid">
-            <div class="service-card">
-                <h3>Plan Mensual Ilimitado</h3>
-                <p>Acceso completo a nuestra zona de máquinas de última generación y área de pesas, sin restricciones.</p>
-                <span class="price">Desde $89.000</span>
-            </div>
-            <div class="service-card">
-                <h3>Entrenamiento Personalizado</h3>
-                <p>Sesiones uno a uno con un entrenador certificado, diseñando un plan de ejercicio a tu medida.</p>
-                <span class="price">Desde $180.000</span>
-            </div>
-            <div class="service-card">
-                <h3>Clases Grupales Premium</h3>
-                <p>Disfruta de nuestras energéticas clases de Spinning, Funcional, Yoga y Zumba, incluidas en tu plan.</p>
-                <span class="price">¡Incluido en tu Plan!</span>
-            </div>
-            <div class="service-card">
-                <h3>Valoración y Nutrición</h3>
-                <p>Evaluación física detallada y plan nutricional personalizado con un profesional para optimizar tus resultados.</p>
-                <span class="price">Desde $60.000</span>
-            </div>
-            <div class="service-card">
-                <h3>Plan Pareja y Estudiante</h3>
-                <p>Benefíciate de descuentos especiales al entrenar con tu pareja o si eres estudiante. Pregunta por las condiciones.</p>
-                <span class="price">¡Con Descuento!</span>
-            </div>
-        </div>
-    </section>
-
-    <section class="why-choose-us" id="elegirnos">
-        <div class="section-title">
-            <h2>¿Por Qué Elegir PowerFit Gym?</h2>
-        </div>
-        <div class="why-grid">
-            <div class="why-item">
-                <div class="icon">🏆</div>
-                <h3>Acompañamiento Experto</h3>
-                <p>Entrenadores certificados y un seguimiento mes a mes para asegurar tu progreso constante.</p>
-            </div>
-            <div class="why-item">
-                <div class="icon">💪</div>
-                <h3>Instalaciones de Primer Nivel</h3>
-                <p>Equipos de última generación y sedes amplias con aire acondicionado para tu comodidad.</p>
-            </div>
-            <div class="why-item">
-                <div class="icon">⏰</div>
-                <h3>Horario Flexible</h3>
-                <p>Entrena a tu ritmo con nuestro horario extendido, ideal para antes o después de tus actividades.</p>
-            </div>
-            <div class="why-item">
-                <div class="icon">🎉</div>
-                <h3>Primera Clase Gratis</h3>
-                <p>Ven y prueba la experiencia PowerFit sin compromiso. ¡Tu primera clase es por nuestra cuenta!</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="stats">
-        <div class="section-title">
-            <h2>Nuestra Trayectoria en Cifras</h2>
-        </div>
-        <div class="stats-grid">
-            <div class="stat-item">
-                <h3>8</h3>
-                <p>Años de Experiencia</p>
-            </div>
-            <div class="stat-item">
-                <h3>+3.500</h3>
-                <p>Miembros Activos</p>
-            </div>
-            <div class="stat-item">
-                <h3>15</h3>
-                <p>Entrenadores Certificados</p>
-            </div>
-            <div class="stat-item">
-                <h3>2</h3>
-                <p>Sedes en la Ciudad</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="how-it-works" id="proceso">
-        <div class="section-title">
-            <h2>Nuestro Proceso Hacia Tu Mejor Versión</h2>
-        </div>
-        <div class="process-grid">
-            <div class="process-step">
-                <div class="step-number">1</div>
-                <h3>Valoración Inicial</h3>
-                <p>Comenzamos con una valoración completa de tu estado físico y definimos tus objetivos.</p>
-            </div>
-            <div class="process-step">
-                <div class="step-number">2</div>
-                <h3>Plan Personalizado</h3>
-                <p>Diseñamos un programa de entrenamiento y nutrición adaptado exclusivamente a tus necesidades.</p>
-            </div>
-            <div class="process-step">
-                <div class="step-number">3</div>
-                <h3>Entrenamiento y Seguimiento</h3>
-                <p>Ejecuta tu plan con el apoyo constante de nuestros entrenadores y monitorea tu progreso mes a mes.</p>
-            </div>
-            <div class="process-step">
-                <div class="step-number">4</div>
-                <h3>Resultados Duraderos</h3>
-                <p>Alcanza tu mejor versión y mantén un estilo de vida saludable con hábitos sostenibles.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="testimonials" id="testimonios">
-        <div class="section-title">
-            <h2>Historias de Éxito PowerFit</h2>
-        </div>
-        <div class="testimonials-grid">
-            <div class="testimonial-card">
-                <p>"¡Bajé 12 kilos en 6 meses con el plan personalizado! El acompañamiento de los entrenadores en PowerFit hace toda la diferencia. Estoy feliz con mis resultados."</p>
-                <span class="author">Daniela R.</span>
-            </div>
-            <div class="testimonial-card">
-                <p>"Las clases de funcional son adictivas y los entrenadores son súper atentos y motivadores. PowerFit ha cambiado mi rutina de ejercicio por completo."</p>
-                <span class="author">Julián M.</span>
-            </div>
-            <div class="testimonial-card">
-                <p>"Por fin un gimnasio con un horario que se adapta a mi vida y equipos donde no toca hacer fila. La sede es impecable y el ambiente es genial."</p>
-                <span class="author">Sofía L.</span>
-            </div>
-        </div>
-    </section>
-
-    <section class="faq" id="preguntas">
-        <div class="section-title">
-            <h2>Preguntas Frecuentes</h2>
-        </div>
-        <div class="faq-list">
-            <div class="faq-item">
-                <div class="faq-question">
-                    ¿Necesito experiencia previa para entrenar en PowerFit? <span class="arrow">▼</span>
-                </div>
-                <div class="faq-answer">
-                    <p>No, en PowerFit Gym adaptamos el entrenamiento a tu nivel. Nuestros entrenadores diseñarán un plan a la medida, ya seas principiante o avanzado.</p>
-                </div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question">
-                    ¿Puedo congelar mi plan si viajo o por alguna emergencia? <span class="arrow">▼</span>
-                </div>
-                <div class="faq-answer">
-                    <p>Sí, puedes congelar tu plan hasta 30 días al año sin costo adicional. Solo debes notificarlo con antelación en recepción.</p>
-                </div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question">
-                    ¿Tienen parqueadero disponible para los miembros? <span class="arrow">▼</span>
-                </div>
-                <div class="faq-answer">
-                    <p>Sí, ofrecemos parqueadero gratuito para nuestros miembros durante tu horario de entrenamiento en ambas sedes.</p>
-                </div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question">
-                    ¿Cuáles son los métodos de pago aceptados? <span class="arrow">▼</span>
-                </div>
-                <div class="faq-answer">
-                    <p>Aceptamos pagos en efectivo, tarjetas de crédito y débito, y transferencias bancarias. Puedes consultar más opciones en nuestras sedes.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="contact" id="contacto">
-        <div class="section-title">
-            <h2>Contáctanos y Comienza Hoy</h2>
-        </div>
-        <div class="contact-grid">
-            <div class="contact-info-block">
-                <h3>Información de Contacto</h3>
-                <div class="contact-item">
-                    <div class="contact-icon">📞</div>
-                    <div class="contact-text">
-                        <h4>Teléfono/WhatsApp</h4>
-                        <p>604 555 1234</p>
-                    </div>
-                </div>
-                <div class="contact-item">
-                    <div class="contact-icon">✉️</div>
-                    <div class="contact-text">
-                        <h4>Correo Electrónico</h4>
-                        <a href="mailto:hola@powerfitgym.co">hola@powerfitgym.co</a>
-                    </div>
-                </div>
-                <div class="contact-item">
-                    <div class="contact-icon">📍</div>
-                    <div class="contact-text">
-                        <h4>Sede Principal (El Poblado)</h4>
-                        <p>Carrera 43a #7-50, El Poblado, Medellín</p>
-                    </div>
-                </div>
-                <div class="contact-item">
-                    <div class="contact-icon">⏰</div>
-                    <div class="contact-text">
-                        <h4>Horario de Atención</h4>
-                        <p>Lun-Vie: 5 a.m. a 10 p.m.</p>
-                        <p>Sáb-Dom: 7 a.m. a 4 p.m.</p>
-                    </div>
-                </div>
-                <div class="social-links">
-                    <a href="https://instagram.com/powerfitgym" target="_blank" aria-label="Instagram">📸</a>
-                    <a href="https://facebook.com/powerfitgym" target="_blank" aria-label="Facebook">👍</a>
-                    <a href="https://tiktok.com/@powerfitgym" target="_blank" aria-label="TikTok">🎵</a>
-                </div>
-            </div>
-
-            <div class="contact-form-block">
-                <h3>¡Tu transformación te espera!</h3>
-                <p>Reserva tu clase de prueba gratuita hoy mismo y experimenta el entrenamiento de PowerFit Gym. ¡Te esperamos!</p>
-                <a href="https://wa.me/576045551234" target="_blank" class="btn-contact">Reserva tu Clase Gratis</a>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <p>&copy; 2024 PowerFit Gym. Todos los derechos reservados.</p>
-        <div class="footer-social-links">
-            <a href="https://instagram.com/powerfitgym" target="_blank" aria-label="Instagram">📸</a>
-            <a href="https://facebook.com/powerfitgym" target="_blank" aria-label="Facebook">👍</a>
-            <a href="https://tiktok.com/@powerfitgym" target="_blank" aria-label="TikTok">🎵</a>
-        </div>
-    </footer>
-
-    <script>
-        document.querySelectorAll('.faq-question').forEach(item => {
-            item.addEventListener('click', event => {
-                const parent = item.parentElement;
-                const answer = parent.querySelector('.faq-answer');
-                const isActive = item.classList.contains('active');
-
-                // Close all other open answers
-                document.querySelectorAll('.faq-question').forEach(q => {
-                    if (q !== item && q.classList.contains('active')) {
-                        q.classList.remove('active');
-                        q.nextElementSibling.style.maxHeight = null;
-                        q.nextElementSibling.style.padding = '0 1.5rem';
-                    }
-                });
-
-                // Toggle current answer
-                if (isActive) {
-                    item.classList.remove('active');
-                    answer.style.maxHeight = null;
-                    answer.style.padding = '0 1.5rem';
-                } else {
-                    item.classList.add('active');
-                    answer.style.maxHeight = answer.scrollHeight + 'px';
-                    answer.style.padding = '0 1.5rem 1.2rem';
-                }
-            });
-        });
-    </script>
-
+<header>
+<div class="container header-flex">
+<a href="#" class="logo">ESTUDIO BRÍO</a>
+<div class="header-meta">
+<span>DOCUMENTO: <b>024/ARQ</b></span>
+<span>PREPARADO POR: <b>BRÍO ARCH</b></span>
+<span>FECHA: <b>2024</b></span>
+</div>
+</div>
+</header>
+<section id="hero">
+<div class="container">
+<div class="section-tag">01 INTRODUCCIÓN</div>
+<h1>Diseñamos <span>espacios</span> que ordenan la vida.</h1>
+<p class="hero-p">Arquitectura que equilibra lo estético con el control riguroso de tiempos y presupuestos. Construimos proyectos a medida para quienes buscan claridad en el proceso.</p>
+<a href="#contacto" class="btn btn-main">Agenda tu primera asesoría</a>
+</div>
+</section>
+<section id="sobre">
+<div class="container grid-2">
+<div>
+<div class="section-tag">02 NOSOTROS</div>
+<h2>12 años trazando nuevas realidades.</h2>
+</div>
+<div>
+<p style="margin-bottom: 24px;">Estudio Brío nació con el propósito de eliminar la incertidumbre en el mundo de la construcción. Ayudamos a familias y empresas que sueñan con un espacio propio pero temen a los sobrecostos y los retrasos infinitos.</p>
+<p>Nuestro enfoque minimalista no solo es una elección estética, sino una filosofía de trabajo: procesos limpios, comunicación directa y un equipo único desde el primer boceto hasta la entrega de llaves.</p>
+</div>
+</div>
+</section>
+<section id="servicios">
+<div class="container">
+<div class="section-tag">03 PORTAFOLIO DE SERVICIOS</div>
+<h2>Soluciones técnicas de punta a punta.</h2>
+<table class="table-report">
+<thead>
+<tr>
+<th>#</th>
+<th>SERVICIO</th>
+<th>DESCRIPCIÓN</th>
+<th>PRECIO</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="table-num">01</td>
+<td class="service-name">DISEÑO ARQUITECTÓNICO</td>
+<td class="service-desc">Desarrollo integral de planos y distribución técnica.</td>
+<td class="service-price">DESDE 45.000 /M2</td>
+</tr>
+<tr>
+<td class="table-num">02</td>
+<td class="service-name">REMODELACIÓN INTEGRAL</td>
+<td class="service-desc">Transformación total de viviendas y locales comerciales.</td>
+<td class="service-price">SEGÚN ALCANCE</td>
+</tr>
+<tr>
+<td class="table-num">03</td>
+<td class="service-name">DISEÑO DE INTERIORES</td>
+<td class="service-desc">Mobiliario a medida y conceptualización de ambientes.</td>
+<td class="service-price">DESDE 3.500.000</td>
+</tr>
+<tr>
+<td class="table-num">04</td>
+<td class="service-name">DIRECCIÓN DE OBRA</td>
+<td class="service-desc">Supervisión directa para garantizar calidad y plazos.</td>
+<td class="service-price">8% VALOR OBRA</td>
+</tr>
+<tr>
+<td class="table-num">05</td>
+<td class="service-name">ASESORÍA EXPRESS</td>
+<td class="service-desc">Sesión intensiva para optimizar distribución espacial.</td>
+<td class="service-price">900.000 /SESIÓN</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="porque">
+<div class="container">
+<div class="section-tag">04 DIFERENCIALES</div>
+<h2>Por qué confiar su espacio en nosotros.</h2>
+<div class="grid-3">
+<div class="grid-item">
+<h3>Equipo Único</h3>
+<p>Eliminamos intermediarios. Un solo equipo se encarga del diseño y la obra, evitando errores de comunicación.</p>
+</div>
+<div class="grid-item">
+<h3>Presupuesto Cerrado</h3>
+<p>Entregamos un cronograma y presupuesto fijo antes de poner el primer ladrillo. Sin sorpresas finales.</p>
+</div>
+<div class="grid-item">
+<h3>Render Realista</h3>
+<p>Visualice su proyecto con tecnología 3D de alta fidelidad para aprobar cada detalle antes de construir.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="estadisticas">
+<div class="container">
+<div class="section-tag">05 RENDIMIENTO</div>
+<div class="stats-row">
+<div class="stat-box">
+<span class="stat-num">12<sup>+</sup></span>
+<span class="stat-label">AÑOS DE TRAYECTORIA</span>
+</div>
+<div class="stat-box">
+<span class="stat-num">180<sup>+</sup></span>
+<span class="stat-label">PROYECTOS ENTREGADOS</span>
+</div>
+<div class="stat-box">
+<span class="stat-num">02</span>
+<span class="stat-label">SEDES ACTIVAS</span>
+</div>
+<div class="stat-box">
+<span class="stat-num">100<sup>%</sup></span>
+<span class="stat-label">CLIENTES SATISFECHOS</span>
+</div>
+</div>
+</div>
+</section>
+<section id="proceso">
+<div class="container grid-2">
+<div>
+<div class="section-tag">06 METODOLOGÍA</div>
+<h2>Cómo trabajamos.</h2>
+</div>
+<div class="timeline">
+<div class="timeline-item">
+<div class="timeline-dot"></div>
+<div class="stat-label">#01 DIAGNÓSTICO</div>
+<p style="font-size: 16px;">Analizamos el terreno o espacio existente y definimos sus necesidades reales.</p>
+</div>
+<div class="timeline-item">
+<div class="timeline-dot"></div>
+<div class="stat-label">#02 CONCEPTUALIZACIÓN</div>
+<p style="font-size: 16px;">Desarrollamos la propuesta estética y funcional mediante modelos 3D avanzados.</p>
+</div>
+<div class="timeline-item">
+<div class="timeline-dot"></div>
+<div class="stat-label">#03 PLANIFICACIÓN TÉCNICA</div>
+<p style="font-size: 16px;">Elaboramos presupuestos detallados y cronogramas de obra cerrados.</p>
+</div>
+<div class="timeline-item">
+<div class="timeline-dot"></div>
+<div class="stat-label">#04 CONSTRUCCIÓN</div>
+<p style="font-size: 16px;">Ejecutamos la obra con supervisión constante hasta la entrega satisfactoria.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="testimonios">
+<div class="container">
+<div class="section-tag">07 TESTIMONIOS</div>
+<div class="grid-3">
+<div class="testimonial-box">
+<div class="quote">"Entendieron lo que queríamos mejor que nosotros mismos."</div>
+<div class="author">MARCELA T.</div>
+</div>
+<div class="testimonial-box">
+<div class="quote">"La obra terminó en la fecha prometida, algo raro en este medio."</div>
+<div class="author">JORGE R.</div>
+</div>
+<div class="testimonial-box">
+<div class="quote">"El render fue idéntico al resultado final."</div>
+<div class="author">LAURA V.</div>
+</div>
+</div>
+</div>
+</section>
+<section id="faq">
+<div class="container">
+<div class="section-tag">08 FAQ</div>
+<h2>Dudas frecuentes.</h2>
+<div class="faq-row">
+<div class="faq-q">¿Trabajan con presupuesto cerrado?</div>
+<div class="faq-a">Sí, se define detalladamente antes de firmar contrato y no cambia, salvo que usted modifique el alcance del proyecto.</div>
+</div>
+<div class="faq-row">
+<div class="faq-q">¿Hacen proyectos fuera de Bogotá?</div>
+<div class="faq-a">Sí, operamos en toda la Sabana sin recargo. Para otras ciudades del país, realizamos el proyecto incluyendo gastos de viáticos.</div>
+</div>
+<div class="faq-row">
+<div class="faq-q">¿Cuánto tarda un diseño?</div>
+<div class="faq-a">Dependiendo de la complejidad y el tamaño del proyecto, el proceso de diseño suele tardar entre 3 y 6 semanas.</div>
+</div>
+</div>
+</section>
+<section id="contacto">
+<div class="container grid-2">
+<div>
+<div class="section-tag">09 CONTACTO</div>
+<h2>Iniciemos su proyecto hoy.</h2>
+<div class="contact-details">
+<div>TELÉFONO: 310 456 7890</div>
+<div>EMAIL: HOLA@ESTUDIOBRIO.CO</div>
+<div>DIRECCIÓN: CALLE 93 #13-45 OFICINA 302</div>
+<div>HORARIO: L-V 8AM-6PM / S 9AM-1PM</div>
+</div>
+</div>
+<div style="background: white; padding: 60px; border-radius: 2px;">
+<p style="margin-bottom: 30px;">Estamos listos para ordenar sus ideas y convertirlas en planos reales.</p>
+<a href="https://wa.me/573104567890" class="btn btn-main">Agenda tu primera asesoría</a>
+</div>
+</div>
+</section>
+<footer>
+<div class="container footer-flex">
+<div>© 2024 ESTUDIO BRÍO ARQUITECTURA. TODOS LOS DERECHOS RESERVADOS.</div>
+<div style="display: flex; gap: 20px;">
+<a href="https://instagram.com/estudiobrio" style="color: inherit; text-decoration: none;">INSTAGRAM</a>
+<a href="https://behance.net/estudiobrio" style="color: inherit; text-decoration: none;">BEHANCE</a>
+<a href="https://linkedin.com/company/estudiobrio" style="color: inherit; text-decoration: none;">LINKEDIN</a>
+</div>
+</div>
+</footer>
 </body>
 </html>
