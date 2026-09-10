@@ -1,52 +1,468 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>KFC | Para chuparse los dedos</title>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
-<style>
-:root {
-  --primary: #E4002B;
-  --secondary: #FDB913;
-  --light: #FFFFFF;
-  --dark: #333333;
-}
-body { font-family: 'Roboto', sans-serif; margin: 0; color: var(--dark); line-height: 1.6; }
-header { background: var(--primary); color: var(--light); padding: 2rem; text-align: center; }
-.hero { background: var(--secondary); padding: 4rem 1rem; text-align: center; color: var(--dark); }
-.hero h1 { font-size: 3rem; margin: 0; }
-.btn { display: inline-block; background: var(--primary); color: var(--light); padding: 1rem 2rem; text-decoration: none; font-weight: bold; margin-top: 1rem; border-radius: 5px; }
-.services { padding: 4rem 2rem; text-align: center; }
-.container { max-width: 800px; margin: auto; }
-.contact { background: #f4f4f4; padding: 4rem 2rem; text-align: center; }
-footer { background: var(--dark); color: var(--light); text-align: center; padding: 1rem; }
-@media (max-width: 600px) { .hero h1 { font-size: 2rem; } }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KFC - Para chuparse los dedos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #E4002B;
+            --secondary: #FFC72C;
+            --white: #FFFFFF;
+            --dark: #111111;
+            --light-gray: #F8F9FA;
+            --border-radius: 12px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--white);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--white);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            z-index: 1000;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--primary);
+            text-decoration: none;
+            letter-spacing: -1px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .logo::after {
+            content: '';
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            background-color: var(--secondary);
+            border-radius: 50%;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            margin-left: 2rem;
+            transition: var(--transition);
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        .hero {
+            padding: 10rem 2rem 6rem;
+            background: linear-gradient(135deg, var(--primary) 0%, #B3001E 100%);
+            color: var(--white);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: var(--secondary);
+            border-radius: 50%;
+            filter: blur(150px);
+            opacity: 0.3;
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2.5rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: var(--dark);
+            text-decoration: none;
+            padding: 1rem 2.5rem;
+            font-weight: 800;
+            border-radius: 50px;
+            text-transform: uppercase;
+            box-shadow: 0 8px 25px rgba(255, 199, 44, 0.4);
+            transition: var(--transition);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(255, 199, 44, 0.6);
+            background-color: #ffe066;
+        }
+
+        .services {
+            padding: 6rem 2rem;
+            background-color: var(--white);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--dark);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary);
+            border-radius: 2px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background-color: var(--light-gray);
+            border-radius: var(--border-radius);
+            padding: 3rem 2rem;
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid rgba(0, 0, 0, 0.03);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background-color: var(--primary);
+            transform: scaleX(0);
+            transition: var(--transition);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+            background-color: var(--white);
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .service-card p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .contact {
+            padding: 6rem 2rem;
+            background-color: var(--light-gray);
+        }
+
+        .contact-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .contact-info h3 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            background: var(--white);
+            padding: 1.25rem;
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background-color: rgba(228, 0, 43, 0.1);
+            color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-right: 1.25rem;
+            flex-shrink: 0;
+        }
+
+        .contact-text h4 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            color: #888;
+            margin-bottom: 0.2rem;
+        }
+
+        .contact-text p {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .contact-image {
+            background: linear-gradient(135deg, var(--secondary) 0%, #e5a700 100%);
+            border-radius: var(--border-radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 3rem;
+            color: var(--dark);
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .contact-image-content h3 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .contact-image-content p {
+            font-weight: 600;
+            opacity: 0.9;
+        }
+
+        footer {
+            background-color: var(--dark);
+            color: var(--white);
+            text-align: center;
+            padding: 3rem 2rem;
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+        }
+
+        footer p {
+            font-size: 0.95rem;
+            opacity: 0.7;
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 8rem 1rem 4rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-<header>
-<h1>KFC</h1>
-</header>
-<section class="hero">
-<h1>Para chuparse los dedos</h1>
-<p>La mejor comida rápida con el sabor que te encanta.</p>
-<a href="#contacto" class="btn">Ordenar ahora</a>
-</section>
-<section class="services">
-<h2>Nuestros Servicios</h2>
-<div class="container">
-<p>Disfruta de nuestras deliciosas hamburguesas, crujientes papas fritas y muchas otras opciones preparadas con los mejores ingredientes.</p>
-</div>
-</section>
-<section class="contact" id="contacto">
-<h2>Contacto</h2>
-<p>Teléfono: 300 123 4567</p>
-<p>Email: kfc123@kfcinf.com</p>
-<p>Dirección: Calle 10 #5-20</p>
-</section>
-<footer>
-<p>&copy; 2024 KFC. Todos los derechos reservados.</p>
-</footer>
+
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo">KFC</a>
+            <nav>
+                <a href="#">Inicio</a>
+                <a href="#menu">Menú</a>
+                <a href="#contacto">Contacto</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Para chuparse los dedos</h1>
+            <p>El sabor inconfundible y la calidad del mejor pollo y comida rápida directamente a tu mesa. ¡Sabor crujiente en cada mordisco!</p>
+            <a href="#contacto" class="cta-button">Ordena Ya</a>
+        </div>
+    </section>
+
+    <section class="services" id="menu">
+        <div class="section-title">
+            <h2>Nuestra Especialidad</h2>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🍔</div>
+                <h3>Hamburguesas</h3>
+                <p>Las hamburguesas más jugosas preparadas con ingredientes frescos y un toque único que te encantará.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🍟</div>
+                <h3>Papas Fritas</h3>
+                <p>Crujientes por fuera, suaves por dentro y sazonadas a la perfección para ser el acompañamiento ideal.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🍗</div>
+                <h3>Pollo Crujiente</h3>
+                <p>Nuestra receta secreta que nos hace únicos. El pollo más crujiente y delicioso del mundo entero.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contacto">
+        <div class="section-title">
+            <h2>¿Listo para disfrutar?</h2>
+        </div>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Datos de Contacto</h3>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">📞</div>
+                    <div class="contact-text">
+                        <h4>Llámanos</h4>
+                        <p>300 123 4567</p>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">✉️</div>
+                    <div class="contact-text">
+                        <h4>Escríbenos</h4>
+                        <p>kfc123@kfcinf.com</p>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">📍</div>
+                    <div class="contact-text">
+                        <h4>Visítanos</h4>
+                        <p>Calle 10 #5-20</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-image">
+                <div class="contact-image-content">
+                    <h3>¡Te Esperamos!</h3>
+                    <p>Ven con tu familia y amigos a vivir la mejor experiencia de sabor.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 KFC. Todos los derechos reservados.</p>
+    </footer>
+
 </body>
 </html>
