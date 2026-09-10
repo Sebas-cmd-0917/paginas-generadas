@@ -3,17 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KFC - Para chuparse los dedos</title>
+    <title>KFC - Para Chuparse los Dedos</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #E4002B;
-            --secondary: #FFC72C;
+            --primary: #E4002B; /* Rojo KFC */
+            --secondary: #FFC72C; /* Amarillo KFC */
             --white: #FFFFFF;
-            --dark: #111111;
+            --dark: #1A1A1A; /* Negro/Gris oscuro */
             --light-gray: #F8F9FA;
+            --medium-gray: #ECECEC;
+            --text-color: #333333;
             --border-radius: 12px;
             --transition: all 0.3s ease;
         }
@@ -31,10 +33,26 @@
         body {
             font-family: 'Poppins', sans-serif;
             background-color: var(--white);
-            color: var(--dark);
+            color: var(--text-color);
             line-height: 1.6;
         }
 
+        h1, h2, h3, h4 {
+            color: var(--dark);
+            line-height: 1.2;
+        }
+
+        section {
+            padding: 6rem 2rem;
+            position: relative;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Header */
         header {
             position: fixed;
             top: 0;
@@ -63,6 +81,7 @@
             display: flex;
             align-items: center;
             gap: 5px;
+            text-transform: uppercase;
         }
 
         .logo::after {
@@ -86,6 +105,7 @@
             color: var(--primary);
         }
 
+        /* Hero Section */
         .hero {
             padding: 10rem 2rem 6rem;
             background: linear-gradient(135deg, var(--primary) 0%, #B3001E 100%);
@@ -93,6 +113,8 @@
             text-align: center;
             position: relative;
             overflow: hidden;
+            border-bottom-left-radius: 50px;
+            border-bottom-right-radius: 50px;
         }
 
         .hero::before {
@@ -123,6 +145,7 @@
             margin-bottom: 1.5rem;
             text-transform: uppercase;
             text-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            color: var(--white);
         }
 
         .hero p {
@@ -150,11 +173,7 @@
             background-color: #ffe066;
         }
 
-        .services {
-            padding: 6rem 2rem;
-            background-color: var(--white);
-        }
-
+        /* Section Titles */
         .section-title {
             text-align: center;
             margin-bottom: 4rem;
@@ -181,9 +200,23 @@
             border-radius: 2px;
         }
 
+        /* About Us */
+        .about-us {
+            background-color: var(--white);
+            text-align: center;
+        }
+
+        .about-us p {
+            max-width: 900px;
+            margin: 0 auto 2rem;
+            font-size: 1.1rem;
+            color: var(--text-color);
+        }
+
+        /* Services Grid */
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2.5rem;
             max-width: 1200px;
             margin: 0 auto;
@@ -192,12 +225,13 @@
         .service-card {
             background-color: var(--light-gray);
             border-radius: var(--border-radius);
-            padding: 3rem 2rem;
+            padding: 2.5rem;
             text-align: center;
             transition: var(--transition);
             border: 1px solid rgba(0, 0, 0, 0.03);
             position: relative;
             overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.04);
         }
 
         .service-card::before {
@@ -209,12 +243,13 @@
             height: 5px;
             background-color: var(--primary);
             transform: scaleX(0);
+            transform-origin: left;
             transition: var(--transition);
         }
 
         .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
             background-color: var(--white);
         }
 
@@ -222,16 +257,10 @@
             transform: scaleX(1);
         }
 
-        .service-icon {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-            display: inline-block;
-        }
-
         .service-card h3 {
             font-size: 1.5rem;
             font-weight: 800;
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
             color: var(--dark);
         }
 
@@ -240,45 +269,297 @@
             font-size: 0.95rem;
         }
 
-        .contact {
-            padding: 6rem 2rem;
+        .service-card .price {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-top: 1rem;
+            display: block;
+        }
+
+        /* Why Choose Us */
+        .why-choose-us {
             background-color: var(--light-gray);
         }
 
-        .contact-container {
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .why-item {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+        }
+
+        .why-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .why-item .icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .why-item h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+        }
+
+        .why-item p {
+            font-size: 0.95rem;
+            color: #555;
+        }
+
+        /* Statistics */
+        .stats {
+            background: var(--primary);
+            color: var(--white);
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
             max-width: 1000px;
             margin: 0 auto;
+        }
+
+        .stat-item h3 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 0.5rem;
+            color: var(--secondary);
+            text-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .stat-item p {
+            font-size: 1.1rem;
+            font-weight: 600;
+            opacity: 0.9;
+        }
+
+        /* How It Works */
+        .how-it-works {
+            background-color: var(--white);
+        }
+
+        .process-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2.5rem;
+            max-width: 1000px;
+            margin: 0 auto;
         }
 
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+        .process-step {
+            text-align: center;
+            padding: 2rem;
+            border: 2px dashed var(--secondary);
+            border-radius: var(--border-radius);
+            position: relative;
+            background-color: var(--light-gray);
+            transition: var(--transition);
         }
 
-        .contact-info h3 {
+        .process-step:hover {
+            background-color: var(--white);
+            border-color: var(--primary);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+        }
+
+        .process-step .step-number {
+            display: inline-flex;
+            width: 60px;
+            height: 60px;
+            background-color: var(--primary);
+            color: var(--white);
+            border-radius: 50%;
             font-size: 2rem;
-            font-weight: 800;
+            font-weight: 900;
+            align-items: center;
+            justify-content: center;
             margin-bottom: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .process-step h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+        }
+
+        .process-step p {
+            font-size: 0.95rem;
+            color: #555;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background-color: var(--medium-gray);
+            text-align: center;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            background-color: var(--white);
+            padding: 2.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            position: relative;
+            transition: var(--transition);
+            text-align: left;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .testimonial-card::before {
+            content: '❝';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 4rem;
+            color: var(--secondary);
+            opacity: 0.3;
+            z-index: 1;
+        }
+
+        .testimonial-card p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+            position: relative;
+            z-index: 2;
+        }
+
+        .testimonial-card .author {
+            font-weight: 700;
+            color: var(--dark);
+            font-size: 1rem;
+            display: block;
+        }
+
+        /* FAQ */
+        .faq {
+            background-color: var(--white);
+        }
+
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background-color: var(--light-gray);
+            border-radius: var(--border-radius);
+            margin-bottom: 1.2rem;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 1.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--dark);
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background-color: var(--medium-gray);
+        }
+
+        .faq-question.active {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+        .faq-question .arrow {
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-question.active .arrow {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+            background-color: var(--white);
+        }
+
+        .faq-answer p {
+            padding-bottom: 1.2rem;
+            font-size: 0.95rem;
+            color: #555;
+        }
+
+        /* Contact */
+        .contact {
+            background-color: var(--light-gray);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .contact-info-block {
+            background-color: var(--white);
+            padding: 2.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+        }
+
+        .contact-info-block h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
             color: var(--dark);
         }
 
         .contact-item {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             margin-bottom: 1.5rem;
-            background: var(--white);
-            padding: 1.25rem;
-            border-radius: var(--border-radius);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
         }
 
         .contact-icon {
-            width: 50px;
-            height: 50px;
+            width: 45px;
+            height: 45px;
             background-color: rgba(228, 0, 43, 0.1);
             color: var(--primary);
             border-radius: 50%;
@@ -297,37 +578,89 @@
             margin-bottom: 0.2rem;
         }
 
-        .contact-text p {
-            font-size: 1.1rem;
+        .contact-text p, .contact-text a {
+            font-size: 1rem;
             font-weight: 600;
             color: var(--dark);
+            text-decoration: none;
+            word-break: break-word;
         }
 
-        .contact-image {
-            background: linear-gradient(135deg, var(--secondary) 0%, #e5a700 100%);
-            border-radius: var(--border-radius);
+        .contact-text a:hover {
+            color: var(--primary);
+        }
+
+        .social-links {
+            margin-top: 2rem;
             display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            width: 45px;
+            height: 45px;
+            background-color: var(--dark);
+            color: var(--white);
+            border-radius: 50%;
             align-items: center;
             justify-content: center;
-            padding: 3rem;
-            color: var(--dark);
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            font-size: 1.4rem;
+            transition: var(--transition);
         }
 
-        .contact-image-content h3 {
-            font-size: 2.5rem;
-            font-weight: 900;
-            line-height: 1.2;
-            margin-bottom: 1rem;
-            text-transform: uppercase;
+        .social-links a:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 10px rgba(0,0,0,0.2);
         }
 
-        .contact-image-content p {
-            font-weight: 600;
+        .contact-form-block {
+            background-color: var(--primary);
+            padding: 2.5rem;
+            border-radius: var(--border-radius);
+            color: var(--white);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .contact-form-block h3 {
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            font-size: 2.2rem;
+            font-weight: 800;
+        }
+
+        .contact-form-block p {
+            margin-bottom: 2rem;
             opacity: 0.9;
+            font-size: 1.1rem;
         }
 
+        .contact-form-block .btn-contact {
+            background-color: var(--secondary);
+            color: var(--dark);
+            text-decoration: none;
+            padding: 1rem 2.5rem;
+            font-weight: 800;
+            border-radius: 50px;
+            text-transform: uppercase;
+            box-shadow: 0 8px 25px rgba(255, 199, 44, 0.4);
+            transition: var(--transition);
+            text-align: center;
+            display: inline-block;
+            max-width: 250px;
+            margin-top: 1rem;
+        }
+
+        .contact-form-block .btn-contact:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(255, 199, 44, 0.6);
+            background-color: #ffe066;
+        }
+
+        /* Footer */
         footer {
             background-color: var(--dark);
             color: var(--white);
@@ -349,27 +682,98 @@
         footer p {
             font-size: 0.95rem;
             opacity: 0.7;
+            margin-bottom: 1rem;
+        }
+
+        .footer-social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .footer-social-links a {
+            display: inline-flex;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            border-radius: 50%;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .footer-social-links a:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .header-container {
+                padding: 0.8rem 1.5rem;
+            }
+            .hero h1 {
+                font-size: 3.2rem;
+            }
+            nav a {
+                margin-left: 1.5rem;
+            }
         }
 
         @media (max-width: 768px) {
             .hero {
                 padding: 8rem 1rem 4rem;
+                border-bottom-left-radius: 30px;
+                border-bottom-right-radius: 30px;
             }
-
             .hero h1 {
                 font-size: 2.5rem;
             }
-
+            .hero p {
+                font-size: 1.1rem;
+            }
             nav {
-                display: none;
+                display: none; /* Simplificado para la demostración, se usaría un menú hamburguesa real */
             }
-
-            .services-grid {
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            .services-grid, .why-grid, .stats-grid, .process-grid, .testimonials-grid, .contact-grid {
                 grid-template-columns: 1fr;
             }
+            .stat-item h3 {
+                font-size: 3rem;
+            }
+            .faq-question {
+                font-size: 1rem;
+                padding: 1rem 1.2rem;
+            }
+            .faq-answer p {
+                font-size: 0.9rem;
+            }
+        }
 
-            .contact-container {
-                grid-template-columns: 1fr;
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .logo {
+                font-size: 1.6rem;
+            }
+            section {
+                padding: 4rem 1rem;
+            }
+            .section-title {
+                margin-bottom: 3rem;
+            }
+            .cta-button {
+                padding: 0.8rem 2rem;
+                font-size: 0.9rem;
+            }
+            .service-card, .why-item, .process-step, .testimonial-card, .contact-info-block, .contact-form-block {
+                padding: 2rem;
             }
         }
     </style>
@@ -380,89 +784,292 @@
         <div class="header-container">
             <a href="#" class="logo">KFC</a>
             <nav>
-                <a href="#">Inicio</a>
+                <a href="#inicio">Inicio</a>
+                <a href="#nosotros">Sobre Nosotros</a>
                 <a href="#menu">Menú</a>
+                <a href="#elegirnos">¿Por qué Elegirnos?</a>
+                <a href="#proceso">Nuestro Proceso</a>
+                <a href="#testimonios">Testimonios</a>
+                <a href="#preguntas">Preguntas Frecuentes</a>
                 <a href="#contacto">Contacto</a>
             </nav>
         </div>
     </header>
 
-    <section class="hero">
+    <section class="hero" id="inicio">
         <div class="hero-content">
-            <h1>Para chuparse los dedos</h1>
-            <p>El sabor inconfundible y la calidad del mejor pollo y comida rápida directamente a tu mesa. ¡Sabor crujiente en cada mordisco!</p>
-            <a href="#contacto" class="cta-button">Ordena Ya</a>
+            <h1>KFC: Para Chuparse los Dedos</h1>
+            <p>El inconfundible sabor del pollo frito original con nuestra receta secreta de 11 hierbas y especias. Disfruta con tu familia y amigos, rápido, rico y a buen precio.</p>
+            <a href="#menu" class="cta-button">Pide tu Balde Ahora</a>
+        </div>
+    </section>
+
+    <section class="about-us" id="nosotros">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nuestra Historia de Sabor</h2>
+            </div>
+            <p>KFC, la reconocida cadena de restaurantes de comida rápida, se especializa en brindar a sus clientes el más delicioso pollo frito, preparado con la receta original del Coronel Sanders. Nos dedicamos a ofrecer una experiencia culinaria única, perfecta para familias, jóvenes y trabajadores que buscan una comida sabrosa, rápida y accesible.</p>
+            <p>Con <strong>más de 70 años de historia global</strong> y presencia en 150 países, KFC ha conquistado el paladar de millones alrededor del mundo. En Colombia, contamos con <strong>más de 300 locales</strong> estratégicamente ubicados en centros comerciales y calles principales, facilitando que siempre tengas un KFC cerca para disfrutar de tu comida favorita.</p>
         </div>
     </section>
 
     <section class="services" id="menu">
         <div class="section-title">
-            <h2>Nuestra Especialidad</h2>
+            <h2>Nuestro Menú irresistible</h2>
         </div>
         <div class="services-grid">
             <div class="service-card">
-                <div class="service-icon">🍔</div>
-                <h3>Hamburguesas</h3>
-                <p>Las hamburguesas más jugosas preparadas con ingredientes frescos y un toque único que te encantará.</p>
+                <h3>Pollo Frito Original</h3>
+                <p>Nuestras icónicas piezas de pollo y baldes familiares, con la receta secreta que nos hace únicos.</p>
+                <span class="price">Desde $12.900</span>
             </div>
             <div class="service-card">
-                <div class="service-icon">🍟</div>
-                <h3>Papas Fritas</h3>
-                <p>Crujientes por fuera, suaves por dentro y sazonadas a la perfección para ser el acompañamiento ideal.</p>
+                <h3>Hamburguesas y Sándwiches</h3>
+                <p>Deliciosas opciones de pollo crispy, perfectas para un almuerzo rápido y lleno de sabor.</p>
+                <span class="price">Desde $15.900</span>
             </div>
             <div class="service-card">
-                <div class="service-icon">🍗</div>
-                <h3>Pollo Crujiente</h3>
-                <p>Nuestra receta secreta que nos hace únicos. El pollo más crujiente y delicioso del mundo entero.</p>
+                <h3>Combos Individuales</h3>
+                <p>Tu comida completa: pollo, papas y gaseosa, listos para satisfacer tu antojo en cualquier momento.</p>
+                <span class="price">Desde $18.900</span>
+            </div>
+            <div class="service-card">
+                <h3>Alitas y Bocaditos</h3>
+                <p>Ideales para compartir, nuestras alitas y bocaditos son la opción perfecta para picar entre amigos.</p>
+                <span class="price">Desde $14.900</span>
+            </div>
+            <div class="service-card">
+                <h3>Postres y Helados</h3>
+                <p>Termina tu experiencia con un toque dulce. Variedad de postres y helados para todos los gustos.</p>
+                <span class="price">Desde $5.900</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="why-choose-us" id="elegirnos">
+        <div class="section-title">
+            <h2>¿Por Qué Elegir KFC?</h2>
+        </div>
+        <div class="why-grid">
+            <div class="why-item">
+                <div class="icon">✨</div>
+                <h3>Receta Original</h3>
+                <p>La inigualable mezcla de 11 hierbas y especias que nos ha hecho famosos por generaciones.</p>
+            </div>
+            <div class="why-item">
+                <div class="icon">🍗</div>
+                <h3>Pollo Siempre Fresco</h3>
+                <p>Preparamos nuestro pollo fresco cada día en cada uno de nuestros locales para garantizar el mejor sabor.</p>
+            </div>
+            <div class="why-item">
+                <div class="icon">⚡</div>
+                <h3>Servicio Rápido</h3>
+                <p>Disfruta de tu pedido en menos de 5 minutos, porque sabemos que tu tiempo es valioso.</p>
+            </div>
+            <div class="why-item">
+                <div class="icon">🛵</div>
+                <h3>Cobertura Total</h3>
+                <p>Domicilios en toda la ciudad a través de nuestra app y línea telefónica para que disfrutes donde estés.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats">
+        <div class="section-title">
+            <h2>KFC en Cifras</h2>
+        </div>
+        <div class="stats-grid">
+            <div class="stat-item">
+                <h3>+70</h3>
+                <p>Años de Historia</p>
+            </div>
+            <div class="stat-item">
+                <h3>+150</h3>
+                <p>Países con Sabor</p>
+            </div>
+            <div class="stat-item">
+                <h3>+300</h3>
+                <p>Locales en el País</p>
+            </div>
+            <div class="stat-item">
+                <h3>Millones</h3>
+                <p>Clientes Satisfechos</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="how-it-works" id="proceso">
+        <div class="section-title">
+            <h2>Nuestro Sencillo Proceso</h2>
+        </div>
+        <div class="process-grid">
+            <div class="process-step">
+                <div class="step-number">1</div>
+                <h3>Explora el Menú</h3>
+                <p>Descubre todas nuestras deliciosas opciones: desde el pollo original hasta los postres más tentadores.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">2</div>
+                <h3>Haz tu Pedido</h3>
+                <p>Realiza tu orden fácilmente por nuestra app, línea telefónica o directamente en tu local más cercano.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">3</div>
+                <h3>Disfruta el Sabor</h3>
+                <p>Recibe tu comida rápidamente y prepárate para una experiencia de sabor inolvidable.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials" id="testimonios">
+        <div class="section-title">
+            <h2>Lo que Dicen Nuestros Clientes</h2>
+        </div>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <p>"El mejor pollo crispy, siempre pido el balde familiar para compartir. ¡Nunca decepciona!"</p>
+                <span class="author">Andrés M.</span>
+            </div>
+            <div class="testimonial-card">
+                <p>"KFC es sinónimo de rapidez, economía y un sabor que nunca falla. Mi opción favorita para cualquier día."</p>
+                <span class="author">Laura P.</span>
+            </div>
+            <div class="testimonial-card">
+                <p>"Los combos rinden muchísimo y son perfectos para toda la familia. La calidad es increíble y el precio aún mejor."</p>
+                <span class="author">Carlos R.</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq" id="preguntas">
+        <div class="section-title">
+            <h2>Preguntas Frecuentes</h2>
+        </div>
+        <div class="faq-list">
+            <div class="faq-item">
+                <div class="faq-question">
+                    ¿Hacen domicilios? <span class="arrow">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Sí, puedes hacer tu pedido a domicilio fácilmente a través de nuestra aplicación móvil oficial o llamando a nuestra línea telefónica.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    ¿Tienen opciones sin picante? <span class="arrow">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Sí, la mayoría de nuestros productos están preparados con la receta original suave, apta para todos los paladares. Puedes consultar con nuestro personal en tienda si tienes alguna duda específica.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    ¿Aceptan pago con tarjeta? <span class="arrow">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Sí, aceptamos una amplia variedad de métodos de pago, incluyendo tarjetas de crédito y débito, efectivo y diversas plataformas de pago digital, tanto en nuestros locales como para domicilios.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    ¿Puedo conocer los valores nutricionales y alérgenos de los productos? <span class="arrow">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Sí, la información detallada sobre valores nutricionales y alérgenos está disponible en nuestros locales y en nuestra página web. Te invitamos a consultarla para tomar decisiones informadas.</p>
+                </div>
             </div>
         </div>
     </section>
 
     <section class="contact" id="contacto">
         <div class="section-title">
-            <h2>¿Listo para disfrutar?</h2>
+            <h2>Contáctanos y Haz tu Pedido</h2>
         </div>
-        <div class="contact-container">
-            <div class="contact-info">
-                <h3>Datos de Contacto</h3>
-                
+        <div class="contact-grid">
+            <div class="contact-info-block">
+                <h3>Información de Contacto</h3>
                 <div class="contact-item">
                     <div class="contact-icon">📞</div>
                     <div class="contact-text">
-                        <h4>Llámanos</h4>
-                        <p>300 123 4567</p>
+                        <h4>Teléfono</h4>
+                        <p>01 8000 123 456</p>
                     </div>
                 </div>
-
                 <div class="contact-item">
                     <div class="contact-icon">✉️</div>
                     <div class="contact-text">
-                        <h4>Escríbenos</h4>
-                        <p>kfc123@kfcinf.com</p>
+                        <h4>Correo Electrónico</h4>
+                        <a href="mailto:contacto@kfc.com.co">contacto@kfc.com.co</a>
                     </div>
                 </div>
-
                 <div class="contact-item">
                     <div class="contact-icon">📍</div>
                     <div class="contact-text">
-                        <h4>Visítanos</h4>
-                        <p>Calle 10 #5-20</p>
+                        <h4>Nuestras Ubicaciones</h4>
+                        <p>Nos encuentras en los principales centros comerciales y calles de las ciudades más importantes del país.</p>
                     </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">⏰</div>
+                    <div class="contact-text">
+                        <h4>Horario de Atención</h4>
+                        <p>Lunes a Domingo: 10 a.m. a 11 p.m.</p>
+                    </div>
+                </div>
+                <div class="social-links">
+                    <a href="https://instagram.com/kfc" target="_blank" aria-label="Instagram">📸</a>
+                    <a href="https://facebook.com/kfc" target="_blank" aria-label="Facebook">👍</a>
+                    <a href="https://tiktok.com/@kfc" target="_blank" aria-label="TikTok">🎵</a>
                 </div>
             </div>
 
-            <div class="contact-image">
-                <div class="contact-image-content">
-                    <h3>¡Te Esperamos!</h3>
-                    <p>Ven con tu familia y amigos a vivir la mejor experiencia de sabor.</p>
-                </div>
+            <div class="contact-form-block">
+                <h3>¿Listo para saborear?</h3>
+                <p>¡No esperes más! Descarga nuestra app o llama para pedir tu balde de pollo frito favorito. Te esperamos.</p>
+                <a href="mailto:contacto@kfc.com.co" class="btn-contact">Enviar un Mensaje</a>
             </div>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2026 KFC. Todos los derechos reservados.</p>
+        <p>&copy; 2024 KFC. Todos los derechos reservados.</p>
+        <div class="footer-social-links">
+            <a href="https://instagram.com/kfc" target="_blank" aria-label="Instagram">📸</a>
+            <a href="https://facebook.com/kfc" target="_blank" aria-label="Facebook">👍</a>
+            <a href="https://tiktok.com/@kfc" target="_blank" aria-label="TikTok">🎵</a>
+        </div>
     </footer>
+
+    <script>
+        document.querySelectorAll('.faq-question').forEach(item => {
+            item.addEventListener('click', event => {
+                const parent = item.parentElement;
+                const answer = parent.querySelector('.faq-answer');
+                const isActive = item.classList.contains('active');
+
+                // Close all other open answers
+                document.querySelectorAll('.faq-question').forEach(q => {
+                    if (q !== item && q.classList.contains('active')) {
+                        q.classList.remove('active');
+                        q.nextElementSibling.style.maxHeight = null;
+                        q.nextElementSibling.style.padding = '0 1.5rem';
+                    }
+                });
+
+                // Toggle current answer
+                if (isActive) {
+                    item.classList.remove('active');
+                    answer.style.maxHeight = null;
+                    answer.style.padding = '0 1.5rem';
+                } else {
+                    item.classList.add('active');
+                    answer.style.maxHeight = answer.scrollHeight + 'px';
+                    answer.style.padding = '0 1.5rem 1.2rem';
+                }
+            });
+        });
+    </script>
 
 </body>
 </html>
