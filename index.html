@@ -3,16 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Estudio Brío Arquitectura | Proyectos de diseño y construcción</title>
+<title>Clínica Dental Sonrisa Norte | Tu sonrisa en las mejores manos</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Fraunces:ital,opsz,wght@1,9..144,400&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root {
---bg-color: #FBF7F0;
+--bg-color: #FFFFFF;
 --text-main: #1B1B22;
 --text-sec: #8A8578;
---accent: #A0522D;
+--accent: #00A3FF;
 --line: rgba(0,0,0,0.12);
 --font-display: 'Bricolage Grotesque', sans-serif;
 --font-body: 'Inter', sans-serif;
@@ -21,12 +21,16 @@
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { background-color: var(--bg-color); color: var(--text-main); font-family: var(--font-body); -webkit-font-smoothing: antialiased; }
+html { scroll-behavior: smooth; }
 header { position: fixed; top: 0; width: 100%; background: var(--bg-color); border-bottom: 1px solid var(--line); z-index: 100; padding: 20px 0; }
 .container { max-width: 1180px; margin: 0 auto; padding: 0 40px; }
 .header-flex { display: flex; justify-content: space-between; align-items: center; }
-.logo { font-family: var(--font-mono); font-weight: 500; font-size: 14px; text-transform: uppercase; letter-spacing: 0.1em; text-decoration: none; color: var(--text-main); }
+.logo { font-family: var(--font-display); font-weight: 800; font-size: 20px; text-transform: uppercase; letter-spacing: -0.02em; text-decoration: none; color: var(--text-main); }
 .header-meta { font-family: var(--font-mono); font-size: 10px; color: var(--text-sec); text-transform: uppercase; display: flex; gap: 40px; }
 .header-meta b { color: var(--text-main); font-weight: 500; }
+nav a { margin-left: 20px; text-decoration: none; color: var(--text-main); font-family: var(--font-mono); font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; transition: color 0.2s; }
+nav a:hover { color: var(--accent); }
+
 section { padding: 120px 0; }
 .section-tag { font-family: var(--font-mono); font-size: 11px; color: var(--accent); letter-spacing: 0.15em; display: flex; align-items: center; gap: 8px; margin-bottom: 24px; }
 .section-tag::before { content: ""; width: 6px; height: 6px; background: var(--accent); border-radius: 50%; }
@@ -64,58 +68,101 @@ p { font-size: 18px; line-height: 1.6; color: var(--text-main); max-width: 700px
 .quote { font-family: var(--font-display); font-size: 32px; margin-bottom: 24px; line-height: 1.2; }
 .author { font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; color: var(--text-sec); }
 .faq-row { border-top: 1px solid var(--line); padding: 40px 0; }
-.faq-q { font-size: 18px; font-weight: 500; margin-bottom: 12px; }
-.faq-a { color: var(--text-sec); }
+.faq-q { font-size: 18px; font-weight: 500; margin-bottom: 12px; cursor: pointer; display: flex; justify-content: space-between; align-items: center;}
+.faq-q .arrow { transition: transform 0.2s ease-in-out; }
+.faq-q.active .arrow { transform: rotate(180deg); }
+.faq-a { color: var(--text-sec); max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; }
 .contact-details { font-family: var(--font-mono); font-size: 14px; display: flex; flex-direction: column; gap: 20px; }
 footer { padding: 60px 0; border-top: 1px solid var(--line); }
 .footer-flex { display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 11px; color: var(--text-sec); }
+.footer-flex a { color: inherit; text-decoration: none; transition: color 0.2s; }
+.footer-flex a:hover { color: var(--accent); }
+
+@media (max-width: 992px) {
+    .header-meta { display: none; }
+    nav { margin-left: auto; }
+    nav a { margin-left: 15px; }
+    h1 { font-size: 64px; }
+    h2 { font-size: 38px; }
+    section { padding: 90px 0; }
+}
 @media (max-width: 768px) {
-h1 { font-size: 48px; }
-.header-meta { display: none; }
-.grid-2, .grid-3 { grid-template-columns: 1fr; }
-.stats-row { flex-direction: column; gap: 40px; }
-.service-name, .service-price { width: auto; text-align: left; }
-.table-report thead { display: none; }
-.table-report td { display: block; padding: 10px 0; border: none; }
-.table-report tr { display: block; padding: 20px 0; border-bottom: 1px solid var(--line); }
+    .container { padding: 0 20px; }
+    .header-flex { flex-direction: column; gap: 15px; }
+    nav { width: 100%; display: flex; justify-content: center; flex-wrap: wrap; }
+    nav a { margin: 5px 10px; font-size: 10px; }
+    h1 { font-size: 48px; margin-bottom: 30px; }
+    h2 { font-size: 32px; margin-bottom: 40px; }
+    .hero-p { font-size: 18px; margin-bottom: 30px; }
+    p { font-size: 16px; }
+    .grid-2, .grid-3 { grid-template-columns: 1fr; gap: 40px; }
+    .stats-row { flex-direction: column; gap: 40px; text-align: center; }
+    .stat-box { align-items: center; }
+    .table-report { margin-top: 30px; }
+    .table-report th { display: none; }
+    .table-report td { display: block; padding: 10px 0; border-bottom: none; }
+    .table-report tr { border-bottom: 1px solid var(--line); display: block; padding: 20px 0; }
+    .service-name, .service-desc, .service-price, .table-num { width: auto; text-align: left; }
+    .service-price { text-align: left; margin-top: 5px; }
+    .timeline { padding-left: 20px; margin-left: 0; }
+    .timeline-dot { left: -24px; }
+    .quote { font-size: 24px; }
+    .faq-row { padding: 30px 0; }
+    .contact-details { font-size: 12px; }
+    footer .footer-flex { flex-direction: column; gap: 15px; text-align: center; }
+}
+@media (max-width: 480px) {
+    h1 { font-size: 36px; }
+    h2 { font-size: 28px; }
+    .hero-p { font-size: 16px; }
+    .btn { padding: 14px 24px; font-size: 10px; }
+    .section-tag { font-size: 10px; }
 }
 </style>
 </head>
 <body>
 <header>
 <div class="container header-flex">
-<a href="#" class="logo">ESTUDIO BRÍO</a>
-<div class="header-meta">
-<span>DOCUMENTO: <b>024/ARQ</b></span>
-<span>PREPARADO POR: <b>BRÍO ARCH</b></span>
-<span>FECHA: <b>2024</b></span>
-</div>
+<a href="#hero" class="logo">Sonrisa Norte</a>
+<nav>
+<a href="#hero">Inicio</a>
+<a href="#nosotros">Nosotros</a>
+<a href="#servicios">Servicios</a>
+<a href="#beneficios">Beneficios</a>
+<a href="#proceso">Proceso</a>
+<a href="#testimonios">Testimonios</a>
+<a href="#faq">FAQ</a>
+<a href="#contacto">Contacto</a>
+</nav>
 </div>
 </header>
+
 <section id="hero">
 <div class="container">
-<div class="section-tag">01 INTRODUCCIÓN</div>
-<h1>Diseñamos <span>espacios</span> que ordenan la vida.</h1>
-<p class="hero-p">Arquitectura que equilibra lo estético con el control riguroso de tiempos y presupuestos. Construimos proyectos a medida para quienes buscan claridad en el proceso.</p>
-<a href="#contacto" class="btn btn-main">Agenda tu primera asesoría</a>
+<div class="section-tag">01 BIENVENIDOS</div>
+<h1>Clínica Dental <span>Sonrisa Norte</span>.</h1>
+<p class="hero-p">Tu sonrisa en las mejores manos. Ofrecemos odontología general y estética dental con un plan de tratamiento claro, sin sorpresas en el precio ni dolor.</p>
+<a href="https://wa.me/573205551234" target="_blank" class="btn btn-main">Agenda tu valoración gratis</a>
 </div>
 </section>
-<section id="sobre">
+
+<section id="nosotros">
 <div class="container grid-2">
 <div>
-<div class="section-tag">02 NOSOTROS</div>
-<h2>12 años trazando nuevas realidades.</h2>
+<div class="section-tag">02 NUESTRA CLÍNICA</div>
+<h2>Más de 15 años cuidando tu sonrisa.</h2>
 </div>
 <div>
-<p style="margin-bottom: 24px;">Estudio Brío nació con el propósito de eliminar la incertidumbre en el mundo de la construcción. Ayudamos a familias y empresas que sueñan con un espacio propio pero temen a los sobrecostos y los retrasos infinitos.</p>
-<p>Nuestro enfoque minimalista no solo es una elección estética, sino una filosofía de trabajo: procesos limpios, comunicación directa y un equipo único desde el primer boceto hasta la entrega de llaves.</p>
+<p style="margin-bottom: 24px;">En Clínica Dental Sonrisa Norte, entendemos que ir al odontólogo puede generar inquietud. Por eso, nos dedicamos a transformar esa experiencia en un proceso claro, cómodo y totalmente transparente. Somos especialistas en odontología general y estética dental, ofreciendo soluciones a la medida para quienes buscan recuperar su salud bucal y la confianza en su sonrisa.</p>
+<p>Nuestra trayectoria de <strong>15 años</strong> y más de <strong>20.000 pacientes atendidos</strong> nos respaldan. Contamos con un equipo de profesionales altamente calificados y tecnología de vanguardia en nuestras <strong>3 sedes</strong> en Bogotá (Cedritos, Chapinero y Salitre), siempre con un enfoque humano y cercano para que te sientas en las mejores manos.</p>
 </div>
 </div>
 </section>
+
 <section id="servicios">
 <div class="container">
-<div class="section-tag">03 PORTAFOLIO DE SERVICIOS</div>
-<h2>Soluciones técnicas de punta a punta.</h2>
+<div class="section-tag">03 NUESTROS SERVICIOS</div>
+<h2>Tu plan de tratamiento claro, sin sorpresas.</h2>
 <table class="table-report">
 <thead>
 <tr>
@@ -128,175 +175,219 @@ h1 { font-size: 48px; }
 <tbody>
 <tr>
 <td class="table-num">01</td>
-<td class="service-name">DISEÑO ARQUITECTÓNICO</td>
-<td class="service-desc">Desarrollo integral de planos y distribución técnica.</td>
-<td class="service-price">DESDE 45.000 /M2</td>
+<td class="service-name">LIMPIEZA Y PROFILAXIS</td>
+<td class="service-desc">Remoción de placa y sarro para una boca sana y fresca.</td>
+<td class="service-price">DESDE 90.000</td>
 </tr>
 <tr>
 <td class="table-num">02</td>
-<td class="service-name">REMODELACIÓN INTEGRAL</td>
-<td class="service-desc">Transformación total de viviendas y locales comerciales.</td>
-<td class="service-price">SEGÚN ALCANCE</td>
+<td class="service-name">BLANQUEAMIENTO LED</td>
+<td class="service-desc">Aclara el tono de tus dientes de forma segura y efectiva.</td>
+<td class="service-price">DESDE 350.000</td>
 </tr>
 <tr>
 <td class="table-num">03</td>
-<td class="service-name">DISEÑO DE INTERIORES</td>
-<td class="service-desc">Mobiliario a medida y conceptualización de ambientes.</td>
-<td class="service-price">DESDE 3.500.000</td>
+<td class="service-name">ORTODONCIA CON BRACKETS</td>
+<td class="service-desc">Corrección de la posición dental para una mordida perfecta.</td>
+<td class="service-price">DESDE 2.900.000</td>
 </tr>
 <tr>
 <td class="table-num">04</td>
-<td class="service-name">DIRECCIÓN DE OBRA</td>
-<td class="service-desc">Supervisión directa para garantizar calidad y plazos.</td>
-<td class="service-price">8% VALOR OBRA</td>
+<td class="service-name">DISEÑO DE SONRISA</td>
+<td class="service-desc">Transformación estética con carillas personalizadas.</td>
+<td class="service-price">COTIZACIÓN PERSONALIZADA</td>
 </tr>
 <tr>
 <td class="table-num">05</td>
-<td class="service-name">ASESORÍA EXPRESS</td>
-<td class="service-desc">Sesión intensiva para optimizar distribución espacial.</td>
-<td class="service-price">900.000 /SESIÓN</td>
+<td class="service-name">IMPLANTES DENTALES</td>
+<td class="service-desc">Solución duradera para reemplazar piezas dentales perdidas.</td>
+<td class="service-price">DESDE 1.800.000 / UNIDAD</td>
+</tr>
+<tr>
+<td class="table-num">06</td>
+<td class="service-name">ODONTOPEDIATRÍA</td>
+<td class="service-desc">Atención especializada para la salud bucal de los más pequeños.</td>
+<td class="service-price">DESDE 80.000</td>
 </tr>
 </tbody>
 </table>
 </div>
 </section>
-<section id="porque">
+
+<section id="beneficios">
 <div class="container">
-<div class="section-tag">04 DIFERENCIALES</div>
-<h2>Por qué confiar su espacio en nosotros.</h2>
+<div class="section-tag">04 POR QUÉ ELEGIRNOS</div>
+<h2>Ventajas de elegir Sonrisa Norte.</h2>
 <div class="grid-3">
 <div class="grid-item">
-<h3>Equipo Único</h3>
-<p>Eliminamos intermediarios. Un solo equipo se encarga del diseño y la obra, evitando errores de comunicación.</p>
+<h3>Valoración Gratuita</h3>
+<p>Evaluación inicial completa y radiografía sin costo para conocer tu estado.</p>
 </div>
 <div class="grid-item">
-<h3>Presupuesto Cerrado</h3>
-<p>Entregamos un cronograma y presupuesto fijo antes de poner el primer ladrillo. Sin sorpresas finales.</p>
+<h3>Precio Cerrado</h3>
+<p>Plan de tratamiento detallado con precio final por escrito, sin sorpresas ocultas.</p>
 </div>
 <div class="grid-item">
-<h3>Render Realista</h3>
-<p>Visualice su proyecto con tecnología 3D de alta fidelidad para aprobar cada detalle antes de construir.</p>
+<h3>Financiación Flexible</h3>
+<p>Opciones de pago hasta en 12 cuotas sin intereses para facilitar tu tratamiento.</p>
+</div>
+<div class="grid-item">
+<h3>Esterilización Certificada</h3>
+<p>Garantía de seguridad con equipos y procesos de esterilización avalados.</p>
 </div>
 </div>
 </div>
 </section>
+
 <section id="estadisticas">
 <div class="container">
-<div class="section-tag">05 RENDIMIENTO</div>
+<div class="section-tag">05 NUESTRO IMPACTO</div>
 <div class="stats-row">
 <div class="stat-box">
-<span class="stat-num">12<sup>+</sup></span>
-<span class="stat-label">AÑOS DE TRAYECTORIA</span>
+<span class="stat-num">15<sup>+</sup></span>
+<span class="stat-label">AÑOS DE EXPERIENCIA</span>
 </div>
 <div class="stat-box">
-<span class="stat-num">180<sup>+</sup></span>
-<span class="stat-label">PROYECTOS ENTREGADOS</span>
+<span class="stat-num">20.000<sup>+</sup></span>
+<span class="stat-label">PACIENTES ATENDIDOS</span>
 </div>
 <div class="stat-box">
-<span class="stat-num">02</span>
-<span class="stat-label">SEDES ACTIVAS</span>
+<span class="stat-num">03</span>
+<span class="stat-label">SEDES EN BOGOTÁ</span>
 </div>
 <div class="stat-box">
 <span class="stat-num">100<sup>%</sup></span>
-<span class="stat-label">CLIENTES SATISFECHOS</span>
+<span class="stat-label">TECNOLOGÍA AVANZADA</span>
 </div>
 </div>
 </div>
 </section>
+
 <section id="proceso">
 <div class="container grid-2">
 <div>
-<div class="section-tag">06 METODOLOGÍA</div>
-<h2>Cómo trabajamos.</h2>
+<div class="section-tag">06 CÓMO TRABAJAMOS</div>
+<h2>Tu camino hacia una sonrisa sana.</h2>
 </div>
 <div class="timeline">
 <div class="timeline-item">
 <div class="timeline-dot"></div>
-<div class="stat-label">#01 DIAGNÓSTICO</div>
-<p style="font-size: 16px;">Analizamos el terreno o espacio existente y definimos sus necesidades reales.</p>
+<div class="stat-label">#01 VALORACIÓN</div>
+<p style="font-size: 16px;">Realizamos un diagnóstico completo, incluyendo radiografía, para evaluar tu salud bucal.</p>
 </div>
 <div class="timeline-item">
 <div class="timeline-dot"></div>
-<div class="stat-label">#02 CONCEPTUALIZACIÓN</div>
-<p style="font-size: 16px;">Desarrollamos la propuesta estética y funcional mediante modelos 3D avanzados.</p>
+<div class="stat-label">#02 PLAN DE TRATAMIENTO</div>
+<p style="font-size: 16px;">Te presentamos un plan personalizado con opciones claras y un presupuesto cerrado.</p>
 </div>
 <div class="timeline-item">
 <div class="timeline-dot"></div>
-<div class="stat-label">#03 PLANIFICACIÓN TÉCNICA</div>
-<p style="font-size: 16px;">Elaboramos presupuestos detallados y cronogramas de obra cerrados.</p>
+<div class="stat-label">#03 TRATAMIENTO</div>
+<p style="font-size: 16px;">Ejecutamos el tratamiento acordado con la máxima calidad y sin dolor.</p>
 </div>
 <div class="timeline-item">
 <div class="timeline-dot"></div>
-<div class="stat-label">#04 CONSTRUCCIÓN</div>
-<p style="font-size: 16px;">Ejecutamos la obra con supervisión constante hasta la entrega satisfactoria.</p>
+<div class="stat-label">#04 SEGUIMIENTO</div>
+<p style="font-size: 16px;">Programamos citas de control para asegurar la durabilidad de tu nueva sonrisa.</p>
 </div>
 </div>
 </div>
 </section>
+
 <section id="testimonios">
 <div class="container">
-<div class="section-tag">07 TESTIMONIOS</div>
+<div class="section-tag">07 LO QUE DICEN</div>
+<h2>Experiencias que transforman.</h2>
 <div class="grid-3">
 <div class="testimonial-box">
-<div class="quote">"Entendieron lo que queríamos mejor que nosotros mismos."</div>
-<div class="author">MARCELA T.</div>
+<div class="quote">"Me explicaron todo antes de empezar y pagué exactamente lo pactado. Totalmente recomendado."</div>
+<div class="author">ANDREA V.</div>
 </div>
 <div class="testimonial-box">
-<div class="quote">"La obra terminó en la fecha prometida, algo raro en este medio."</div>
-<div class="author">JORGE R.</div>
+<div class="quote">"Le tenía pánico al odontólogo, pero el trato en Sonrisa Norte me cambió la idea por completo."</div>
+<div class="author">RICARDO P.</div>
 </div>
 <div class="testimonial-box">
-<div class="quote">"El render fue idéntico al resultado final."</div>
-<div class="author">LAURA V.</div>
+<div class="quote">"Mi hija sale feliz de cada cita. La odontopediatría es excelente y saben cómo tratar a los niños."</div>
+<div class="author">NATALIA G.</div>
 </div>
 </div>
 </div>
 </section>
+
 <section id="faq">
 <div class="container">
-<div class="section-tag">08 FAQ</div>
-<h2>Dudas frecuentes.</h2>
+<div class="section-tag">08 PREGUNTAS FRECUENTES</div>
+<h2>Resolvemos tus dudas.</h2>
 <div class="faq-row">
-<div class="faq-q">¿Trabajan con presupuesto cerrado?</div>
-<div class="faq-a">Sí, se define detalladamente antes de firmar contrato y no cambia, salvo que usted modifique el alcance del proyecto.</div>
+<div class="faq-q">¿Atienden urgencias dentales? <span class="arrow">▼</span></div>
+<div class="faq-a"><p>Sí, atendemos urgencias el mismo día, siempre con cita previa. Por favor, contáctanos por teléfono para coordinar tu atención lo más pronto posible.</p></div>
 </div>
 <div class="faq-row">
-<div class="faq-q">¿Hacen proyectos fuera de Bogotá?</div>
-<div class="faq-a">Sí, operamos en toda la Sabana sin recargo. Para otras ciudades del país, realizamos el proyecto incluyendo gastos de viáticos.</div>
+<div class="faq-q">¿Los precios incluyen todos los materiales y procedimientos? <span class="arrow">▼</span></div>
+<div class="faq-a"><p>Sí, el plan de tratamiento que te entregamos por escrito incluye absolutamente todo. No hay cobros ocultos ni sorpresas adicionales.</p></div>
 </div>
 <div class="faq-row">
-<div class="faq-q">¿Cuánto tarda un diseño?</div>
-<div class="faq-a">Dependiendo de la complejidad y el tamaño del proyecto, el proceso de diseño suele tardar entre 3 y 6 semanas.</div>
+<div class="faq-q">¿Aceptan seguros o pólizas de salud? <span class="arrow">▼</span></div>
+<div class="faq-a"><p>Trabajamos con las principales pólizas y planes complementarios de salud. Te invitamos a consultar con nuestra recepción para verificar la cobertura específica de tu plan.</p></div>
+</div>
+<div class="faq-row">
+<div class="faq-q">¿Cómo puedo agendar una cita? <span class="arrow">▼</span></div>
+<div class="faq-a"><p>Puedes agendar tu cita llamándonos directamente o enviando un mensaje por WhatsApp a nuestro número de contacto. También puedes escribirnos a nuestro correo electrónico.</p></div>
 </div>
 </div>
 </section>
+
 <section id="contacto">
 <div class="container grid-2">
 <div>
 <div class="section-tag">09 CONTACTO</div>
-<h2>Iniciemos su proyecto hoy.</h2>
+<h2>Estamos listos para atenderte.</h2>
 <div class="contact-details">
-<div>TELÉFONO: 310 456 7890</div>
-<div>EMAIL: HOLA@ESTUDIOBRIO.CO</div>
-<div>DIRECCIÓN: CALLE 93 #13-45 OFICINA 302</div>
-<div>HORARIO: L-V 8AM-6PM / S 9AM-1PM</div>
+<div>TELÉFONO/WHATSAPP: 320 555 1234</div>
+<div>EMAIL: CITAS@SONRISANORTE.CO</div>
+<div>DIRECCIÓN: CARRERA 15 #140-22 CONSULTORIO 501</div>
+<div>HORARIO: L-V 7AM-7PM / S 8AM-2PM</div>
 </div>
 </div>
 <div style="background: white; padding: 60px; border-radius: 2px;">
-<p style="margin-bottom: 30px;">Estamos listos para ordenar sus ideas y convertirlas en planos reales.</p>
-<a href="https://wa.me/573104567890" class="btn btn-main">Agenda tu primera asesoría</a>
+<p style="margin-bottom: 30px;">Recupera la confianza en tu sonrisa. Agenda hoy tu valoración gratuita y déjanos cuidar de ti.</p>
+<a href="https://wa.me/573205551234" target="_blank" class="btn btn-main">Agenda tu valoración gratis</a>
 </div>
 </div>
 </section>
+
 <footer>
 <div class="container footer-flex">
-<div>© 2024 ESTUDIO BRÍO ARQUITECTURA. TODOS LOS DERECHOS RESERVADOS.</div>
+<div>© 2024 CLÍNICA DENTAL SONRISA NORTE. TODOS LOS DERECHOS RESERVADOS.</div>
 <div style="display: flex; gap: 20px;">
-<a href="https://instagram.com/estudiobrio" style="color: inherit; text-decoration: none;">INSTAGRAM</a>
-<a href="https://behance.net/estudiobrio" style="color: inherit; text-decoration: none;">BEHANCE</a>
-<a href="https://linkedin.com/company/estudiobrio" style="color: inherit; text-decoration: none;">LINKEDIN</a>
+<a href="https://instagram.com/sonrisanorte" target="_blank">INSTAGRAM</a>
+<a href="https://facebook.com/sonrisanorte" target="_blank">FACEBOOK</a>
 </div>
 </div>
 </footer>
+
+<script>
+document.querySelectorAll('.faq-q').forEach(question => {
+    question.addEventListener('click', () => {
+        const answer = question.nextElementSibling;
+        const isActive = question.classList.toggle('active');
+
+        document.querySelectorAll('.faq-q').forEach(otherQuestion => {
+            if (otherQuestion !== question && otherQuestion.classList.contains('active')) {
+                otherQuestion.classList.remove('active');
+                otherQuestion.nextElementSibling.style.maxHeight = null;
+            }
+        });
+
+        if (isActive) {
+            answer.style.maxHeight = answer.scrollHeight + "px";
+        } else {
+            answer.style.maxHeight = null;
+        }
+    });
+});
+</script>
+
 </body>
 </html>
