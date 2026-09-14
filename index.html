@@ -1,393 +1,886 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Clínica Dental Sonrisa Norte | Tu sonrisa en las mejores manos</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Fraunces:ital,opsz,wght@1,9..144,400&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-:root {
---bg-color: #FFFFFF;
---text-main: #1B1B22;
---text-sec: #8A8578;
---accent: #00A3FF;
---line: rgba(0,0,0,0.12);
---font-display: 'Bricolage Grotesque', sans-serif;
---font-body: 'Inter', sans-serif;
---font-mono: 'JetBrains Mono', monospace;
---font-serif: 'Fraunces', serif;
-}
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { background-color: var(--bg-color); color: var(--text-main); font-family: var(--font-body); -webkit-font-smoothing: antialiased; }
-html { scroll-behavior: smooth; }
-header { position: fixed; top: 0; width: 100%; background: var(--bg-color); border-bottom: 1px solid var(--line); z-index: 100; padding: 20px 0; }
-.container { max-width: 1180px; margin: 0 auto; padding: 0 40px; }
-.header-flex { display: flex; justify-content: space-between; align-items: center; }
-.logo { font-family: var(--font-display); font-weight: 800; font-size: 20px; text-transform: uppercase; letter-spacing: -0.02em; text-decoration: none; color: var(--text-main); }
-.header-meta { font-family: var(--font-mono); font-size: 10px; color: var(--text-sec); text-transform: uppercase; display: flex; gap: 40px; }
-.header-meta b { color: var(--text-main); font-weight: 500; }
-nav a { margin-left: 20px; text-decoration: none; color: var(--text-main); font-family: var(--font-mono); font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; transition: color 0.2s; }
-nav a:hover { color: var(--accent); }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ferretería El Tornillo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=Fraunces:ital,wght@1,500&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-background: #FBF7F0;
+            --color-text-primary: #1B1B22;
+            --color-text-secondary: #8A8578;
+            --color-accent: #0D4C92; /* Azul robusto para ferretería */
+            --color-button-text: #FBF7F0;
+            --border-color: rgba(0, 0, 0, 0.12);
 
-section { padding: 120px 0; }
-.section-tag { font-family: var(--font-mono); font-size: 11px; color: var(--accent); letter-spacing: 0.15em; display: flex; align-items: center; gap: 8px; margin-bottom: 24px; }
-.section-tag::before { content: ""; width: 6px; height: 6px; background: var(--accent); border-radius: 50%; }
-h1, h2 { font-family: var(--font-display); line-height: 1.05; letter-spacing: -0.02em; }
-h1 { font-size: 84px; margin-bottom: 40px; }
-h1 span { font-family: var(--font-serif); font-style: italic; color: var(--accent); }
-h2 { font-size: 48px; margin-bottom: 60px; max-width: 800px; }
-p { font-size: 18px; line-height: 1.6; color: var(--text-main); max-width: 700px; }
-.hero-p { font-size: 22px; margin-bottom: 48px; }
-.btn { display: inline-block; padding: 18px 32px; font-family: var(--font-mono); font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; text-decoration: none; border-radius: 2px; transition: 0.2s; }
-.btn-main { background: var(--accent); color: var(--bg-color); }
-.btn-sec { border: 1px solid var(--line); color: var(--text-main); }
-.btn:hover { opacity: 0.8; }
-.table-report { width: 100%; border-collapse: collapse; margin-top: 40px; }
-.table-report th { text-align: left; font-family: var(--font-mono); font-size: 11px; color: var(--text-sec); padding: 20px 0; border-bottom: 1px solid var(--line); }
-.table-report td { padding: 30px 0; border-bottom: 1px solid var(--line); font-size: 16px; }
-.table-num { font-family: var(--font-mono); font-size: 12px; color: var(--text-sec); width: 60px; }
-.service-name { font-weight: 500; width: 300px; }
-.service-desc { color: var(--text-sec); }
-.service-price { font-family: var(--font-mono); font-size: 14px; text-align: right; }
-.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
-.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
-.grid-item { border-top: 1px solid var(--line); padding-top: 30px; }
-.grid-item h3 { font-family: var(--font-display); font-size: 24px; margin-bottom: 16px; }
-.grid-item p { font-size: 15px; color: var(--text-sec); }
-.stats-row { display: flex; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 60px 0; justify-content: space-between; }
-.stat-box { display: flex; flex-direction: column; gap: 10px; }
-.stat-num { font-family: var(--font-display); font-size: 72px; color: var(--text-main); line-height: 1; }
-.stat-num sup { font-size: 24px; font-family: var(--font-mono); vertical-align: super; margin-left: 4px; }
-.stat-label { font-family: var(--font-mono); font-size: 11px; color: var(--text-sec); letter-spacing: 0.1em; }
-.timeline { border-left: 1px solid var(--line); padding-left: 40px; margin-left: 10px; position: relative; }
-.timeline-item { position: relative; padding-bottom: 60px; }
-.timeline-dot { position: absolute; left: -44px; top: 0; width: 7px; height: 7px; background: var(--bg-color); border: 1px solid var(--accent); border-radius: 50%; }
-.testimonial-box { border-top: 1px solid var(--line); padding-top: 40px; }
-.quote { font-family: var(--font-display); font-size: 32px; margin-bottom: 24px; line-height: 1.2; }
-.author { font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; color: var(--text-sec); }
-.faq-row { border-top: 1px solid var(--line); padding: 40px 0; }
-.faq-q { font-size: 18px; font-weight: 500; margin-bottom: 12px; cursor: pointer; display: flex; justify-content: space-between; align-items: center;}
-.faq-q .arrow { transition: transform 0.2s ease-in-out; }
-.faq-q.active .arrow { transform: rotate(180deg); }
-.faq-a { color: var(--text-sec); max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; }
-.contact-details { font-family: var(--font-mono); font-size: 14px; display: flex; flex-direction: column; gap: 20px; }
-footer { padding: 60px 0; border-top: 1px solid var(--line); }
-.footer-flex { display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 11px; color: var(--text-sec); }
-.footer-flex a { color: inherit; text-decoration: none; transition: color 0.2s; }
-.footer-flex a:hover { color: var(--accent); }
+            --font-display: 'Bricolage Grotesque', sans-serif;
+            --font-body: 'Inter', sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+            --font-fraunces: 'Fraunces', serif;
+        }
 
-@media (max-width: 992px) {
-    .header-meta { display: none; }
-    nav { margin-left: auto; }
-    nav a { margin-left: 15px; }
-    h1 { font-size: 64px; }
-    h2 { font-size: 38px; }
-    section { padding: 90px 0; }
-}
-@media (max-width: 768px) {
-    .container { padding: 0 20px; }
-    .header-flex { flex-direction: column; gap: 15px; }
-    nav { width: 100%; display: flex; justify-content: center; flex-wrap: wrap; }
-    nav a { margin: 5px 10px; font-size: 10px; }
-    h1 { font-size: 48px; margin-bottom: 30px; }
-    h2 { font-size: 32px; margin-bottom: 40px; }
-    .hero-p { font-size: 18px; margin-bottom: 30px; }
-    p { font-size: 16px; }
-    .grid-2, .grid-3 { grid-template-columns: 1fr; gap: 40px; }
-    .stats-row { flex-direction: column; gap: 40px; text-align: center; }
-    .stat-box { align-items: center; }
-    .table-report { margin-top: 30px; }
-    .table-report th { display: none; }
-    .table-report td { display: block; padding: 10px 0; border-bottom: none; }
-    .table-report tr { border-bottom: 1px solid var(--line); display: block; padding: 20px 0; }
-    .service-name, .service-desc, .service-price, .table-num { width: auto; text-align: left; }
-    .service-price { text-align: left; margin-top: 5px; }
-    .timeline { padding-left: 20px; margin-left: 0; }
-    .timeline-dot { left: -24px; }
-    .quote { font-size: 24px; }
-    .faq-row { padding: 30px 0; }
-    .contact-details { font-size: 12px; }
-    footer .footer-flex { flex-direction: column; gap: 15px; text-align: center; }
-}
-@media (max-width: 480px) {
-    h1 { font-size: 36px; }
-    h2 { font-size: 28px; }
-    .hero-p { font-size: 16px; }
-    .btn { padding: 14px 24px; font-size: 10px; }
-    .section-tag { font-size: 10px; }
-}
-</style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--color-text-primary);
+            background-color: var(--color-background);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 90px 0;
+        }
+
+        .section-label {
+            font-family: var(--font-mono);
+            font-size: 0.8em;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--color-text-secondary);
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .section-label::before {
+            content: '•';
+            color: var(--color-accent);
+            font-size: 1.2em;
+            margin-right: 8px;
+            line-height: 1;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-display);
+            font-weight: 700;
+            line-height: 1.05;
+            color: var(--color-text-primary);
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: clamp(2.5em, 6vw, 4.5em);
+            font-weight: 800;
+        }
+
+        h2 {
+            font-size: clamp(2em, 5vw, 3.5em);
+            margin-top: 0;
+        }
+
+        h3 {
+            font-size: clamp(1.5em, 3.5vw, 2.2em);
+            margin-bottom: 15px;
+        }
+
+        p {
+            margin-bottom: 1em;
+            font-size: 1.1em;
+            color: var(--color-text-primary);
+        }
+
+        a {
+            color: var(--color-accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            opacity: 0.8;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            padding: 14px 28px;
+            background-color: var(--color-accent);
+            color: var(--color-button-text);
+            font-family: var(--font-body);
+            font-weight: 500;
+            text-align: center;
+            border-radius: 2px;
+            transition: background-color 0.2s ease, opacity 0.2s ease;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1em;
+        }
+
+        .btn-primary:hover {
+            background-color: #08376B; /* Un azul ligeramente más oscuro */
+            opacity: 1;
+        }
+
+        .btn-secondary {
+            display: inline-block;
+            padding: 12px 26px;
+            background: none;
+            color: var(--color-accent);
+            font-family: var(--font-body);
+            font-weight: 500;
+            text-align: center;
+            border-radius: 2px;
+            border: 1px solid var(--color-accent);
+            transition: all 0.2s ease;
+            text-decoration: none;
+            font-size: 1.1em;
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--color-accent);
+            color: var(--color-button-text);
+            opacity: 1;
+        }
+
+        /* Header */
+        .header {
+            background-color: var(--color-background);
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .header-logo {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 1.8em;
+            color: var(--color-text-primary);
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .header-nav {
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        .header-nav a {
+            font-family: var(--font-mono);
+            font-size: 0.9em;
+            text-transform: uppercase;
+            color: var(--color-text-secondary);
+            text-decoration: none;
+            position: relative;
+        }
+
+        .header-nav a:hover {
+            color: var(--color-accent);
+        }
+        
+        .header-meta {
+            font-family: var(--font-mono);
+            font-size: 0.75em;
+            color: var(--color-text-secondary);
+            text-align: right;
+            line-height: 1.4;
+            margin-top: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .header .container {
+                flex-direction: column;
+                align-items: center;
+            }
+            .header-nav {
+                margin-top: 15px;
+                gap: 15px;
+            }
+            .header-meta {
+                margin-top: 15px;
+                text-align: center;
+            }
+        }
+
+        /* Hero */
+        .hero {
+            text-align: center;
+            padding: 120px 0;
+            background-color: var(--color-background);
+        }
+
+        .hero h1 {
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 30px;
+        }
+
+        .hero h1 span {
+            font-family: var(--font-fraunces);
+            font-style: italic;
+            color: var(--color-accent);
+        }
+
+        .hero p {
+            font-size: 1.3em;
+            max-width: 700px;
+            margin: 0 auto 40px auto;
+            color: var(--color-text-secondary);
+        }
+
+        /* Tables (General style for lists) */
+        .content-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 30px;
+            font-size: 1em;
+        }
+
+        .content-table th, .content-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .content-table th {
+            font-family: var(--font-mono);
+            font-size: 0.8em;
+            text-transform: uppercase;
+            color: var(--color-text-secondary);
+            background-color: transparent;
+            font-weight: 400;
+            white-space: nowrap;
+        }
+        
+        .content-table td {
+            font-family: var(--font-body);
+            color: var(--color-text-primary);
+            vertical-align: top;
+        }
+
+        .content-table td:first-child {
+            font-family: var(--font-mono);
+            color: var(--color-accent);
+            width: 30px; /* Ancho fijo para el número */
+            padding-right: 5px;
+        }
+
+        /* Why Choose Us (Grid) */
+        .why-choose-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1px;
+            background-color: var(--border-color); /* Para las líneas entre celdas */
+            margin-top: 30px;
+            border: 1px solid var(--border-color);
+        }
+
+        .why-choose-item {
+            background-color: var(--color-background);
+            padding: 30px;
+        }
+
+        .why-choose-item h3 {
+            font-size: 1.4em;
+            margin-bottom: 10px;
+            color: var(--color-text-primary);
+        }
+
+        .why-choose-item p {
+            font-size: 1em;
+            color: var(--color-text-secondary);
+            margin-bottom: 0;
+        }
+
+        /* Statistics */
+        .stats-grid {
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start;
+            margin-top: 50px;
+            padding: 30px 0;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 20px 15px;
+            flex: 1;
+            min-width: 180px;
+            position: relative;
+        }
+        
+        .stat-item:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 20%;
+            height: 60%;
+            width: 1px;
+            background-color: var(--border-color);
+        }
+
+        .stat-item .number {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: clamp(2.5em, 7vw, 5em);
+            color: var(--color-accent);
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+
+        .stat-item .unit {
+            font-size: 0.5em; /* Tamaño para el superíndice */
+            vertical-align: super;
+            margin-left: -5px; /* Ajuste para acercar al número */
+            color: var(--color-accent);
+        }
+
+        .stat-item .label {
+            font-family: var(--font-mono);
+            font-size: 0.8em;
+            text-transform: uppercase;
+            color: var(--color-text-secondary);
+            display: block;
+            margin-top: 5px;
+        }
+        @media (max-width: 768px) {
+            .stats-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+            .stat-item {
+                width: 100%;
+                border-bottom: 1px solid var(--border-color);
+            }
+            .stat-item:not(:last-child)::after {
+                content: none;
+            }
+            .stat-item:first-child {
+                padding-top: 0;
+            }
+            .stat-item:last-child {
+                border-bottom: none;
+                padding-bottom: 0;
+            }
+        }
+
+
+        /* How We Work (Timeline-like) */
+        .process-list {
+            margin-top: 30px;
+            padding: 0;
+            list-style: none;
+            position: relative;
+        }
+
+        .process-list li {
+            padding: 20px 0 20px 40px;
+            position: relative;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .process-list li:first-child {
+             padding-top: 0;
+        }
+        .process-list li:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .process-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 25px;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            border: 2px solid var(--color-accent);
+            background-color: var(--color-background);
+            z-index: 1;
+        }
+        .process-list li:first-child::before {
+            top: 0;
+            margin-top: 0; /* Asegurarse de que no haya margen superior adicional */
+        }
+        .process-list li:first-child .process-step-num {
+            top: 0;
+        }
+
+
+        .process-list li::after {
+            content: '';
+            position: absolute;
+            left: 9px;
+            top: 45px; /* Inicio de la línea después del círculo */
+            bottom: -5px; /* Asegura que la línea llegue hasta el siguiente círculo o final */
+            width: 1px;
+            background-color: var(--border-color);
+        }
+        .process-list li:last-child::after {
+            display: none; /* No mostrar línea después del último elemento */
+        }
+
+        .process-step-num {
+            font-family: var(--font-mono);
+            font-size: 0.9em;
+            color: var(--color-accent);
+            position: absolute;
+            left: 3px;
+            top: 27px;
+            transform: translateX(-50%);
+            z-index: 2;
+            background-color: var(--color-background); /* Fondo para ocultar la línea detrás del número */
+            padding: 0 4px;
+        }
+        .process-list li:first-child .process-step-num {
+            top: 2px;
+        }
+        .process-list li h3 {
+            font-size: 1.2em;
+            margin-top: 0;
+            margin-bottom: 5px;
+            color: var(--color-text-primary);
+        }
+
+        .process-list li p {
+            font-size: 1em;
+            color: var(--color-text-secondary);
+            margin-bottom: 0;
+        }
+
+        /* Testimonials */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .testimonial-item {
+            text-align: center;
+            position: relative;
+        }
+
+        .testimonial-item::before {
+            content: "“";
+            font-family: var(--font-display);
+            font-size: 6em;
+            color: rgba(0,0,0,0.05);
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 0;
+            line-height: 1;
+        }
+
+        .testimonial-item p {
+            font-family: var(--font-display);
+            font-size: 1.5em;
+            line-height: 1.3;
+            color: var(--color-text-primary);
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-item .client-name {
+            font-family: var(--font-mono);
+            font-size: 0.8em;
+            text-transform: uppercase;
+            color: var(--color-text-secondary);
+            margin-top: 10px;
+        }
+
+        /* FAQ */
+        .faq-list {
+            margin-top: 30px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .faq-item {
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .faq-item h3 {
+            font-size: 1.15em;
+            font-weight: 500;
+            margin-bottom: 8px;
+            color: var(--color-text-primary);
+            font-family: var(--font-body); /* Override h3 default font for FAQ questions */
+        }
+
+        .faq-item p {
+            font-size: 1em;
+            color: var(--color-text-secondary);
+            margin-bottom: 0;
+        }
+
+        /* Contact */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .contact-info-block {
+            padding: 20px;
+            border: 1px solid var(--border-color);
+            border-radius: 2px;
+            background-color: var(--color-background);
+            color: var(--color-text-primary);
+        }
+
+        .contact-info-block h3 {
+            font-size: 1.1em;
+            font-family: var(--font-mono);
+            text-transform: uppercase;
+            color: var(--color-accent);
+            margin-bottom: 10px;
+        }
+
+        .contact-info-block p, .contact-info-block a {
+            font-size: 1em;
+            color: var(--color-text-primary);
+            margin-bottom: 8px;
+            display: block;
+            text-decoration: none;
+        }
+        .contact-info-block a:hover {
+            color: var(--color-accent);
+            opacity: 1;
+        }
+
+        .contact-info-block p:last-child, .contact-info-block a:last-child {
+            margin-bottom: 0;
+        }
+
+        .contact-social-links {
+            margin-top: 20px;
+            display: flex;
+            gap: 15px;
+        }
+
+        .contact-social-links a {
+            font-family: var(--font-mono);
+            font-size: 0.9em;
+            color: var(--color-text-secondary);
+            text-transform: uppercase;
+        }
+
+        .contact-cta {
+            text-align: center;
+            margin-top: 50px;
+        }
+        .contact-cta p {
+            margin-bottom: 25px;
+            font-size: 1.2em;
+        }
+
+
+        /* Footer */
+        .footer {
+            padding: 40px 0;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            font-family: var(--font-mono);
+            font-size: 0.8em;
+            color: var(--color-text-secondary);
+        }
+
+        .footer p {
+            margin-bottom: 10px;
+            color: var(--color-text-secondary);
+        }
+
+        .footer .social-links a {
+            color: var(--color-text-secondary);
+            margin: 0 10px;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .footer .social-links a:hover {
+            color: var(--color-accent);
+        }
+    </style>
 </head>
 <body>
-<header>
-<div class="container header-flex">
-<a href="#hero" class="logo">Sonrisa Norte</a>
-<nav>
-<a href="#hero">Inicio</a>
-<a href="#nosotros">Nosotros</a>
-<a href="#servicios">Servicios</a>
-<a href="#beneficios">Beneficios</a>
-<a href="#proceso">Proceso</a>
-<a href="#testimonios">Testimonios</a>
-<a href="#faq">FAQ</a>
-<a href="#contacto">Contacto</a>
-</nav>
-</div>
-</header>
 
-<section id="hero">
-<div class="container">
-<div class="section-tag">01 BIENVENIDOS</div>
-<h1>Clínica Dental <span>Sonrisa Norte</span>.</h1>
-<p class="hero-p">Tu sonrisa en las mejores manos. Ofrecemos odontología general y estética dental con un plan de tratamiento claro, sin sorpresas en el precio ni dolor.</p>
-<a href="https://wa.me/573205551234" target="_blank" class="btn btn-main">Agenda tu valoración gratis</a>
-</div>
-</section>
+    <header class="header">
+        <div class="container">
+            <a href="#" class="header-logo">Ferretería El Tornillo</a>
+            <nav class="header-nav">
+                <a href="#sobre-nosotros">Sobre Nosotros</a>
+                <a href="#servicios">Servicios</a>
+                <a href="#por-que-elegirnos">Ventajas</a>
+                <a href="#estadisticas">Cifras</a>
+                <a href="#como-trabajamos">Proceso</a>
+                <a href="#testimonios">Testimonios</a>
+                <a href="#faq">FAQ</a>
+                <a href="#contacto">Contacto</a>
+            </nav>
+            <div class="header-meta">
+                <span style="display: block;">DOCUMENTO 2024-07-29</span>
+                <span style="display: block;">PREPARADO POR FERRETERÍA EL TORNILLO</span>
+            </div>
+        </div>
+    </header>
 
-<section id="nosotros">
-<div class="container grid-2">
-<div>
-<div class="section-tag">02 NUESTRA CLÍNICA</div>
-<h2>Más de 15 años cuidando tu sonrisa.</h2>
-</div>
-<div>
-<p style="margin-bottom: 24px;">En Clínica Dental Sonrisa Norte, entendemos que ir al odontólogo puede generar inquietud. Por eso, nos dedicamos a transformar esa experiencia en un proceso claro, cómodo y totalmente transparente. Somos especialistas en odontología general y estética dental, ofreciendo soluciones a la medida para quienes buscan recuperar su salud bucal y la confianza en su sonrisa.</p>
-<p>Nuestra trayectoria de <strong>15 años</strong> y más de <strong>20.000 pacientes atendidos</strong> nos respaldan. Contamos con un equipo de profesionales altamente calificados y tecnología de vanguardia en nuestras <strong>3 sedes</strong> en Bogotá (Cedritos, Chapinero y Salitre), siempre con un enfoque humano y cercano para que te sientas en las mejores manos.</p>
-</div>
-</div>
-</section>
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Construyendo Juntos tus Proyectos con <span>Ferretería El Tornillo</span></h1>
+                <p>Tu aliado confiable para cada proyecto, grande o pequeño, ofreciendo calidad y asesoría experta en herramientas, materiales y repuestos.</p>
+                <a href="#contacto" class="btn-primary">¡Explora Nuestro Catálogo!</a>
+            </div>
+        </section>
 
-<section id="servicios">
-<div class="container">
-<div class="section-tag">03 NUESTROS SERVICIOS</div>
-<h2>Tu plan de tratamiento claro, sin sorpresas.</h2>
-<table class="table-report">
-<thead>
-<tr>
-<th>#</th>
-<th>SERVICIO</th>
-<th>DESCRIPCIÓN</th>
-<th>PRECIO</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="table-num">01</td>
-<td class="service-name">LIMPIEZA Y PROFILAXIS</td>
-<td class="service-desc">Remoción de placa y sarro para una boca sana y fresca.</td>
-<td class="service-price">DESDE 90.000</td>
-</tr>
-<tr>
-<td class="table-num">02</td>
-<td class="service-name">BLANQUEAMIENTO LED</td>
-<td class="service-desc">Aclara el tono de tus dientes de forma segura y efectiva.</td>
-<td class="service-price">DESDE 350.000</td>
-</tr>
-<tr>
-<td class="table-num">03</td>
-<td class="service-name">ORTODONCIA CON BRACKETS</td>
-<td class="service-desc">Corrección de la posición dental para una mordida perfecta.</td>
-<td class="service-price">DESDE 2.900.000</td>
-</tr>
-<tr>
-<td class="table-num">04</td>
-<td class="service-name">DISEÑO DE SONRISA</td>
-<td class="service-desc">Transformación estética con carillas personalizadas.</td>
-<td class="service-price">COTIZACIÓN PERSONALIZADA</td>
-</tr>
-<tr>
-<td class="table-num">05</td>
-<td class="service-name">IMPLANTES DENTALES</td>
-<td class="service-desc">Solución duradera para reemplazar piezas dentales perdidas.</td>
-<td class="service-price">DESDE 1.800.000 / UNIDAD</td>
-</tr>
-<tr>
-<td class="table-num">06</td>
-<td class="service-name">ODONTOPEDIATRÍA</td>
-<td class="service-desc">Atención especializada para la salud bucal de los más pequeños.</td>
-<td class="service-price">DESDE 80.000</td>
-</tr>
-</tbody>
-</table>
-</div>
-</section>
+        <section id="sobre-nosotros">
+            <div class="container">
+                <p class="section-label">01 SOBRE NOSOTROS</p>
+                <h2>Más de 15 Años de Experiencia en tu Comunidad</h2>
+                <p>Ferretería El Tornillo es tu establecimiento de confianza en Medellín con más de 15 años de trayectoria. Nos dedicamos a ser el pilar fundamental para tus proyectos de construcción y reparación, grandes o pequeños, proveyendo siempre productos de la más alta calidad.</p>
+                <p>Desde nuestra fundación, hemos crecido de la mano con la comunidad, consolidándonos como un referente por nuestra amplia oferta de productos, la calidad de nuestro servicio y el compromiso inquebrantable con cada cliente. Nuestra misión es facilitar tus proyectos con soluciones efectivas y un soporte inigualable.</p>
+            </div>
+        </section>
 
-<section id="beneficios">
-<div class="container">
-<div class="section-tag">04 POR QUÉ ELEGIRNOS</div>
-<h2>Ventajas de elegir Sonrisa Norte.</h2>
-<div class="grid-3">
-<div class="grid-item">
-<h3>Valoración Gratuita</h3>
-<p>Evaluación inicial completa y radiografía sin costo para conocer tu estado.</p>
-</div>
-<div class="grid-item">
-<h3>Precio Cerrado</h3>
-<p>Plan de tratamiento detallado con precio final por escrito, sin sorpresas ocultas.</p>
-</div>
-<div class="grid-item">
-<h3>Financiación Flexible</h3>
-<p>Opciones de pago hasta en 12 cuotas sin intereses para facilitar tu tratamiento.</p>
-</div>
-<div class="grid-item">
-<h3>Esterilización Certificada</h3>
-<p>Garantía de seguridad con equipos y procesos de esterilización avalados.</p>
-</div>
-</div>
-</div>
-</section>
+        <section id="servicios">
+            <div class="container">
+                <p class="section-label">02 LO QUE HACEMOS</p>
+                <h2>Nuestros Servicios y Productos</h2>
+                <table class="content-table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>SERVICIO</th>
+                            <th>DESCRIPCION</th>
+                            <th>PRECIO</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Herramientas</td>
+                            <td>Venta y alquiler de herramientas eléctricas y manuales para todo tipo de trabajo.</td>
+                            <td>Consultar</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Materiales de Construcción</td>
+                            <td>Amplio surtido de ladrillos, cemento, arena, tuberías y todo lo necesario para tu obra.</td>
+                            <td>Consultar</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Repuestos Eléctricos</td>
+                            <td>Cables, interruptores, bombillos, tomas y otros componentes eléctricos esenciales.</td>
+                            <td>Consultar</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>Asesoría Especializada</td>
+                            <td>Guía profesional para la selección de materiales y planificación de tus proyectos.</td>
+                            <td>Gratis</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
 
-<section id="estadisticas">
-<div class="container">
-<div class="section-tag">05 NUESTRO IMPACTO</div>
-<div class="stats-row">
-<div class="stat-box">
-<span class="stat-num">15<sup>+</sup></span>
-<span class="stat-label">AÑOS DE EXPERIENCIA</span>
-</div>
-<div class="stat-box">
-<span class="stat-num">20.000<sup>+</sup></span>
-<span class="stat-label">PACIENTES ATENDIDOS</span>
-</div>
-<div class="stat-box">
-<span class="stat-num">03</span>
-<span class="stat-label">SEDES EN BOGOTÁ</span>
-</div>
-<div class="stat-box">
-<span class="stat-num">100<sup>%</sup></span>
-<span class="stat-label">TECNOLOGÍA AVANZADA</span>
-</div>
-</div>
-</div>
-</section>
+        <section id="por-que-elegirnos">
+            <div class="container">
+                <p class="section-label">03 POR QUÉ ELEGIRNOS</p>
+                <h2>Ventajas de Elegir Ferretería El Tornillo</h2>
+                <div class="why-choose-grid">
+                    <div class="why-choose-item">
+                        <h3>Experiencia Local</h3>
+                        <p>Más de 15 años sirviendo a la comunidad de Medellín, entendiendo tus necesidades.</p>
+                    </div>
+                    <div class="why-choose-item">
+                        <h3>Entrega Rápida</h3>
+                        <p>Recibe tus materiales el mismo día de la compra directamente en tu ubicación.</p>
+                    </div>
+                    <div class="why-choose-item">
+                        <h3>Asesoría Técnica Gratuita</h3>
+                        <p>Obtén orientación profesional sin costo para cada uno de tus proyectos.</p>
+                    </div>
+                    <div class="why-choose-item">
+                        <h3>Amplio Surtido</h3>
+                        <p>Más de 2000 productos disponibles para cubrir todas tus exigencias.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-<section id="proceso">
-<div class="container grid-2">
-<div>
-<div class="section-tag">06 CÓMO TRABAJAMOS</div>
-<h2>Tu camino hacia una sonrisa sana.</h2>
-</div>
-<div class="timeline">
-<div class="timeline-item">
-<div class="timeline-dot"></div>
-<div class="stat-label">#01 VALORACIÓN</div>
-<p style="font-size: 16px;">Realizamos un diagnóstico completo, incluyendo radiografía, para evaluar tu salud bucal.</p>
-</div>
-<div class="timeline-item">
-<div class="timeline-dot"></div>
-<div class="stat-label">#02 PLAN DE TRATAMIENTO</div>
-<p style="font-size: 16px;">Te presentamos un plan personalizado con opciones claras y un presupuesto cerrado.</p>
-</div>
-<div class="timeline-item">
-<div class="timeline-dot"></div>
-<div class="stat-label">#03 TRATAMIENTO</div>
-<p style="font-size: 16px;">Ejecutamos el tratamiento acordado con la máxima calidad y sin dolor.</p>
-</div>
-<div class="timeline-item">
-<div class="timeline-dot"></div>
-<div class="stat-label">#04 SEGUIMIENTO</div>
-<p style="font-size: 16px;">Programamos citas de control para asegurar la durabilidad de tu nueva sonrisa.</p>
-</div>
-</div>
-</div>
-</section>
+        <section id="estadisticas">
+            <div class="container">
+                <p class="section-label">04 NUESTROS LOGROS</p>
+                <h2>Algunas Cifras que Hablan por Nosotros</h2>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="number">15<span class="unit">+</span></div>
+                        <div class="label">AÑOS DE EXPERIENCIA</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="number">500<span class="unit">+</span></div>
+                        <div class="label">CLIENTES FRECUENTES</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="number">2000<span class="unit">+</span></div>
+                        <div class="label">PRODUCTOS EN STOCK</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="number">100<span class="unit">%</span></div>
+                        <div class="label">SATISFACCIÓN</div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-<section id="testimonios">
-<div class="container">
-<div class="section-tag">07 LO QUE DICEN</div>
-<h2>Experiencias que transforman.</h2>
-<div class="grid-3">
-<div class="testimonial-box">
-<div class="quote">"Me explicaron todo antes de empezar y pagué exactamente lo pactado. Totalmente recomendado."</div>
-<div class="author">ANDREA V.</div>
-</div>
-<div class="testimonial-box">
-<div class="quote">"Le tenía pánico al odontólogo, pero el trato en Sonrisa Norte me cambió la idea por completo."</div>
-<div class="author">RICARDO P.</div>
-</div>
-<div class="testimonial-box">
-<div class="quote">"Mi hija sale feliz de cada cita. La odontopediatría es excelente y saben cómo tratar a los niños."</div>
-<div class="author">NATALIA G.</div>
-</div>
-</div>
-</div>
-</section>
+        <section id="como-trabajamos">
+            <div class="container">
+                <p class="section-label">05 NUESTRO PROCESO</p>
+                <h2>Cómo Trabajar con Ferretería El Tornillo</h2>
+                <ul class="process-list">
+                    <li>
+                        <span class="process-step-num">1</span>
+                        <h3>Consulta y Asesoría</h3>
+                        <p>Contáctanos para contarnos tus necesidades o visítanos. Recibirás orientación experta.</p>
+                    </li>
+                    <li>
+                        <span class="process-step-num">2</span>
+                        <h3>Selección de Productos</h3>
+                        <p>Explora nuestro amplio catálogo y elige los materiales o herramientas que mejor se adapten a tu proyecto.</p>
+                    </li>
+                    <li>
+                        <span class="process-step-num">3</span>
+                        <h3>Preparación y Envío</h3>
+                        <p>Confirmamos tu pedido y nos encargamos de su preparación para el envío a tu ubicación en Medellín.</p>
+                    </li>
+                    <li>
+                        <span class="process-step-num">4</span>
+                        <h3>Soporte Post-Venta</h3>
+                        <p>Nuestro equipo está disponible para resolver cualquier duda o necesidad que surja después de tu compra.</p>
+                    </li>
+                </ul>
+            </div>
+        </section>
 
-<section id="faq">
-<div class="container">
-<div class="section-tag">08 PREGUNTAS FRECUENTES</div>
-<h2>Resolvemos tus dudas.</h2>
-<div class="faq-row">
-<div class="faq-q">¿Atienden urgencias dentales? <span class="arrow">▼</span></div>
-<div class="faq-a"><p>Sí, atendemos urgencias el mismo día, siempre con cita previa. Por favor, contáctanos por teléfono para coordinar tu atención lo más pronto posible.</p></div>
-</div>
-<div class="faq-row">
-<div class="faq-q">¿Los precios incluyen todos los materiales y procedimientos? <span class="arrow">▼</span></div>
-<div class="faq-a"><p>Sí, el plan de tratamiento que te entregamos por escrito incluye absolutamente todo. No hay cobros ocultos ni sorpresas adicionales.</p></div>
-</div>
-<div class="faq-row">
-<div class="faq-q">¿Aceptan seguros o pólizas de salud? <span class="arrow">▼</span></div>
-<div class="faq-a"><p>Trabajamos con las principales pólizas y planes complementarios de salud. Te invitamos a consultar con nuestra recepción para verificar la cobertura específica de tu plan.</p></div>
-</div>
-<div class="faq-row">
-<div class="faq-q">¿Cómo puedo agendar una cita? <span class="arrow">▼</span></div>
-<div class="faq-a"><p>Puedes agendar tu cita llamándonos directamente o enviando un mensaje por WhatsApp a nuestro número de contacto. También puedes escribirnos a nuestro correo electrónico.</p></div>
-</div>
-</div>
-</section>
+        <section id="testimonios">
+            <div class="container">
+                <p class="section-label">06 OPINIONES</p>
+                <h2>Lo que Dicen Nuestros Clientes</h2>
+                <div class="testimonials-grid">
+                    <div class="testimonial-item">
+                        <p>"Siempre encuentro lo que necesito y la asesoría es excelente. ¡Mi ferretería de confianza!"</p>
+                        <div class="client-name">ANA G.</div>
+                    </div>
+                    <div class="testimonial-item">
+                        <p>"La entrega el mismo día me salvó en varias ocasiones. Gran variedad de productos y precios justos."</p>
+                        <div class="client-name">PABLO M.</div>
+                    </div>
+                    <div class="testimonial-item">
+                        <p>"Profesionales y atentos. Llevo años comprándoles y la calidad de los materiales es indiscutible."</p>
+                        <div class="client-name">RICARDO L.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-<section id="contacto">
-<div class="container grid-2">
-<div>
-<div class="section-tag">09 CONTACTO</div>
-<h2>Estamos listos para atenderte.</h2>
-<div class="contact-details">
-<div>TELÉFONO/WHATSAPP: 320 555 1234</div>
-<div>EMAIL: CITAS@SONRISANORTE.CO</div>
-<div>DIRECCIÓN: CARRERA 15 #140-22 CONSULTORIO 501</div>
-<div>HORARIO: L-V 7AM-7PM / S 8AM-2PM</div>
-</div>
-</div>
-<div style="background: white; padding: 60px; border-radius: 2px;">
-<p style="margin-bottom: 30px;">Recupera la confianza en tu sonrisa. Agenda hoy tu valoración gratuita y déjanos cuidar de ti.</p>
-<a href="https://wa.me/573205551234" target="_blank" class="btn btn-main">Agenda tu valoración gratis</a>
-</div>
-</div>
-</section>
+        <section id="faq">
+            <div class="container">
+                <p class="section-label">07 PREGUNTAS FRECUENTES</p>
+                <h2>Dudas Comunes Resueltas</h2>
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <h3>¿Ofrecen envíos a domicilio?</h3>
+                        <p>Sí, realizamos envíos a toda la ciudad de Medellín para tu comodidad.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>¿Cuál es su horario de atención?</h3>
+                        <p>Abrimos de Lunes a Sábado, de 7:00 AM a 7:00 PM en horario continuado.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>¿Puedo alquilar herramientas en Ferretería El Tornillo?</h3>
+                        <p>Sí, disponemos de un servicio de alquiler de herramientas eléctricas y manuales. Consulta disponibilidad.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>¿Cómo puedo solicitar asesoría técnica?</h3>
+                        <p>Puedes contactarnos directamente por WhatsApp, correo electrónico o visitando nuestra tienda para recibir asesoría gratuita.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>¿Todos los productos cuentan con garantía?</h3>
+                        <p>Sí, todos nuestros productos tienen la garantía del fabricante. Consulta los términos específicos al momento de la compra.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-<footer>
-<div class="container footer-flex">
-<div>© 2024 CLÍNICA DENTAL SONRISA NORTE. TODOS LOS DERECHOS RESERVADOS.</div>
-<div style="display: flex; gap: 20px;">
-<a href="https://instagram.com/sonrisanorte" target="_blank">INSTAGRAM</a>
-<a href="https://facebook.com/sonrisanorte" target="_blank">FACEBOOK</a>
-</div>
-</div>
-</footer>
+        <section id="contacto">
+            <div class="container">
+                <p class="section-label">08 HABLEMOS</p>
+                <h2>Contáctanos y Haz Realidad tus Proyectos</h2>
+                <div class="contact-grid">
+                    <div class="contact-info-block">
+                        <h3>WhatsApp y Teléfono</h3>
+                        <a href="https://wa.me/573012345678" target="_blank">+57 301 2345678</a>
+                        <p>Atención inmediata para tus consultas y pedidos.</p>
+                    </div>
+                    <div class="contact-info-block">
+                        <h3>Correo Electrónico</h3>
+                        <a href="mailto:contacto@eltornillo.com">contacto@eltornillo.com</a>
+                        <p>Envíanos tus preguntas o solicitudes, te responderemos pronto.</p>
+                    </div>
+                    <div class="contact-info-block">
+                        <h3>Dirección</h3>
+                        <p>Carrera 45 #12-30, Medellín</p>
+                        <p>Visita nuestra tienda para una experiencia personalizada.</p>
+                    </div>
+                    <div class="contact-info-block">
+                        <h3>Horario de Atención</h3>
+                        <p>Lunes a Sábado: 7:00 AM - 7:00 PM</p>
+                        <p>Estamos aquí para servirte en un amplio horario.</p>
+                    </div>
+                </div>
+                <div class="contact-cta">
+                    <p>¿Listo para iniciar tu próximo proyecto? ¡No esperes más!</p>
+                    <a href="https://wa.me/573012345678" class="btn-primary" target="_blank">¡Contáctanos Ahora!</a>
+                </div>
+            </div>
+        </section>
+    </main>
 
-<script>
-document.querySelectorAll('.faq-q').forEach(question => {
-    question.addEventListener('click', () => {
-        const answer = question.nextElementSibling;
-        const isActive = question.classList.toggle('active');
-
-        document.querySelectorAll('.faq-q').forEach(otherQuestion => {
-            if (otherQuestion !== question && otherQuestion.classList.contains('active')) {
-                otherQuestion.classList.remove('active');
-                otherQuestion.nextElementSibling.style.maxHeight = null;
-            }
-        });
-
-        if (isActive) {
-            answer.style.maxHeight = answer.scrollHeight + "px";
-        } else {
-            answer.style.maxHeight = null;
-        }
-    });
-});
-</script>
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Ferretería El Tornillo. Todos los derechos reservados.</p>
+            <div class="social-links">
+                <a href="#" aria-label="Facebook de Ferretería El Tornillo">Facebook</a>
+                <a href="#" aria-label="Instagram de Ferretería El Tornillo">Instagram</a>
+                <a href="https://wa.me/573012345678" target="_blank" aria-label="WhatsApp de Ferretería El Tornillo">WhatsApp</a>
+            </div>
+        </div>
+    </footer>
 
 </body>
 </html>
