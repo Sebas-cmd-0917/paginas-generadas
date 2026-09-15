@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Taller Mecánico Rodríguez - Vista Previa</title>
+    <title>AutoExpress Bucaramanga</title>
     <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=Fraunces:ital,wght@1,400;1,700&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
             --color-fondo: #FBF7F0;
             --color-texto-principal: #1B1B22;
             --color-texto-secundario: #8A8578;
-            --color-acento: #1B2A4A; /* Azul marino grafito */
+            --color-acento: #1B2A4A; /* Tema oscuro: azul marino grafito */
             --color-linea: rgba(0,0,0,0.12);
             --font-display: 'Bricolage Grotesque', sans-serif;
             --font-body: 'Inter', sans-serif;
@@ -78,10 +78,6 @@
             align-items: center;
             width: 100%;
         }
-        .header-left {
-            display: flex;
-            align-items: center;
-        }
         .header-left h3 {
             margin: 0;
             font-family: var(--font-display);
@@ -97,15 +93,6 @@
         }
         .header-right span {
             display: block;
-        }
-        .header-preview-tag {
-            font-family: var(--font-mono);
-            font-size: 0.75rem;
-            color: var(--color-acento);
-            text-transform: uppercase;
-            margin-left: 1rem;
-            align-self: flex-start;
-            line-height: 1;
         }
 
         /* Secciones */
@@ -149,7 +136,7 @@
             left: 50%;
             transform: translate(-50%, -50%);
             font-family: var(--font-display);
-            font-size: 20rem; /* Ajustar para que sea tenue */
+            font-size: 20rem;
             color: var(--color-acento);
             opacity: 0.03;
             z-index: 0;
@@ -176,7 +163,8 @@
             border: 1px solid var(--color-acento);
         }
         .button-primary:hover {
-            background-color: darken(var(--color-acento), 5%);
+            background-color: #0E1A2C; /* Slightly darker accent */
+            border-color: #0E1A2C;
         }
         .button-secondary {
             background: none;
@@ -185,19 +173,6 @@
         }
         .button-secondary:hover {
             border-color: var(--color-acento);
-            color: var(--color-acento);
-        }
-        .button-link {
-            background: none;
-            border: none;
-            color: var(--color-texto-principal);
-            text-decoration: underline;
-            padding: 0;
-            font-size: inherit;
-            font-family: inherit;
-            text-transform: none;
-        }
-        .button-link:hover {
             color: var(--color-acento);
         }
 
@@ -230,14 +205,8 @@
             width: 30px;
         }
 
-        /* Grids (Por qué elegirnos, Servicios) */
+        /* Grids (Por qué elegirnos) */
         .grid-3-col {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-        .grid-2-col {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
@@ -245,7 +214,6 @@
         }
         @media (min-width: 768px) {
             .grid-3-col { grid-template-columns: repeat(3, 1fr); }
-            .grid-2-col { grid-template-columns: repeat(2, 1fr); }
         }
 
         .grid-item {
@@ -338,35 +306,56 @@
             padding: 0;
             position: relative;
         }
+        .process-list::before { /* Vertical line for timeline */
+            content: '';
+            position: absolute;
+            left: 19px; /* Align with center of circles */
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background-color: var(--color-linea);
+            z-index: 0;
+        }
         .process-list-item {
             display: flex;
             align-items: flex-start;
             padding: 1.5rem 0;
+            position: relative;
             border-bottom: 1px solid var(--color-linea);
         }
         .process-list-item:last-child {
             border-bottom: none;
         }
+        .process-step-indicator {
+            width: 40px; /* Space for the circle and number */
+            flex-shrink: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            z-index: 1; /* Above the line */
+        }
+        .process-step-indicator::before { /* The circle */
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border: 1px solid var(--color-acento);
+            background-color: var(--color-fondo);
+            border-radius: 50%;
+            z-index: 0;
+        }
         .process-number {
             font-family: var(--font-mono);
-            font-size: 1.2rem;
+            font-size: 0.8rem;
             color: var(--color-acento);
-            margin-right: 1.5rem;
-            flex-shrink: 0;
-            width: 25px;
-            text-align: center;
+            z-index: 1; /* Above the circle */
         }
-        .process-content h4 {
-            font-family: var(--font-display);
-            font-size: 1.2rem;
-            margin-bottom: 0.3rem;
-            font-weight: 600;
+        .process-content {
+            flex-grow: 1;
+            padding-left: 1rem;
         }
-        .process-content p {
-            font-size: 0.95rem;
-            color: var(--color-texto-secundario);
-            margin-bottom: 0;
-        }
+
 
         /* Testimonios */
         .testimonials-grid {
@@ -420,28 +409,48 @@
         .faq-question:hover {
             color: var(--color-acento);
         }
+        /* FAQ answers */
         .faq-answer {
             color: var(--color-texto-secundario);
-            margin-top: 0.5rem;
+            margin-top: 0;
             font-size: 0.95rem;
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.3s ease-out, padding-top 0.3s ease-out;
             padding-top: 0;
+            padding-bottom: 0;
+            transition: max-height 0.3s ease-out, padding-top 0.3s ease-out, padding-bottom 0.3s ease-out;
         }
-        .faq-answer.expanded {
-            max-height: 200px; /* Suficiente para la mayoría de las respuestas */
+        .faq-question.active + .faq-answer { /* Use sibling selector */
+            max-height: 500px; /* Generous fixed height */
             padding-top: 0.5rem;
-            transition: max-height 0.5s ease-in, padding-top 0.5s ease-in;
+            padding-bottom: 0.5rem;
+            transition: max-height 0.5s ease-in, padding-top 0.5s ease-in, padding-bottom 0.5s ease-in;
         }
+
         .faq-question-toggle {
             font-family: var(--font-mono);
             font-size: 1.2rem;
             margin-left: 1rem;
             transition: transform 0.3s;
         }
-        .faq-question.active .faq-question-toggle {
+        .faq-question.active .faq-question-toggle,
+        .accordion-row.active .faq-question-toggle {
             transform: rotate(90deg);
+        }
+
+        /* Accordion content for Services and Process */
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            padding-top: 0;
+            padding-bottom: 0;
+            transition: max-height 0.3s ease-out, padding-top 0.3s ease-out, padding-bottom 0.3s ease-out;
+        }
+        .accordion-row.active .accordion-content {
+            max-height: 500px; /* Generous fixed height */
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+            transition: max-height 0.5s ease-in, padding-top 0.5s ease-in, padding-bottom 0.5s ease-in;
         }
 
         /* Botón Expandir/Contraer Todo */
@@ -518,7 +527,7 @@
             font-family: var(--font-mono);
             font-size: 0.8rem;
             color: var(--color-texto-secundario);
-            margin-top: auto; /* Empuja el footer hacia abajo */
+            margin-top: auto;
         }
         .footer .social-links {
             margin-top: 1rem;
@@ -602,10 +611,6 @@
             .header-left h3 {
                 font-size: 1.2rem;
             }
-            .header-preview-tag {
-                margin-left: 0.5rem;
-                font-size: 0.6rem;
-            }
         }
     </style>
 </head>
@@ -613,12 +618,11 @@
     <header class="header">
         <div class="container header-content">
             <div class="header-left">
-                <h3>Taller Mecánico Rodríguez</h3>
-                <span class="header-preview-tag">VISTA PREVIA</span>
+                <h3>AutoExpress Bucaramanga</h3>
             </div>
             <div class="header-right">
                 <span class="font-mono uppercase">DOCUMENTO: 12 JUN 2024</span>
-                <span class="font-mono uppercase">PREPARADO POR: TALLER RODRIGUEZ</span>
+                <span class="font-mono uppercase">PREPARADO POR: AUTOEXPRESS BGA</span>
             </div>
         </div>
     </header>
@@ -627,8 +631,8 @@
         <section id="hero" class="section hero">
             <div class="hero-graphic">24</div>
             <div class="container" style="position: relative; z-index: 1;">
-                <h1>Tu vehículo en manos expertas. Confía en <span class="font-italic text-accent">Taller Mecánico Rodríguez</span> para un servicio excepcional.</h1>
-                <p>Mantenimiento y reparación de vehículos livianos con la calidad y garantía que mereces.</p>
+                <h1>Tu taller de confianza para un viaje sin preocupaciones. Con <span class="font-italic text-accent">AutoExpress Bucaramanga</span>.</h1>
+                <p>Mantenimiento preventivo, frenos, suspensión y diagnóstico computarizado para tu carro o camioneta.</p>
                 <a href="#contacto" class="button button-primary">Agenda tu Diagnóstico Gratuito</a>
             </div>
         </section>
@@ -636,9 +640,9 @@
         <section id="sobre-nosotros" class="section">
             <div class="container">
                 <span class="section-tag font-mono letter-spacing-15 uppercase">01 SOBRE NOSOTROS</span>
-                <h2>Más de 10 años al servicio de tu automóvil.</h2>
+                <h2>Expertos en el cuidado de tu vehículo en Bucaramanga.</h2>
                 <p style="margin-top: 1.5rem; max-width: 800px; color: var(--color-texto-secundario);">
-                    En Taller Mecánico Rodríguez, nos dedicamos a mantener tu vehículo en óptimas condiciones. Con más de una década de experiencia en Floridablanca, nuestro equipo de técnicos certificados utiliza solo repuestos originales para garantizar la seguridad y el rendimiento de tu automóvil. Nuestra misión es ofrecer un servicio transparente y de confianza, priorizando siempre la satisfacción del cliente.
+                    Con 8 años de experiencia, AutoExpress Bucaramanga se ha consolidado como el taller líder en mantenimiento y reparación especializada. Nos enfocamos en ofrecer soluciones integrales para vehículos livianos y camionetas, garantizando un servicio de calidad, repuestos originales y, en muchos casos, la entrega de tu vehículo el mismo día. Confía en nuestro equipo de técnicos certificados para mantener tu automóvil en perfecto estado.
                 </p>
             </div>
         </section>
@@ -646,7 +650,7 @@
         <section id="servicios" class="section">
             <div class="container">
                 <span class="section-tag font-mono letter-spacing-15 uppercase">02 LO QUE HACEMOS</span>
-                <h2>Servicios especializados para tu tranquilidad.</h2>
+                <h2>Nuestros servicios especializados.</h2>
                 <div class="accordion-controls">
                     <button class="button-accordion-toggle" data-target="servicios-table">EXPANDIR TODO</button>
                 </div>
@@ -664,10 +668,10 @@
                         <tbody>
                             <tr class="accordion-row">
                                 <td class="font-mono">01</td>
-                                <td>MANTENIMIENTO GENERAL</td>
+                                <td>MANTENIMIENTO PREVENTIVO</td>
                                 <td>
                                     <div class="accordion-content">
-                                        <p>Revisión completa de puntos clave del vehículo, ajuste y lubricación para prolongar la vida útil de tu motor y garantizar un rendimiento óptimo. Incluye chequeo de fluidos, filtros y correas.</p>
+                                        <p>Servicio integral que incluye cambio de aceite, filtros (aire, combustible, habitáculo), revisión de bujías, fluidos y una inspección general para evitar futuras averías.</p>
                                     </div>
                                 </td>
                                 <td class="font-mono">$XXX</td>
@@ -675,10 +679,10 @@
                             </tr>
                             <tr class="accordion-row">
                                 <td class="font-mono">02</td>
-                                <td>CAMBIO DE ACEITE Y FILTROS</td>
+                                <td>SISTEMA DE FRENOS</td>
                                 <td>
                                     <div class="accordion-content">
-                                        <p>Servicio rápido y eficiente con lubricantes de alta calidad, acorde a las especificaciones del fabricante de tu vehículo. Incluye reemplazo de filtro de aceite para una mejor protección del motor.</p>
+                                        <p>Revisión exhaustiva del sistema de frenado, reemplazo de pastillas y discos, purga y cambio de líquido de frenos, y diagnóstico del sistema ABS para tu seguridad.</p>
                                     </div>
                                 </td>
                                 <td class="font-mono">$XXX</td>
@@ -686,10 +690,43 @@
                             </tr>
                             <tr class="accordion-row">
                                 <td class="font-mono">03</td>
-                                <td>REVISIÓN DE FRENOS</td>
+                                <td>SUSPENSIÓN Y DIRECCIÓN</td>
                                 <td>
                                     <div class="accordion-content">
-                                        <p>Diagnóstico y mantenimiento del sistema de frenos para asegurar tu seguridad. Incluye revisión de pastillas, discos, líquido de frenos y ajustes necesarios para un frenado eficaz.</p>
+                                        <p>Diagnóstico y reparación de amortiguadores, espirales, terminales de dirección, rótulas, alineación y balanceo para una conducción estable y confortable.</p>
+                                    </div>
+                                </td>
+                                <td class="font-mono">$XXX</td>
+                                <td><span class="faq-question-toggle">></span></td>
+                            </tr>
+                            <tr class="accordion-row">
+                                <td class="font-mono">04</td>
+                                <td>DIAGNÓSTICO COMPUTARIZADO</td>
+                                <td>
+                                    <div class="accordion-content">
+                                        <p>Utilizamos tecnología de punta para escanear los sistemas electrónicos de tu vehículo, identificar códigos de error y diagnosticar con precisión cualquier falla.</p>
+                                    </div>
+                                </td>
+                                <td class="font-mono">$XXX</td>
+                                <td><span class="faq-question-toggle">></span></td>
+                            </tr>
+                            <tr class="accordion-row">
+                                <td class="font-mono">05</td>
+                                <td>REPARACIÓN DE MOTORES</td>
+                                <td>
+                                    <div class="accordion-content">
+                                        <p>Desde reparaciones menores hasta reconstrucciones completas, nuestro equipo está capacitado para restaurar el rendimiento óptimo de tu motor, garantizando durabilidad.</p>
+                                    </div>
+                                </td>
+                                <td class="font-mono">$XXX</td>
+                                <td><span class="faq-question-toggle">></span></td>
+                            </tr>
+                            <tr class="accordion-row">
+                                <td class="font-mono">06</td>
+                                <td>AIRE ACONDICIONADO</td>
+                                <td>
+                                    <div class="accordion-content">
+                                        <p>Carga de gas refrigerante, detección y reparación de fugas, y mantenimiento general del sistema de aire acondicionado para un ambiente fresco en tu vehículo.</p>
                                     </div>
                                 </td>
                                 <td class="font-mono">$XXX</td>
@@ -708,18 +745,18 @@
                 <div class="grid-3-col">
                     <div class="grid-item">
                         <span class="item-number">01</span>
-                        <h4>TÉCNICOS CERTIFICADOS</h4>
-                        <p>Nuestro equipo está altamente cualificado y en constante capacitación para atender cualquier modelo de vehículo liviano con la máxima precisión.</p>
+                        <h4>DIAGNÓSTICO GRATUITO</h4>
+                        <p>Recibe un diagnóstico computarizado sin costo al contratar cualquiera de nuestros servicios, para una identificación precisa del problema.</p>
                     </div>
                     <div class="grid-item">
                         <span class="item-number">02</span>
                         <h4>REPUESTOS ORIGINALES</h4>
-                        <p>Utilizamos únicamente piezas originales o de calidad equivalente garantizada para asegurar la durabilidad y el rendimiento óptimo de tu automóvil.</p>
+                        <p>Utilizamos solo piezas originales o de calidad equivalente certificada, garantizando el rendimiento y la vida útil de tu vehículo.</p>
                     </div>
                     <div class="grid-item">
                         <span class="item-number">03</span>
-                        <h4>DIAGNÓSTICO GRATUITO</h4>
-                        <p>Ofrecemos un diagnóstico computarizado sin costo con la contratación de cualquier servicio, identificando problemas con exactitud.</p>
+                        <h4>ENTREGA EL MISMO DÍA</h4>
+                        <p>Para la mayoría de los servicios, nos comprometemos a entregar tu vehículo en el mismo día, minimizando interrupciones en tu rutina.</p>
                     </div>
                 </div>
             </div>
@@ -731,15 +768,19 @@
                 <h2>Cifras que demuestran nuestro compromiso.</h2>
                 <div class="stats-grid">
                     <div class="stat-item">
-                        <strong>10<span class="unit">+</span></strong>
+                        <strong>8<span class="unit">+</span></strong>
                         <small>AÑOS DE EXPERIENCIA</small>
                     </div>
                     <div class="stat-item">
-                        <strong>1200<span class="unit">+</span></strong>
+                        <strong>4500<span class="unit">+</span></strong>
                         <small>VEHÍCULOS ATENDIDOS</small>
                     </div>
                     <div class="stat-item">
-                        <strong>98<span class="unit">%</span></strong>
+                        <strong>3<span class="unit">MESES</span></strong>
+                        <small>GARANTÍA MANO DE OBRA</small>
+                    </div>
+                    <div class="stat-item">
+                        <strong>99<span class="unit">%</span></strong>
                         <small>CLIENTES SATISFECHOS</small>
                     </div>
                 </div>
@@ -755,29 +796,46 @@
                 </div>
                 <ul class="process-list" id="proceso-list">
                     <li class="process-list-item accordion-row">
-                        <span class="process-number font-mono">01</span>
+                        <div class="process-step-indicator">
+                            <span class="process-number font-mono">01</span>
+                        </div>
                         <div class="process-content">
-                            <h4 style="display: flex; justify-content: space-between; align-items: center;">RECEPCIÓN Y DIAGNÓSTICO <span class="faq-question-toggle">></span></h4>
+                            <h4 style="display: flex; justify-content: space-between; align-items: center;">RECEPCIÓN Y EVALUACIÓN <span class="faq-question-toggle">></span></h4>
                             <div class="accordion-content">
-                                <p>Tu vehículo es recibido en nuestras instalaciones, y se realiza una evaluación inicial junto con un diagnóstico computarizado para identificar con precisión cualquier falla o necesidad.</p>
+                                <p>Tu vehículo llega a nuestras instalaciones donde realizamos un diagnóstico inicial detallado y escuchamos tus necesidades específicas.</p>
                             </div>
                         </div>
                     </li>
                     <li class="process-list-item accordion-row">
-                        <span class="process-number font-mono">02</span>
+                        <div class="process-step-indicator">
+                            <span class="process-number font-mono">02</span>
+                        </div>
                         <div class="process-content">
-                            <h4 style="display: flex; justify-content: space-between; align-items: center;">PRESUPUESTO TRANSPARENTE <span class="faq-question-toggle">></span></h4>
+                            <h4 style="display: flex; justify-content: space-between; align-items: center;">PRESUPUESTO Y APROBACIÓN <span class="faq-question-toggle">></span></h4>
                             <div class="accordion-content">
-                                <p>Te proporcionamos una cotización detallada de los servicios y repuestos necesarios, explicando cada paso y obteniendo tu aprobación antes de iniciar cualquier trabajo.</p>
+                                <p>Te proporcionamos una cotización transparente y detallada, explicando cada paso y obteniendo tu aprobación antes de iniciar cualquier servicio.</p>
                             </div>
                         </div>
                     </li>
                     <li class="process-list-item accordion-row">
-                        <span class="process-number font-mono">03</span>
+                        <div class="process-step-indicator">
+                            <span class="process-number font-mono">03</span>
+                        </div>
                         <div class="process-content">
-                            <h4 style="display: flex; justify-content: space-between; align-items: center;">REPARACIÓN Y PRUEBAS <span class="faq-question-toggle">></span></h4>
+                            <h4 style="display: flex; justify-content: space-between; align-items: center;">EJECUCIÓN Y PRUEBAS <span class="faq-question-toggle">></span></h4>
                             <div class="accordion-content">
-                                <p>Nuestros técnicos certificados ejecutan el trabajo utilizando herramientas de última generación y repuestos de calidad. Posteriormente, se realizan pruebas de carretera para verificar el óptimo funcionamiento.</p>
+                                <p>Nuestros técnicos certificados realizan el trabajo con herramientas avanzadas y repuestos de calidad, seguido de rigurosas pruebas de funcionamiento.</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="process-list-item accordion-row">
+                        <div class="process-step-indicator">
+                            <span class="process-number font-mono">04</span>
+                        </div>
+                        <div class="process-content">
+                            <h4 style="display: flex; justify-content: space-between; align-items: center;">ENTREGA Y GARANTÍA <span class="faq-question-toggle">></span></h4>
+                            <div class="accordion-content">
+                                <p>Te entregamos tu vehículo en perfectas condiciones, listo para rodar, con la garantía de AutoExpress en mano de obra y repuestos.</p>
                             </div>
                         </div>
                     </li>
@@ -791,12 +849,12 @@
                 <h2>Experiencias de nuestros clientes satisfechos.</h2>
                 <div class="testimonials-grid">
                     <div class="testimonial-item">
-                        <blockquote>"Excelente servicio y atención. Dejaron mi carro como nuevo y la explicación de los problemas fue muy clara."</blockquote>
-                        <cite>ANA M.</cite>
+                        <blockquote>"La atención fue impecable y resolvieron un problema que en otros talleres no pudieron. ¡Mi camioneta nunca había andado tan bien!"</blockquote>
+                        <cite>MARÍA P.</cite>
                     </div>
                     <div class="testimonial-item">
-                        <blockquote>"Muy profesionales y honestos. Siempre me siento seguro dejando mi carro en Taller Rodríguez."</blockquote>
-                        <cite>CARLOS R.</cite>
+                        <blockquote>"Me encanta que la entrega sea el mismo día. Ahorro tiempo y el trabajo siempre es excelente. Recomendados 100%."</blockquote>
+                        <cite>JORGE L.</cite>
                     </div>
                 </div>
             </div>
@@ -811,16 +869,24 @@
                 </div>
                 <div class="faq-list" id="faq-list">
                     <div class="faq-item">
-                        <h4 class="faq-question">¿Qué marcas de vehículos atienden? <span class="faq-question-toggle">></span></h4>
-                        <p class="faq-answer">Atendemos todo tipo de vehículos livianos, de cualquier marca y modelo. Nuestro equipo cuenta con la experiencia y herramientas para un servicio universal.</p>
+                        <h4 class="faq-question">¿Trabajan con todas las marcas de vehículos? <span class="faq-question-toggle">></span></h4>
+                        <p class="faq-answer">Sí, somos especialistas en mantenimiento y reparación de vehículos livianos y camionetas de todas las marcas y modelos del mercado.</p>
                     </div>
                     <div class="faq-item">
-                        <h4 class="faq-question">¿Ofrecen garantía en sus trabajos? <span class="faq-question-toggle">></span></h4>
-                        <p class="faq-answer">Sí, todos nuestros servicios y los repuestos que instalamos cuentan con una garantía por escrito, asegurando la calidad y tu tranquilidad.</p>
+                        <h4 class="faq-question">¿Qué tipo de garantía ofrecen en sus servicios? <span class="faq-question-toggle">></span></h4>
+                        <p class="faq-answer">Ofrecemos una garantía de 3 meses en la mano de obra de todos nuestros servicios y en los repuestos originales instalados, para tu total tranquilidad.</p>
                     </div>
                     <div class="faq-item">
-                        <h4 class="faq-question">¿Es necesario pedir cita previa? <span class="faq-question-toggle">></span></h4>
-                        <p class="faq-answer">Para garantizar una atención oportuna y eficiente, recomendamos agendar tu cita con anticipación, especialmente para servicios de diagnóstico o mantenimiento mayor.</p>
+                        <h4 class="faq-question">¿Es necesario agendar una cita previa? <span class="faq-question-toggle">></span></h4>
+                        <p class="faq-answer">Recomendamos agendar una cita para garantizar una atención más rápida y personalizada, aunque también atendemos sin cita según disponibilidad.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4 class="faq-question">¿Puedo esperar mi vehículo mientras lo reparan? <span class="faq-question-toggle">></span></h4>
+                        <p class="faq-answer">Contamos con una cómoda sala de espera para servicios menores. Para reparaciones más extensas, te mantendremos informado del progreso.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4 class="faq-question">¿Aceptan pagos con tarjeta de crédito? <span class="faq-question-toggle">></span></h4>
+                        <p class="faq-answer">Sí, aceptamos diversas formas de pago, incluyendo tarjetas de crédito, débito y transferencias bancarias para tu comodidad.</p>
                     </div>
                 </div>
             </div>
@@ -836,23 +902,22 @@
                 <div class="contact-grid">
                     <div class="contact-item">
                         <strong>WHATSAPP & TELÉFONO</strong>
-                        <p><a href="https://wa.me/573154428890" target="_blank">+57 315 442 8890</a></p>
+                        <p><a href="https://wa.me/573176204455" target="_blank">+57 317 620 4455</a></p>
                         <p>Respuesta inmediata para tus consultas.</p>
                     </div>
                     <div class="contact-item">
                         <strong>CORREO ELECTRÓNICO</strong>
-                        <p><a href="mailto:tallerrodriguez@gmail.com">tallerrodriguez@gmail.com</a></p>
+                        <p><a href="mailto:contacto@autoexpressbga.com">contacto@autoexpressbga.com</a></p>
                         <p>Envíanos tus preguntas, te responderemos pronto.</p>
                     </div>
                     <div class="contact-item">
                         <strong>DIRECCIÓN Y HORARIO</strong>
-                        <p>Calle 14 #22-40, Floridablanca</p>
-                        <p>Lunes a Viernes: 8:00 AM - 6:00 PM</p>
-                        <p>Sábados: 8:00 AM - 1:00 PM</p>
+                        <p>Autopista Floridablanca Km 3, Bucaramanga</p>
+                        <p>Lunes a Sábado: 7:00 AM - 6:00 PM</p>
                     </div>
                 </div>
                 <div style="margin-top: 3rem; text-align: center;">
-                    <a href="https://wa.me/573154428890" target="_blank" class="button button-primary">ENVÍANOS UN WHATSAPP</a>
+                    <a href="https://wa.me/573176204455" target="_blank" class="button button-primary">ENVÍANOS UN WHATSAPP</a>
                 </div>
             </div>
         </section>
@@ -860,9 +925,8 @@
 
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2024 Taller Mecánico Rodríguez. Todos los derechos reservados.</p>
+            <p>&copy; 2024 AutoExpress Bucaramanga. Todos los derechos reservados.</p>
             <div class="social-links">
-                <!-- Íconos de redes sociales (ejemplo, se pueden reemplazar con SVG) -->
                 <a href="#" aria-label="Facebook">F</a>
                 <a href="#" aria-label="Instagram">I</a>
             </div>
@@ -870,7 +934,7 @@
     </footer>
 
     <div class="floating-buttons">
-        <a href="https://wa.me/573154428890" target="_blank" class="floating-button" aria-label="WhatsApp">
+        <a href="https://wa.me/573176204455" target="_blank" class="floating-button" aria-label="WhatsApp">
             <svg viewBox="0 0 24 24">
                 <path d="M12.04 2C7.34 2 3.58 5.76 3.58 10.46c0 1.5.39 2.92 1.07 4.19L3 21.02l6.5-1.73c1.18.66 2.52 1.04 3.04 1.04 4.71 0 8.47-3.76 8.47-8.46S16.75 2 12.04 2zM17.29 15.65c-.09.24-.56.46-.77.48-.22.02-.45.03-.69-.07-.38-.15-1.74-.84-2-.94-.26-.14-.45-.11-.64.12-.19.24-.74.94-.9.98-.15.04-.29.07-.53.07-.77 0-1.05-.33-2.02-.97-1.49-.95-2.49-2.58-2.65-2.84-.15-.24-.01-.37.1-.5.09-.09.2-.19.3-.28.1-.09.12-.19.18-.31.06-.11.03-.22-.02-.31-.05-.08-.56-1.35-.77-1.84-.2-.48-.41-.41-.56-.41-.15 0-.32 0-.49 0-.17 0-.44.07-.67.3-.23.2-.88.88-.88 2.14 0 1.25.9 2.48 1.02 2.64.12.17 1.76 2.69 4.27 3.75 2.16.9 2.58.74 3.07.69.5-.05 1.49-.61 1.7-1.18.2-.56.2-.9.14-1.01-.07-.1-.23-.15-.49-.24z"/>
             </svg>
@@ -897,22 +961,16 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
 
-        // Accordion functionality for general rows
+        // Accordion functionality for general rows (Services, Process)
         document.querySelectorAll('.accordion-row').forEach(row => {
             row.addEventListener('click', () => {
-                const content = row.querySelector('.accordion-content');
                 const toggle = row.querySelector('.faq-question-toggle');
-
                 if (row.classList.contains('active')) {
                     row.classList.remove('active');
-                    content.style.maxHeight = '0';
-                    content.style.paddingTop = '0';
-                    toggle.style.transform = 'rotate(0deg)';
+                    if(toggle) toggle.style.transform = 'rotate(0deg)';
                 } else {
                     row.classList.add('active');
-                    content.style.maxHeight = content.scrollHeight + 'px';
-                    content.style.paddingTop = '0.5rem';
-                    toggle.style.transform = 'rotate(90deg)';
+                    if(toggle) toggle.style.transform = 'rotate(90deg)';
                 }
             });
         });
@@ -921,19 +979,13 @@
         document.querySelectorAll('.faq-item').forEach(item => {
             const question = item.querySelector('.faq-question');
             question.addEventListener('click', () => {
-                const answer = item.querySelector('.faq-answer');
                 const toggle = item.querySelector('.faq-question-toggle');
-
                 if (question.classList.contains('active')) {
                     question.classList.remove('active');
-                    answer.classList.remove('expanded');
-                    answer.style.maxHeight = '0';
-                    toggle.style.transform = 'rotate(0deg)';
+                    if(toggle) toggle.style.transform = 'rotate(0deg)';
                 } else {
                     question.classList.add('active');
-                    answer.classList.add('expanded');
-                    answer.style.maxHeight = answer.scrollHeight + 'px';
-                    toggle.style.transform = 'rotate(90deg)';
+                    if(toggle) toggle.style.transform = 'rotate(90deg)';
                 }
             });
         });
@@ -945,36 +997,27 @@
                 const targetElement = document.getElementById(targetId);
                 const isExpanded = button.textContent.includes('CONTRAER');
 
+                // For table rows (Services) and list items (Process)
                 targetElement.querySelectorAll('.accordion-row').forEach(row => {
-                    const content = row.querySelector('.accordion-content');
                     const toggle = row.querySelector('.faq-question-toggle');
                     if (isExpanded) {
                         row.classList.remove('active');
-                        content.style.maxHeight = '0';
-                        content.style.paddingTop = '0';
                         if(toggle) toggle.style.transform = 'rotate(0deg)';
                     } else {
                         row.classList.add('active');
-                        content.style.maxHeight = content.scrollHeight + 'px';
-                        content.style.paddingTop = '0.5rem';
                         if(toggle) toggle.style.transform = 'rotate(90deg)';
                     }
                 });
 
-                // For FAQ specific items (different class structure)
+                // For FAQ items (different class structure)
                 targetElement.querySelectorAll('.faq-item').forEach(item => {
                     const question = item.querySelector('.faq-question');
-                    const answer = item.querySelector('.faq-answer');
                     const toggle = item.querySelector('.faq-question-toggle');
                     if (isExpanded) {
                         question.classList.remove('active');
-                        answer.classList.remove('expanded');
-                        answer.style.maxHeight = '0';
                         if(toggle) toggle.style.transform = 'rotate(0deg)';
                     } else {
                         question.classList.add('active');
-                        answer.classList.add('expanded');
-                        answer.style.maxHeight = answer.scrollHeight + 'px';
                         if(toggle) toggle.style.transform = 'rotate(90deg)';
                     }
                 });
