@@ -3,98 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ferretería El Tornillo</title>
-    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=Fraunces:ital,wght@1,500&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+    <title>Full Service - Automatización de Procesos y Agentes de IA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=Fraunces:ital,wght@1,400&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
     <style>
         :root {
-            --color-background: #FBF7F0;
-            --color-text-primary: #1B1B22;
-            --color-text-secondary: #8A8578;
-            --color-accent: #0D4C92; /* Azul robusto para ferretería */
-            --color-button-text: #FBF7F0;
-            --border-color: rgba(0, 0, 0, 0.12);
+            --bg-color: #FBF7F0;
+            --text-color: #1B1B22;
+            --secondary-text-color: #8A8578;
+            --accent-color-primary: #2E82E8; /* Azul */
+            --accent-color-secondary: #E8611F; /* Naranja */
+            --border-color: rgba(0,0,0,0.12);
 
             --font-display: 'Bricolage Grotesque', sans-serif;
             --font-body: 'Inter', sans-serif;
             --font-mono: 'JetBrains Mono', monospace;
-            --font-fraunces: 'Fraunces', serif;
+            --font-italic: 'Fraunces', serif;
         }
 
-        * {
+        *, *::before, *::after {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
             font-family: var(--font-body);
-            color: var(--color-text-primary);
-            background-color: var(--color-background);
+            color: var(--text-color);
+            background-color: var(--bg-color);
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
 
-        .container {
-            max-width: 1180px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        section {
-            padding: 90px 0;
-        }
-
-        .section-label {
-            font-family: var(--font-mono);
-            font-size: 0.8em;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            color: var(--color-text-secondary);
-            display: flex;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-
-        .section-label::before {
-            content: '•';
-            color: var(--color-accent);
-            font-size: 1.2em;
-            margin-right: 8px;
-            line-height: 1;
-        }
-
-        h1, h2, h3, h4, h5, h6 {
-            font-family: var(--font-display);
-            font-weight: 700;
-            line-height: 1.05;
-            color: var(--color-text-primary);
-            margin-bottom: 20px;
-        }
-
-        h1 {
-            font-size: clamp(2.5em, 6vw, 4.5em);
-            font-weight: 800;
-        }
-
-        h2 {
-            font-size: clamp(2em, 5vw, 3.5em);
-            margin-top: 0;
-        }
-
-        h3 {
-            font-size: clamp(1.5em, 3.5vw, 2.2em);
-            margin-bottom: 15px;
-        }
-
-        p {
-            margin-bottom: 1em;
-            font-size: 1.1em;
-            color: var(--color-text-primary);
-        }
-
         a {
-            color: var(--color-accent);
+            color: inherit;
             text-decoration: none;
         }
 
@@ -102,55 +50,36 @@
             opacity: 0.8;
         }
 
-        .btn-primary {
-            display: inline-block;
-            padding: 14px 28px;
-            background-color: var(--color-accent);
-            color: var(--color-button-text);
-            font-family: var(--font-body);
-            font-weight: 500;
-            text-align: center;
-            border-radius: 2px;
-            transition: background-color 0.2s ease, opacity 0.2s ease;
-            text-decoration: none;
-            border: none;
-            cursor: pointer;
-            font-size: 1.1em;
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-display);
+            line-height: 1.05;
+            color: var(--text-color);
+            font-weight: 700;
         }
 
-        .btn-primary:hover {
-            background-color: #08376B; /* Un azul ligeramente más oscuro */
-            opacity: 1;
+        h1 { font-size: clamp(2.5rem, 5vw, 4.5rem); }
+        h2 { font-size: clamp(2rem, 4vw, 3.5rem); }
+        h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
+
+        .container {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
-        .btn-secondary {
-            display: inline-block;
-            padding: 12px 26px;
-            background: none;
-            color: var(--color-accent);
-            font-family: var(--font-body);
-            font-weight: 500;
-            text-align: center;
-            border-radius: 2px;
-            border: 1px solid var(--color-accent);
-            transition: all 0.2s ease;
-            text-decoration: none;
-            font-size: 1.1em;
-        }
-
-        .btn-secondary:hover {
-            background-color: var(--color-accent);
-            color: var(--color-button-text);
-            opacity: 1;
+        .section-padding {
+            padding: 90px 0;
         }
 
         /* Header */
         .header {
-            background-color: var(--color-background);
-            padding: 20px 0;
-            border-bottom: 1px solid var(--border-color);
-            position: sticky;
+            position: fixed;
             top: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--bg-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 20px 0;
             z-index: 1000;
         }
 
@@ -164,464 +93,493 @@
         .header-logo {
             font-family: var(--font-display);
             font-weight: 700;
-            font-size: 1.8em;
-            color: var(--color-text-primary);
-            text-decoration: none;
+            font-size: 1.5rem;
+            color: var(--text-color);
+        }
+
+        .header-info {
+            display: flex;
+            gap: 20px;
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            color: var(--secondary-text-color);
             white-space: nowrap;
         }
 
         .header-nav {
-            display: flex;
-            gap: 25px;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin-top: 10px;
-        }
-
-        .header-nav a {
-            font-family: var(--font-mono);
-            font-size: 0.9em;
-            text-transform: uppercase;
-            color: var(--color-text-secondary);
-            text-decoration: none;
-            position: relative;
-        }
-
-        .header-nav a:hover {
-            color: var(--color-accent);
-        }
-        
-        .header-meta {
-            font-family: var(--font-mono);
-            font-size: 0.75em;
-            color: var(--color-text-secondary);
-            text-align: right;
-            line-height: 1.4;
-            margin-top: 10px;
-        }
-
-        @media (max-width: 768px) {
-            .header .container {
-                flex-direction: column;
-                align-items: center;
-            }
-            .header-nav {
-                margin-top: 15px;
-                gap: 15px;
-            }
-            .header-meta {
-                margin-top: 15px;
-                text-align: center;
-            }
+            display: none; /* Hidden by default, only shown if needed or for smaller menu */
         }
 
         /* Hero */
         .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
-            padding: 120px 0;
-            background-color: var(--color-background);
+            padding-top: 100px; /* Offset for fixed header */
         }
 
         .hero h1 {
+            font-weight: 800;
+            margin-bottom: 20px;
             max-width: 900px;
-            margin-left: auto;
-            margin-right: auto;
-            margin-bottom: 30px;
+            text-wrap: balance;
         }
 
-        .hero h1 span {
-            font-family: var(--font-fraunces);
+        .hero h1 .italic-accent {
+            font-family: var(--font-italic);
             font-style: italic;
-            color: var(--color-accent);
+            color: var(--accent-color-primary);
         }
 
         .hero p {
-            font-size: 1.3em;
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            color: var(--secondary-text-color);
+            margin-bottom: 40px;
             max-width: 700px;
-            margin: 0 auto 40px auto;
-            color: var(--color-text-secondary);
+            font-weight: 400;
         }
 
-        /* Tables (General style for lists) */
-        .content-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 30px;
-            font-size: 1em;
+        .btn {
+            display: inline-block;
+            padding: 14px 28px;
+            border-radius: 2px;
+            font-family: var(--font-body);
+            font-weight: 500;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: all 0.2s ease-in-out;
+            cursor: pointer;
+            border: 1px solid transparent;
         }
 
-        .content-table th, .content-table td {
-            padding: 15px;
-            text-align: left;
+        .btn-primary {
+            background-color: var(--accent-color-primary);
+            color: var(--bg-color);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--text-color);
+            color: var(--bg-color);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--text-color);
+            border: 1px solid var(--text-color);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--text-color);
+            color: var(--bg-color);
+        }
+
+        /* Section Styling */
+        .section-label {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--secondary-text-color);
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .accent-dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background-color: var(--accent-color-primary);
+            border-radius: 50%;
+            margin-right: 8px;
+            flex-shrink: 0;
+        }
+
+        .section-title {
+            margin-bottom: 50px;
+        }
+
+        /* About Us */
+        .about-us p {
+            font-size: 1.15rem;
+            max-width: 800px;
+            margin-bottom: 20px;
+            color: var(--secondary-text-color);
+        }
+
+        /* Accordion Structure */
+        .accordion-wrapper {
+            max-width: 900px;
+            margin-top: 40px;
+        }
+
+        .accordion-toggle-all {
+            margin-bottom: 20px;
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 8px 15px;
+            border: 1px solid var(--border-color);
+            background-color: transparent;
+            color: var(--text-color);
+            cursor: pointer;
+            border-radius: 2px;
+            transition: background-color 0.2s;
+        }
+
+        .accordion-toggle-all:hover {
+            background-color: rgba(0,0,0,0.03);
+        }
+
+        .accordion-item {
+            border-bottom: 1px solid var(--border-color);
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .accordion-item:first-child {
+            border-top: 1px solid var(--border-color);
+        }
+
+        .accordion-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            font-weight: 500;
+            font-size: 1.1rem;
+            position: relative;
+        }
+
+        .accordion-header span.item-key {
+            font-family: var(--font-mono);
+            color: var(--accent-color-primary);
+            margin-right: 15px;
+            font-size: 0.9rem;
+        }
+
+        .accordion-icon {
+            margin-left: 20px;
+            transform: rotate(0deg);
+            transition: transform 0.3s ease-out;
+            color: var(--secondary-text-color);
+            font-weight: 400;
+            font-size: 1.2em;
+        }
+
+        .accordion-item.expanded .accordion-icon {
+            transform: rotate(90deg);
+            color: var(--accent-color-primary);
+        }
+
+        .accordion-content {
+            max-height: 0;
+            transition: max-height 0.3s ease-out;
+            overflow: hidden;
+            padding-left: 0; /* Adjusted for mobile */
+            color: var(--secondary-text-color);
+            font-size: 1rem;
+        }
+
+        .accordion-item.expanded .accordion-content {
+            max-height: 500px; /* Sufficiently large */
+            padding-bottom: 20px;
+        }
+
+        .accordion-content p {
+            margin-bottom: 10px;
+        }
+
+        .accordion-content .detail-row {
+            display: flex;
+            margin-bottom: 10px;
+        }
+
+        .accordion-content .detail-label {
+            font-family: var(--font-mono);
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            color: var(--secondary-text-color);
+            min-width: 100px;
+            padding-right: 10px;
+        }
+
+        .accordion-content .detail-value {
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            color: var(--text-color);
+            flex-grow: 1;
+        }
+
+        /* Services & Why Choose Us Grid */
+        .grid-3-cols {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1px;
+            background-color: var(--border-color); /* For lines */
+            border-top: 1px solid var(--border-color);
+            border-left: 1px solid var(--border-color);
+        }
+
+        .grid-3-cols > div {
+            background-color: var(--bg-color);
+            padding: 30px;
+            border-right: 1px solid var(--border-color);
             border-bottom: 1px solid var(--border-color);
         }
-
-        .content-table th {
-            font-family: var(--font-mono);
-            font-size: 0.8em;
-            text-transform: uppercase;
-            color: var(--color-text-secondary);
-            background-color: transparent;
-            font-weight: 400;
-            white-space: nowrap;
-        }
         
-        .content-table td {
-            font-family: var(--font-body);
-            color: var(--color-text-primary);
-            vertical-align: top;
+        .grid-3-cols h3 {
+            font-size: 1.25rem;
+            margin-bottom: 15px;
+            font-weight: 600;
         }
 
-        .content-table td:first-child {
-            font-family: var(--font-mono);
-            color: var(--color-accent);
-            width: 30px; /* Ancho fijo para el número */
-            padding-right: 5px;
-        }
-
-        /* Why Choose Us (Grid) */
-        .why-choose-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1px;
-            background-color: var(--border-color); /* Para las líneas entre celdas */
-            margin-top: 30px;
-            border: 1px solid var(--border-color);
-        }
-
-        .why-choose-item {
-            background-color: var(--color-background);
-            padding: 30px;
-        }
-
-        .why-choose-item h3 {
-            font-size: 1.4em;
-            margin-bottom: 10px;
-            color: var(--color-text-primary);
-        }
-
-        .why-choose-item p {
-            font-size: 1em;
-            color: var(--color-text-secondary);
-            margin-bottom: 0;
+        .grid-3-cols p {
+            color: var(--secondary-text-color);
+            font-size: 1rem;
         }
 
         /* Statistics */
         .stats-grid {
-            display: flex;
-            justify-content: space-around;
-            align-items: flex-start;
-            margin-top: 50px;
-            padding: 30px 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1px;
+            background-color: var(--border-color);
             border-top: 1px solid var(--border-color);
-            border-bottom: 1px solid var(--border-color);
-            flex-wrap: wrap;
+            border-left: 1px solid var(--border-color);
+            margin-top: 50px;
         }
 
         .stat-item {
+            background-color: var(--bg-color);
+            padding: 40px 20px;
             text-align: center;
-            padding: 20px 15px;
-            flex: 1;
-            min-width: 180px;
-            position: relative;
-        }
-        
-        .stat-item:not(:last-child)::after {
-            content: '';
-            position: absolute;
-            right: 0;
-            top: 20%;
-            height: 60%;
-            width: 1px;
-            background-color: var(--border-color);
-        }
-
-        .stat-item .number {
-            font-family: var(--font-display);
-            font-weight: 800;
-            font-size: clamp(2.5em, 7vw, 5em);
-            color: var(--color-accent);
-            line-height: 1;
-            margin-bottom: 10px;
-        }
-
-        .stat-item .unit {
-            font-size: 0.5em; /* Tamaño para el superíndice */
-            vertical-align: super;
-            margin-left: -5px; /* Ajuste para acercar al número */
-            color: var(--color-accent);
-        }
-
-        .stat-item .label {
-            font-family: var(--font-mono);
-            font-size: 0.8em;
-            text-transform: uppercase;
-            color: var(--color-text-secondary);
-            display: block;
-            margin-top: 5px;
-        }
-        @media (max-width: 768px) {
-            .stats-grid {
-                flex-direction: column;
-                align-items: center;
-            }
-            .stat-item {
-                width: 100%;
-                border-bottom: 1px solid var(--border-color);
-            }
-            .stat-item:not(:last-child)::after {
-                content: none;
-            }
-            .stat-item:first-child {
-                padding-top: 0;
-            }
-            .stat-item:last-child {
-                border-bottom: none;
-                padding-bottom: 0;
-            }
-        }
-
-
-        /* How We Work (Timeline-like) */
-        .process-list {
-            margin-top: 30px;
-            padding: 0;
-            list-style: none;
-            position: relative;
-        }
-
-        .process-list li {
-            padding: 20px 0 20px 40px;
-            position: relative;
+            border-right: 1px solid var(--border-color);
             border-bottom: 1px solid var(--border-color);
         }
-        .process-list li:first-child {
-             padding-top: 0;
-        }
-        .process-list li:last-child {
-            border-bottom: none;
-            padding-bottom: 0;
+
+        .stat-number {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 800;
+            color: var(--accent-color-primary);
+            line-height: 1;
         }
 
-        .process-list li::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 25px;
-            width: 18px;
-            height: 18px;
-            border-radius: 50%;
-            border: 2px solid var(--color-accent);
-            background-color: var(--color-background);
-            z-index: 1;
-        }
-        .process-list li:first-child::before {
-            top: 0;
-            margin-top: 0; /* Asegurarse de que no haya margen superior adicional */
-        }
-        .process-list li:first-child .process-step-num {
-            top: 0;
+        .stat-unit {
+            font-family: var(--font-display);
+            font-size: 0.5em; /* relative to stat-number */
+            vertical-align: super;
+            font-weight: 600;
+            color: var(--accent-color-primary);
         }
 
-
-        .process-list li::after {
-            content: '';
-            position: absolute;
-            left: 9px;
-            top: 45px; /* Inicio de la línea después del círculo */
-            bottom: -5px; /* Asegura que la línea llegue hasta el siguiente círculo o final */
-            width: 1px;
-            background-color: var(--border-color);
-        }
-        .process-list li:last-child::after {
-            display: none; /* No mostrar línea después del último elemento */
-        }
-
-        .process-step-num {
+        .stat-label {
             font-family: var(--font-mono);
-            font-size: 0.9em;
-            color: var(--color-accent);
-            position: absolute;
-            left: 3px;
-            top: 27px;
-            transform: translateX(-50%);
-            z-index: 2;
-            background-color: var(--color-background); /* Fondo para ocultar la línea detrás del número */
-            padding: 0 4px;
-        }
-        .process-list li:first-child .process-step-num {
-            top: 2px;
-        }
-        .process-list li h3 {
-            font-size: 1.2em;
-            margin-top: 0;
-            margin-bottom: 5px;
-            color: var(--color-text-primary);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--secondary-text-color);
+            margin-top: 15px;
+            display: block;
         }
 
-        .process-list li p {
-            font-size: 1em;
-            color: var(--color-text-secondary);
-            margin-bottom: 0;
+        /* How We Work - Process */
+        .process-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 30px;
+            font-family: var(--font-body);
+        }
+
+        .process-number {
+            font-family: var(--font-mono);
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: var(--accent-color-primary);
+            border: 1px solid var(--accent-color-primary);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-right: 20px;
+            line-height: 1;
+        }
+
+        .process-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .process-content p {
+            color: var(--secondary-text-color);
         }
 
         /* Testimonials */
         .testimonials-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: 1fr;
             gap: 40px;
-            margin-top: 40px;
+            max-width: 900px;
+            margin: 50px auto 0 auto;
         }
 
         .testimonial-item {
             text-align: center;
-            position: relative;
         }
 
-        .testimonial-item::before {
-            content: "“";
+        .testimonial-quote {
             font-family: var(--font-display);
-            font-size: 6em;
-            color: rgba(0,0,0,0.05);
-            position: absolute;
-            top: -20px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 0;
-            line-height: 1;
-        }
-
-        .testimonial-item p {
-            font-family: var(--font-display);
-            font-size: 1.5em;
+            font-size: clamp(1.5rem, 3vw, 2rem);
             line-height: 1.3;
-            color: var(--color-text-primary);
-            margin-bottom: 15px;
-            position: relative;
-            z-index: 1;
+            margin-bottom: 20px;
+            color: var(--text-color);
         }
 
-        .testimonial-item .client-name {
+        .testimonial-author {
             font-family: var(--font-mono);
-            font-size: 0.8em;
+            font-size: 0.85rem;
             text-transform: uppercase;
-            color: var(--color-text-secondary);
+            color: var(--secondary-text-color);
             margin-top: 10px;
-        }
-
-        /* FAQ */
-        .faq-list {
-            margin-top: 30px;
-            border-top: 1px solid var(--border-color);
-        }
-
-        .faq-item {
-            padding: 20px 0;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .faq-item h3 {
-            font-size: 1.15em;
-            font-weight: 500;
-            margin-bottom: 8px;
-            color: var(--color-text-primary);
-            font-family: var(--font-body); /* Override h3 default font for FAQ questions */
-        }
-
-        .faq-item p {
-            font-size: 1em;
-            color: var(--color-text-secondary);
-            margin-bottom: 0;
+            display: block;
         }
 
         /* Contact */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-top: 40px;
-        }
-
-        .contact-info-block {
-            padding: 20px;
-            border: 1px solid var(--border-color);
-            border-radius: 2px;
-            background-color: var(--color-background);
-            color: var(--color-text-primary);
-        }
-
-        .contact-info-block h3 {
-            font-size: 1.1em;
-            font-family: var(--font-mono);
-            text-transform: uppercase;
-            color: var(--color-accent);
-            margin-bottom: 10px;
-        }
-
-        .contact-info-block p, .contact-info-block a {
-            font-size: 1em;
-            color: var(--color-text-primary);
-            margin-bottom: 8px;
-            display: block;
-            text-decoration: none;
-        }
-        .contact-info-block a:hover {
-            color: var(--color-accent);
-            opacity: 1;
-        }
-
-        .contact-info-block p:last-child, .contact-info-block a:last-child {
-            margin-bottom: 0;
-        }
-
-        .contact-social-links {
-            margin-top: 20px;
+        .contact-info {
             display: flex;
-            gap: 15px;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 40px;
+            max-width: 900px;
         }
 
-        .contact-social-links a {
-            font-family: var(--font-mono);
-            font-size: 0.9em;
-            color: var(--color-text-secondary);
-            text-transform: uppercase;
+        .contact-block {
+            flex: 1 1 calc(50% - 30px); /* Two columns on larger screens */
+            min-width: 280px; /* Minimum width for stacking */
+        }
+
+        .contact-block h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--text-color);
+        }
+
+        .contact-block p, .contact-block a {
+            font-size: 1.05rem;
+            color: var(--secondary-text-color);
+            line-height: 1.5;
+            display: block;
+        }
+
+        .contact-block a:hover {
+            color: var(--accent-color-primary);
+        }
+
+        .contact-block .social-links a {
+            display: inline-block;
+            margin-right: 15px;
+            color: var(--secondary-text-color);
+            font-size: 1.1rem;
+        }
+
+        .contact-block .social-links a:hover {
+            color: var(--accent-color-primary);
         }
 
         .contact-cta {
-            text-align: center;
             margin-top: 50px;
+            text-align: center;
         }
-        .contact-cta p {
-            margin-bottom: 25px;
-            font-size: 1.2em;
-        }
-
 
         /* Footer */
         .footer {
-            padding: 40px 0;
+            background-color: var(--bg-color);
             border-top: 1px solid var(--border-color);
+            padding: 40px 0;
             text-align: center;
-            font-family: var(--font-mono);
-            font-size: 0.8em;
-            color: var(--color-text-secondary);
+            color: var(--secondary-text-color);
+            font-size: 0.9rem;
         }
 
         .footer p {
-            margin-bottom: 10px;
-            color: var(--color-text-secondary);
+            margin-bottom: 15px;
         }
 
         .footer .social-links a {
-            color: var(--color-text-secondary);
             margin: 0 10px;
-            text-decoration: none;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
+            color: var(--secondary-text-color);
+            font-size: 1rem;
         }
 
         .footer .social-links a:hover {
-            color: var(--color-accent);
+            color: var(--accent-color-primary);
+        }
+
+        /* Responsive Adjustments */
+        @media (min-width: 768px) {
+            .grid-3-cols {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .testimonials-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .accordion-content {
+                padding-left: 40px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .header-nav {
+                display: block;
+            }
+            .header-nav ul {
+                display: flex;
+                list-style: none;
+                gap: 30px;
+                font-family: var(--font-mono);
+                font-size: 0.85rem;
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
+            }
+            .header-nav a {
+                color: var(--text-color);
+                position: relative;
+            }
+            .header-nav a::after {
+                content: '';
+                position: absolute;
+                left: 0;
+                bottom: -5px;
+                width: 0;
+                height: 1px;
+                background-color: var(--accent-color-primary);
+                transition: width 0.2s ease-out;
+            }
+            .header-nav a:hover::after {
+                width: 100%;
+            }
+            .grid-3-cols {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .contact-block {
+                flex: 1 1 calc(33.333% - 20px);
+            }
+            .section-padding {
+                padding: 120px 0;
+            }
+            .hero {
+                padding-top: 0;
+            }
         }
     </style>
 </head>
@@ -629,243 +587,368 @@
 
     <header class="header">
         <div class="container">
-            <a href="#" class="header-logo">Ferretería El Tornillo</a>
+            <a href="#hero" class="header-logo">Full Service</a>
             <nav class="header-nav">
-                <a href="#sobre-nosotros">Sobre Nosotros</a>
-                <a href="#servicios">Servicios</a>
-                <a href="#por-que-elegirnos">Ventajas</a>
-                <a href="#estadisticas">Cifras</a>
-                <a href="#como-trabajamos">Proceso</a>
-                <a href="#testimonios">Testimonios</a>
-                <a href="#faq">FAQ</a>
-                <a href="#contacto">Contacto</a>
+                <ul>
+                    <li><a href="#sobre-nosotros">Sobre Nosotros</a></li>
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#por-que-elegirnos">Ventajas</a></li>
+                    <li><a href="#estadisticas">Cifras</a></li>
+                    <li><a href="#como-trabajamos">Proceso</a></li>
+                    <li><a href="#testimonios">Testimonios</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
             </nav>
-            <div class="header-meta">
-                <span style="display: block;">DOCUMENTO 2024-07-29</span>
-                <span style="display: block;">PREPARADO POR FERRETERÍA EL TORNILLO</span>
+            <div class="header-info">
+                <span><span id="current-date"></span></span>
+                <span>PREPARADO POR FULL SERVICE</span>
             </div>
         </div>
     </header>
 
     <main>
-        <section class="hero">
+        <section id="hero" class="hero section-padding">
             <div class="container">
-                <h1>Construyendo Juntos tus Proyectos con <span>Ferretería El Tornillo</span></h1>
-                <p>Tu aliado confiable para cada proyecto, grande o pequeño, ofreciendo calidad y asesoría experta en herramientas, materiales y repuestos.</p>
-                <a href="#contacto" class="btn-primary">¡Explora Nuestro Catálogo!</a>
+                <h1>Impulsa tu Negocio con <span class="italic-accent">Automatización</span> e IA</h1>
+                <p>En Full Service, diseñamos y implementamos soluciones inteligentes para transformar tus operaciones, liberando tu potencial.</p>
+                <a href="#contacto" class="btn btn-primary">Optimiza Ahora</a>
             </div>
         </section>
 
-        <section id="sobre-nosotros">
+        <section id="sobre-nosotros" class="about-us section-padding">
             <div class="container">
-                <p class="section-label">01 SOBRE NOSOTROS</p>
-                <h2>Más de 15 Años de Experiencia en tu Comunidad</h2>
-                <p>Ferretería El Tornillo es tu establecimiento de confianza en Medellín con más de 15 años de trayectoria. Nos dedicamos a ser el pilar fundamental para tus proyectos de construcción y reparación, grandes o pequeños, proveyendo siempre productos de la más alta calidad.</p>
-                <p>Desde nuestra fundación, hemos crecido de la mano con la comunidad, consolidándonos como un referente por nuestra amplia oferta de productos, la calidad de nuestro servicio y el compromiso inquebrantable con cada cliente. Nuestra misión es facilitar tus proyectos con soluciones efectivas y un soporte inigualable.</p>
+                <p class="section-label"><span class="accent-dot"></span> LO QUE HACEMOS</p>
+                <h2 class="section-title">Liderando la Transformación Digital</h2>
+                <p>En Full Service, somos expertos en automatización de procesos y desarrollo de agentes de inteligencia artificial, enfocados en potenciar la eficiencia y el crecimiento de tu negocio. Desde la optimización de comunicaciones por WhatsApp hasta la integración compleja de sistemas, nuestras soluciones están diseñadas para ofrecer resultados tangibles.</p>
+                <p>Nuestra misión es simplificar la complejidad operativa, permitiéndote dedicar más tiempo a lo que realmente importa: la estrategia y la innovación. Con un equipo de especialistas apasionados, nos comprometemos a brindarte tecnología de vanguardia y un soporte excepcional.</p>
             </div>
         </section>
 
-        <section id="servicios">
+        <section id="servicios" class="services section-padding">
             <div class="container">
-                <p class="section-label">02 LO QUE HACEMOS</p>
-                <h2>Nuestros Servicios y Productos</h2>
-                <table class="content-table">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>SERVICIO</th>
-                            <th>DESCRIPCION</th>
-                            <th>PRECIO</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Herramientas</td>
-                            <td>Venta y alquiler de herramientas eléctricas y manuales para todo tipo de trabajo.</td>
-                            <td>Consultar</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Materiales de Construcción</td>
-                            <td>Amplio surtido de ladrillos, cemento, arena, tuberías y todo lo necesario para tu obra.</td>
-                            <td>Consultar</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Repuestos Eléctricos</td>
-                            <td>Cables, interruptores, bombillos, tomas y otros componentes eléctricos esenciales.</td>
-                            <td>Consultar</td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>Asesoría Especializada</td>
-                            <td>Guía profesional para la selección de materiales y planificación de tus proyectos.</td>
-                            <td>Gratis</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-
-        <section id="por-que-elegirnos">
-            <div class="container">
-                <p class="section-label">03 POR QUÉ ELEGIRNOS</p>
-                <h2>Ventajas de Elegir Ferretería El Tornillo</h2>
-                <div class="why-choose-grid">
-                    <div class="why-choose-item">
-                        <h3>Experiencia Local</h3>
-                        <p>Más de 15 años sirviendo a la comunidad de Medellín, entendiendo tus necesidades.</p>
-                    </div>
-                    <div class="why-choose-item">
-                        <h3>Entrega Rápida</h3>
-                        <p>Recibe tus materiales el mismo día de la compra directamente en tu ubicación.</p>
-                    </div>
-                    <div class="why-choose-item">
-                        <h3>Asesoría Técnica Gratuita</h3>
-                        <p>Obtén orientación profesional sin costo para cada uno de tus proyectos.</p>
-                    </div>
-                    <div class="why-choose-item">
-                        <h3>Amplio Surtido</h3>
-                        <p>Más de 2000 productos disponibles para cubrir todas tus exigencias.</p>
+                <p class="section-label"><span class="accent-dot"></span> NUESTRAS OFERTAS</p>
+                <h2 class="section-title">Nuestras Soluciones Inteligentes</h2>
+                <div class="accordion-wrapper">
+                    <button class="accordion-toggle-all" data-target="services-accordion">EXPANDIR TODO</button>
+                    <div class="accordion-container" id="services-accordion">
+                        <div class="accordion-item">
+                            <div class="accordion-header">
+                                <div><span class="item-key">#01</span> Automatización de WhatsApp</div>
+                                <span class="accordion-icon">></span>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="detail-row">
+                                    <span class="detail-label">DESCRIPCION</span>
+                                    <span class="detail-value">Implementamos chatbots y flujos automatizados para gestionar consultas, ventas y soporte al cliente 24/7, mejorando la respuesta y reduciendo la carga de trabajo.</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">PRECIO</span>
+                                    <span class="detail-value">Solución Personalizada</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <div class="accordion-header">
+                                <div><span class="item-key">#02</span> Integración de Workflows</div>
+                                <span class="accordion-icon">></span>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="detail-row">
+                                    <span class="detail-label">DESCRIPCION</span>
+                                    <span class="detail-value">Diseñamos y automatizamos flujos de trabajo internos, conectando tus herramientas y sistemas para eliminar tareas manuales repetitivas y acelerar procesos clave.</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">PRECIO</span>
+                                    <span class="detail-value">Solución Personalizada</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <div class="accordion-header">
+                                <div><span class="item-key">#03</span> Agentes de IA Personalizados</div>
+                                <span class="accordion-icon">></span>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="detail-row">
+                                    <span class="detail-label">DESCRIPCION</span>
+                                    <span class="detail-value">Desarrollamos agentes de inteligencia artificial a medida para tareas específicas, como análisis de datos, generación de contenido o toma de decisiones asistida.</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">PRECIO</span>
+                                    <span class="detail-value">Solución Personalizada</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <div class="accordion-header">
+                                <div><span class="item-key">#04</span> Optimización de CRM y ERP</div>
+                                <span class="accordion-icon">></span>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="detail-row">
+                                    <span class="detail-label">DESCRIPCION</span>
+                                    <span class="detail-value">Conectamos tus plataformas CRM y ERP con otras herramientas para sincronizar datos, automatizar registros y mejorar la gestión de clientes y recursos.</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">PRECIO</span>
+                                    <span class="detail-value">Solución Personalizada</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="estadisticas">
+        <section id="por-que-elegirnos" class="why-choose-us section-padding">
             <div class="container">
-                <p class="section-label">04 NUESTROS LOGROS</p>
-                <h2>Algunas Cifras que Hablan por Nosotros</h2>
+                <p class="section-label"><span class="accent-dot"></span> NUESTRAS VENTAJAS</p>
+                <h2 class="section-title">Tu Socio Estratégico en Automatización</h2>
+                <div class="grid-3-cols">
+                    <div>
+                        <h3>Implementación Rápida</h3>
+                        <p>Ponemos en marcha tus soluciones en tiempo récord, minimizando interrupciones y acelerando tu retorno de inversión.</p>
+                    </div>
+                    <div>
+                        <h3>Soporte Directo y Cercano</h3>
+                        <p>Te acompañamos en cada paso con un equipo de soporte dedicado, listo para resolver cualquier duda o necesidad.</p>
+                    </div>
+                    <div>
+                        <h3>Soluciones a la Medida</h3>
+                        <p>Cada negocio es único. Creamos sistemas que se adaptan perfectamente a tus objetivos y operativa.</p>
+                    </div>
+                    <div>
+                        <h3>Innovación Constante</h3>
+                        <p>Nos mantenemos a la vanguardia tecnológica para ofrecerte siempre las herramientas más potentes y eficientes.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="estadisticas" class="statistics section-padding">
+            <div class="container">
+                <p class="section-label"><span class="accent-dot"></span> NUESTRO IMPACTO</p>
+                <h2 class="section-title">Impacto Real y Comprobado</h2>
                 <div class="stats-grid">
                     <div class="stat-item">
-                        <div class="number">15<span class="unit">+</span></div>
-                        <div class="label">AÑOS DE EXPERIENCIA</div>
+                        <span class="stat-number">20<span class="stat-unit">+</span></span>
+                        <span class="stat-label">AUTOMATIZACIONES ENTREGADAS</span>
                     </div>
                     <div class="stat-item">
-                        <div class="number">500<span class="unit">+</span></div>
-                        <div class="label">CLIENTES FRECUENTES</div>
+                        <span class="stat-number">95<span class="stat-unit">%</span></span>
+                        <span class="stat-label">SATISFACCIÓN DEL CLIENTE</span>
                     </div>
                     <div class="stat-item">
-                        <div class="number">2000<span class="unit">+</span></div>
-                        <div class="label">PRODUCTOS EN STOCK</div>
+                        <span class="stat-number">40<span class="stat-unit">%</span></span>
+                        <span class="stat-label">REDUCCIÓN DE COSTOS OPERATIVOS</span>
                     </div>
                     <div class="stat-item">
-                        <div class="number">100<span class="unit">%</span></div>
-                        <div class="label">SATISFACCIÓN</div>
+                        <span class="stat-number">15<span class="stat-unit">K+</span></span>
+                        <span class="stat-label">HORAS AHORRADAS ANUALMENTE</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="como-trabajamos">
+        <section id="como-trabajamos" class="how-we-work section-padding">
             <div class="container">
-                <p class="section-label">05 NUESTRO PROCESO</p>
-                <h2>Cómo Trabajar con Ferretería El Tornillo</h2>
-                <ul class="process-list">
-                    <li>
-                        <span class="process-step-num">1</span>
-                        <h3>Consulta y Asesoría</h3>
-                        <p>Contáctanos para contarnos tus necesidades o visítanos. Recibirás orientación experta.</p>
-                    </li>
-                    <li>
-                        <span class="process-step-num">2</span>
-                        <h3>Selección de Productos</h3>
-                        <p>Explora nuestro amplio catálogo y elige los materiales o herramientas que mejor se adapten a tu proyecto.</p>
-                    </li>
-                    <li>
-                        <span class="process-step-num">3</span>
-                        <h3>Preparación y Envío</h3>
-                        <p>Confirmamos tu pedido y nos encargamos de su preparación para el envío a tu ubicación en Medellín.</p>
-                    </li>
-                    <li>
-                        <span class="process-step-num">4</span>
-                        <h3>Soporte Post-Venta</h3>
-                        <p>Nuestro equipo está disponible para resolver cualquier duda o necesidad que surja después de tu compra.</p>
-                    </li>
-                </ul>
+                <p class="section-label"><span class="accent-dot"></span> NUESTRO ENFOQUE</p>
+                <h2 class="section-title">Nuestro Proceso, Tu Éxito</h2>
+                <div class="accordion-wrapper">
+                    <button class="accordion-toggle-all" data-target="process-accordion">EXPANDIR TODO</button>
+                    <div class="accordion-container" id="process-accordion">
+                        <div class="accordion-item">
+                            <div class="accordion-header">
+                                <div><span class="item-key">#01</span> Diagnóstico y Análisis</div>
+                                <span class="accordion-icon">></span>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="detail-row">
+                                    <span class="detail-label">QUE PASA</span>
+                                    <span class="detail-value">Identificamos puntos clave y oportunidades de mejora en tus procesos actuales.</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">RESULTADO</span>
+                                    <span class="detail-value">Un plan detallado y personalizado para tu negocio.</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <div class="accordion-header">
+                                <div><span class="item-key">#02</span> Diseño y Propuesta</div>
+                                <span class="accordion-icon">></span>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="detail-row">
+                                    <span class="detail-label">QUE PASA</span>
+                                    <span class="detail-value">Creamos una solución tecnológica a medida y te presentamos una propuesta clara y transparente.</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">RESULTADO</span>
+                                    <span class="detail-value">Aprobación del diseño y preparación para la implementación.</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <div class="accordion-header">
+                                <div><span class="item-key">#03</span> Implementación y Desarrollo</div>
+                                <span class="accordion-icon">></span>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="detail-row">
+                                    <span class="detail-label">QUE PASA</span>
+                                    <span class="detail-value">Nuestro equipo experto configura, desarrolla e integra las herramientas y agentes de IA.</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">RESULTADO</span>
+                                    <span class="detail-value">Sistema operativo y funcional, listo para ser utilizado.</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <div class="accordion-header">
+                                <div><span class="item-key">#04</span> Capacitación y Soporte Continuo</div>
+                                <span class="accordion-icon">></span>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="detail-row">
+                                    <span class="detail-label">QUE PASA</span>
+                                    <span class="detail-value">Capacitamos a tu equipo y brindamos soporte post-implementación para asegurar una adaptación fluida.</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">RESULTADO</span>
+                                    <span class="detail-value">Rendimiento óptimo y maximización de la inversión a largo plazo.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <section id="testimonios">
+        <section id="testimonios" class="testimonials section-padding">
             <div class="container">
-                <p class="section-label">06 OPINIONES</p>
-                <h2>Lo que Dicen Nuestros Clientes</h2>
+                <p class="section-label"><span class="accent-dot"></span> OPINIONES</p>
+                <h2 class="section-title">Lo Que Dicen Nuestros Clientes</h2>
                 <div class="testimonials-grid">
                     <div class="testimonial-item">
-                        <p>"Siempre encuentro lo que necesito y la asesoría es excelente. ¡Mi ferretería de confianza!"</p>
-                        <div class="client-name">ANA G.</div>
+                        <p class="testimonial-quote">"La automatización de WhatsApp de Full Service transformó la atención al cliente de nuestra empresa. Ahora somos mucho más eficientes y nuestros clientes están encantados con la respuesta rápida."</p>
+                        <span class="testimonial-author">- ANA SOFÍA G., DIRECTORA COMERCIAL</span>
                     </div>
                     <div class="testimonial-item">
-                        <p>"La entrega el mismo día me salvó en varias ocasiones. Gran variedad de productos y precios justos."</p>
-                        <div class="client-name">PABLO M.</div>
-                    </div>
-                    <div class="testimonial-item">
-                        <p>"Profesionales y atentos. Llevo años comprándoles y la calidad de los materiales es indiscutible."</p>
-                        <div class="client-name">RICARDO L.</div>
+                        <p class="testimonial-quote">"Gracias a Full Service, hemos logrado integrar nuestros sistemas y reducir tareas manuales en un 30%. Su soporte y expertise son inigualables."</p>
+                        <span class="testimonial-author">- ROBERTO M., GERENTE DE OPERACIONES</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="faq">
+        <section id="faq" class="faq section-padding">
             <div class="container">
-                <p class="section-label">07 PREGUNTAS FRECUENTES</p>
-                <h2>Dudas Comunes Resueltas</h2>
-                <div class="faq-list">
-                    <div class="faq-item">
-                        <h3>¿Ofrecen envíos a domicilio?</h3>
-                        <p>Sí, realizamos envíos a toda la ciudad de Medellín para tu comodidad.</p>
-                    </div>
-                    <div class="faq-item">
-                        <h3>¿Cuál es su horario de atención?</h3>
-                        <p>Abrimos de Lunes a Sábado, de 7:00 AM a 7:00 PM en horario continuado.</p>
-                    </div>
-                    <div class="faq-item">
-                        <h3>¿Puedo alquilar herramientas en Ferretería El Tornillo?</h3>
-                        <p>Sí, disponemos de un servicio de alquiler de herramientas eléctricas y manuales. Consulta disponibilidad.</p>
-                    </div>
-                    <div class="faq-item">
-                        <h3>¿Cómo puedo solicitar asesoría técnica?</h3>
-                        <p>Puedes contactarnos directamente por WhatsApp, correo electrónico o visitando nuestra tienda para recibir asesoría gratuita.</p>
-                    </div>
-                    <div class="faq-item">
-                        <h3>¿Todos los productos cuentan con garantía?</h3>
-                        <p>Sí, todos nuestros productos tienen la garantía del fabricante. Consulta los términos específicos al momento de la compra.</p>
+                <p class="section-label"><span class="accent-dot"></span> PREGUNTAS FRECUENTES</p>
+                <h2 class="section-title">Resolviendo Tus Dudas</h2>
+                <div class="accordion-wrapper">
+                    <button class="accordion-toggle-all" data-target="faq-accordion">EXPANDIR TODO</button>
+                    <div class="accordion-container" id="faq-accordion">
+                        <div class="accordion-item">
+                            <div class="accordion-header">
+                                <div><span class="item-key">#01</span> ¿Qué tipo de negocios pueden beneficiarse de la automatización?</div>
+                                <span class="accordion-icon">></span>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="detail-row">
+                                    <span class="detail-label">RESPUESTA</span>
+                                    <span class="detail-value">Prácticamente cualquier negocio, desde PYMES hasta grandes corporaciones, puede mejorar su eficiencia y reducir costos al automatizar procesos repetitivos y utilizar agentes de IA.</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <div class="accordion-header">
+                                <div><span class="item-key">#02</span> ¿Necesito conocimientos técnicos avanzados para usar sus soluciones?</div>
+                                <span class="accordion-icon">></span>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="detail-row">
+                                    <span class="detail-label">RESPUESTA</span>
+                                    <span class="detail-value">No, nuestras soluciones están diseñadas para ser intuitivas y fáciles de usar. Además, proporcionamos capacitación completa a tu equipo y soporte continuo.</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <div class="accordion-header">
+                                <div><span class="item-key">#03</span> ¿Cuánto tiempo tarda en implementarse una solución?</div>
+                                <span class="accordion-icon">></span>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="detail-row">
+                                    <span class="detail-label">RESPUESTA</span>
+                                    <span class="detail-value">El tiempo varía según la complejidad del proyecto, pero nos esforzamos por realizar implementaciones rápidas, generalmente en cuestión de semanas, una vez definido el alcance.</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <div class="accordion-header">
+                                <div><span class="item-key">#04</span> ¿Qué pasa con la seguridad de mis datos?</div>
+                                <span class="accordion-icon">></span>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="detail-row">
+                                    <span class="detail-label">RESPUESTA</span>
+                                    <span class="detail-value">La seguridad de tus datos es nuestra máxima prioridad. Implementamos protocolos robustos y utilizamos tecnologías seguras para proteger toda la información.</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <div class="accordion-header">
+                                <div><span class="item-key">#05</span> ¿Pueden integrar sus soluciones con mis sistemas actuales?</div>
+                                <span class="accordion-icon">></span>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="detail-row">
+                                    <span class="detail-label">RESPUESTA</span>
+                                    <span class="detail-value">Sí, nos especializamos en la integración de nuestras soluciones con una amplia gama de sistemas existentes (CRM, ERP, plataformas de marketing, etc.) para asegurar una cohesión completa.</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="contacto">
+        <section id="contacto" class="contact section-padding">
             <div class="container">
-                <p class="section-label">08 HABLEMOS</p>
-                <h2>Contáctanos y Haz Realidad tus Proyectos</h2>
-                <div class="contact-grid">
-                    <div class="contact-info-block">
-                        <h3>WhatsApp y Teléfono</h3>
-                        <a href="https://wa.me/573012345678" target="_blank">+57 301 2345678</a>
-                        <p>Atención inmediata para tus consultas y pedidos.</p>
+                <p class="section-label"><span class="accent-dot"></span> HABLEMOS</p>
+                <h2 class="section-title">Hablemos de Tu Próximo Gran Paso</h2>
+                <div class="contact-info">
+                    <div class="contact-block">
+                        <h3>WhatsApp</h3>
+                        <a href="https://wa.me/3001234567" target="_blank">300 123 4567</a>
                     </div>
-                    <div class="contact-info-block">
+                    <div class="contact-block">
                         <h3>Correo Electrónico</h3>
-                        <a href="mailto:contacto@eltornillo.com">contacto@eltornillo.com</a>
-                        <p>Envíanos tus preguntas o solicitudes, te responderemos pronto.</p>
+                        <a href="mailto:contacto@fullservice.com">contacto@fullservice.com</a>
                     </div>
-                    <div class="contact-info-block">
+                    <div class="contact-block">
                         <h3>Dirección</h3>
-                        <p>Carrera 45 #12-30, Medellín</p>
-                        <p>Visita nuestra tienda para una experiencia personalizada.</p>
+                        <p>Av. Principal 123, Oficina 456</p>
+                        <p>Ciudad, País</p>
                     </div>
-                    <div class="contact-info-block">
-                        <h3>Horario de Atención</h3>
-                        <p>Lunes a Sábado: 7:00 AM - 7:00 PM</p>
-                        <p>Estamos aquí para servirte en un amplio horario.</p>
+                    <div class="contact-block">
+                        <h3>Horario</h3>
+                        <p>Lunes a Viernes: 9:00 - 18:00</p>
+                    </div>
+                    <div class="contact-block">
+                        <h3>Síguenos</h3>
+                        <div class="social-links">
+                            <a href="https://linkedin.com/fullservice" target="_blank">LinkedIn</a>
+                            <a href="https://twitter.com/fullservice" target="_blank">Twitter</a>
+                            <a href="https://instagram.com/fullservice" target="_blank">Instagram</a>
+                        </div>
                     </div>
                 </div>
                 <div class="contact-cta">
-                    <p>¿Listo para iniciar tu próximo proyecto? ¡No esperes más!</p>
-                    <a href="https://wa.me/573012345678" class="btn-primary" target="_blank">¡Contáctanos Ahora!</a>
+                    <a href="https://wa.me/3001234567" class="btn btn-primary">Contáctanos Ahora</a>
                 </div>
             </div>
         </section>
@@ -873,14 +956,56 @@
 
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2024 Ferretería El Tornillo. Todos los derechos reservados.</p>
+            <p>&copy; <span id="footer-year"></span> Full Service. Todos los derechos reservados.</p>
             <div class="social-links">
-                <a href="#" aria-label="Facebook de Ferretería El Tornillo">Facebook</a>
-                <a href="#" aria-label="Instagram de Ferretería El Tornillo">Instagram</a>
-                <a href="https://wa.me/573012345678" target="_blank" aria-label="WhatsApp de Ferretería El Tornillo">WhatsApp</a>
+                <a href="https://linkedin.com/fullservice" target="_blank">LinkedIn</a>
+                <a href="https://twitter.com/fullservice" target="_blank">Twitter</a>
+                <a href="https://instagram.com/fullservice" target="_blank">Instagram</a>
             </div>
         </div>
     </footer>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set current year
+            const currentYear = new Date().getFullYear();
+            document.getElementById('current-date').textContent = new Date().toLocaleDateString('es-ES', { year: 'numeric', month: '2-digit', day: '2-digit' });
+            document.getElementById('footer-year').textContent = currentYear;
+
+            // Accordion functionality
+            document.querySelectorAll('.accordion-item').forEach(item => {
+                item.addEventListener('click', function() {
+                    this.classList.toggle('expanded');
+                });
+            });
+
+            // Expand/Collapse All buttons
+            document.querySelectorAll('.accordion-toggle-all').forEach(button => {
+                button.addEventListener('click', function() {
+                    const targetId = this.dataset.target;
+                    const accordionContainer = document.getElementById(targetId);
+                    const items = accordionContainer.querySelectorAll('.accordion-item');
+                    let allExpanded = true;
+
+                    // Check if all are already expanded
+                    items.forEach(item => {
+                        if (!item.classList.contains('expanded')) {
+                            allExpanded = false;
+                        }
+                    });
+
+                    if (allExpanded) {
+                        // If all are expanded, collapse them
+                        items.forEach(item => item.classList.remove('expanded'));
+                        this.textContent = 'EXPANDIR TODO';
+                    } else {
+                        // If some or none are expanded, expand all
+                        items.forEach(item => item.classList.add('expanded'));
+                        this.textContent = 'CONTRAER TODO';
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
